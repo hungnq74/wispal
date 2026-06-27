@@ -1,0 +1,106 @@
+{
+  "id": "academia",
+  "name": "Dark Academia Library",
+  "metaphor": "room",
+  "palette": {
+    "--page-0": "#2d3a2c",
+    "--page-1": "#141a16",
+    "--panel": "#1d2620",
+    "--surface": "#26332a",
+    "--ink": "#ece3d0",
+    "--ink-dim": "#c2b596",
+    "--border": "#3e4f3c",
+    "--ember": "#c98a5a",
+    "--glow": "#d4b483",
+    "--wisp": "#89b487",
+    "--bloom": "#c08a6a",
+    "--rest": "#7a9a8a"
+  },
+  "musicRef": null,
+  "rarity": "rare",
+  "renderer": "image",
+  "styleFamily": "aesthetic",
+  "backgroundStages": [
+    {
+      "stage": 0,
+      "minGrowth": 0,
+      "src": "/backgrounds/academia/stage-0.webp",
+      "blurSrc": "/backgrounds/academia/stage-0.webp",
+      "promptId": "academia-stage-0"
+    },
+    {
+      "stage": 1,
+      "minGrowth": 1,
+      "src": "/backgrounds/academia/stage-1.webp",
+      "blurSrc": "/backgrounds/academia/stage-1.webp",
+      "promptId": "academia-stage-1"
+    },
+    {
+      "stage": 2,
+      "minGrowth": 6,
+      "src": "/backgrounds/academia/stage-2.webp",
+      "blurSrc": "/backgrounds/academia/stage-2.webp",
+      "promptId": "academia-stage-2"
+    },
+    {
+      "stage": 3,
+      "minGrowth": 15,
+      "src": "/backgrounds/academia/stage-3.webp",
+      "blurSrc": "/backgrounds/academia/stage-3.webp",
+      "promptId": "academia-stage-3"
+    },
+    {
+      "stage": 4,
+      "minGrowth": 30,
+      "src": "/backgrounds/academia/stage-4.webp",
+      "blurSrc": "/backgrounds/academia/stage-4.webp",
+      "promptId": "academia-stage-4"
+    },
+    {
+      "stage": 5,
+      "minGrowth": 60,
+      "src": "/backgrounds/academia/stage-5.webp",
+      "blurSrc": "/backgrounds/academia/stage-5.webp",
+      "promptId": "academia-stage-5"
+    }
+  ],
+  "petAnchors": {
+    "center": {
+      "x": 0.48,
+      "y": 0.61
+    },
+    "left": {
+      "x": 0.25,
+      "y": 0.65
+    },
+    "right": {
+      "x": 0.75,
+      "y": 0.66
+    },
+    "rest": {
+      "x": 0.34,
+      "y": 0.67
+    },
+    "decor": {
+      "x": 0.68,
+      "y": 0.62
+    },
+    "lamp": {
+      "x": 0.78,
+      "y": 0.5
+    },
+    "pond": {
+      "x": 0.32,
+      "y": 0.68
+    },
+    "quest": {
+      "x": 0.5,
+      "y": 0.22
+    },
+    "timer": {
+      "x": 0.5,
+      "y": 0.82
+    }
+  },
+  "overlayProfile": "dust"
+}

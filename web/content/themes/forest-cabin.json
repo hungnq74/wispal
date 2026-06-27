@@ -1,0 +1,106 @@
+{
+  "id": "forest-cabin",
+  "name": "Forest Cabin",
+  "metaphor": "garden",
+  "palette": {
+    "--page-0": "#29473a",
+    "--page-1": "#0e1a16",
+    "--panel": "#172a22",
+    "--surface": "#233b31",
+    "--ink": "#eff8ea",
+    "--ink-dim": "#b8d0b1",
+    "--border": "#385c4b",
+    "--ember": "#e0a35e",
+    "--glow": "#f8d77c",
+    "--wisp": "#8be0b1",
+    "--bloom": "#df9fa9",
+    "--rest": "#80aac8"
+  },
+  "musicRef": null,
+  "rarity": "rare",
+  "renderer": "image",
+  "styleFamily": "aesthetic",
+  "backgroundStages": [
+    {
+      "stage": 0,
+      "minGrowth": 0,
+      "src": "/backgrounds/forest-cabin/stage-0.webp",
+      "blurSrc": "/backgrounds/forest-cabin/stage-0.webp",
+      "promptId": "forest-cabin-stage-0"
+    },
+    {
+      "stage": 1,
+      "minGrowth": 1,
+      "src": "/backgrounds/forest-cabin/stage-1.webp",
+      "blurSrc": "/backgrounds/forest-cabin/stage-1.webp",
+      "promptId": "forest-cabin-stage-1"
+    },
+    {
+      "stage": 2,
+      "minGrowth": 6,
+      "src": "/backgrounds/forest-cabin/stage-2.webp",
+      "blurSrc": "/backgrounds/forest-cabin/stage-2.webp",
+      "promptId": "forest-cabin-stage-2"
+    },
+    {
+      "stage": 3,
+      "minGrowth": 15,
+      "src": "/backgrounds/forest-cabin/stage-3.webp",
+      "blurSrc": "/backgrounds/forest-cabin/stage-3.webp",
+      "promptId": "forest-cabin-stage-3"
+    },
+    {
+      "stage": 4,
+      "minGrowth": 30,
+      "src": "/backgrounds/forest-cabin/stage-4.webp",
+      "blurSrc": "/backgrounds/forest-cabin/stage-4.webp",
+      "promptId": "forest-cabin-stage-4"
+    },
+    {
+      "stage": 5,
+      "minGrowth": 60,
+      "src": "/backgrounds/forest-cabin/stage-5.webp",
+      "blurSrc": "/backgrounds/forest-cabin/stage-5.webp",
+      "promptId": "forest-cabin-stage-5"
+    }
+  ],
+  "petAnchors": {
+    "center": {
+      "x": 0.5,
+      "y": 0.62
+    },
+    "left": {
+      "x": 0.22,
+      "y": 0.67
+    },
+    "right": {
+      "x": 0.77,
+      "y": 0.66
+    },
+    "rest": {
+      "x": 0.37,
+      "y": 0.68
+    },
+    "decor": {
+      "x": 0.64,
+      "y": 0.63
+    },
+    "lamp": {
+      "x": 0.26,
+      "y": 0.56
+    },
+    "pond": {
+      "x": 0.8,
+      "y": 0.66
+    },
+    "quest": {
+      "x": 0.5,
+      "y": 0.22
+    },
+    "timer": {
+      "x": 0.5,
+      "y": 0.82
+    }
+  },
+  "overlayProfile": "fireflies"
+}

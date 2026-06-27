@@ -1,0 +1,17 @@
+{
+  "id": "lumen",
+  "name": "Lumen the Ghost",
+  "riveAsset": "builtin:lumen",
+  "moodMap": {
+    "idle": "idle",
+    "studying": "studying",
+    "celebrating": "celebrating",
+    "sleepy": "sleepy",
+    "tired": "tired",
+    "resting": "resting",
+    "greeting": "greeting",
+    "welcomeBack": "welcomeBack"
+  },
+  "defaultVoicePackId": "gentle",
+  "rarity": "rare"
+}

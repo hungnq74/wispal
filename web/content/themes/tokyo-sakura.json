@@ -1,0 +1,106 @@
+{
+  "id": "tokyo-sakura",
+  "name": "Tokyo Sakura",
+  "metaphor": "room",
+  "palette": {
+    "--page-0": "#ffd7e7",
+    "--page-1": "#958cd8",
+    "--panel": "#fff6fb",
+    "--surface": "#f6e6f4",
+    "--ink": "#352849",
+    "--ink-dim": "#6b5a88",
+    "--border": "#e7bdd9",
+    "--ember": "#ff926f",
+    "--glow": "#ffe08a",
+    "--wisp": "#50bdb4",
+    "--bloom": "#ff8fbd",
+    "--rest": "#839ee8"
+  },
+  "musicRef": null,
+  "rarity": "rare",
+  "renderer": "image",
+  "styleFamily": "aesthetic",
+  "backgroundStages": [
+    {
+      "stage": 0,
+      "minGrowth": 0,
+      "src": "/backgrounds/tokyo-sakura/stage-0.webp",
+      "blurSrc": "/backgrounds/tokyo-sakura/stage-0.webp",
+      "promptId": "tokyo-sakura-stage-0"
+    },
+    {
+      "stage": 1,
+      "minGrowth": 1,
+      "src": "/backgrounds/tokyo-sakura/stage-1.webp",
+      "blurSrc": "/backgrounds/tokyo-sakura/stage-1.webp",
+      "promptId": "tokyo-sakura-stage-1"
+    },
+    {
+      "stage": 2,
+      "minGrowth": 6,
+      "src": "/backgrounds/tokyo-sakura/stage-2.webp",
+      "blurSrc": "/backgrounds/tokyo-sakura/stage-2.webp",
+      "promptId": "tokyo-sakura-stage-2"
+    },
+    {
+      "stage": 3,
+      "minGrowth": 15,
+      "src": "/backgrounds/tokyo-sakura/stage-3.webp",
+      "blurSrc": "/backgrounds/tokyo-sakura/stage-3.webp",
+      "promptId": "tokyo-sakura-stage-3"
+    },
+    {
+      "stage": 4,
+      "minGrowth": 30,
+      "src": "/backgrounds/tokyo-sakura/stage-4.webp",
+      "blurSrc": "/backgrounds/tokyo-sakura/stage-4.webp",
+      "promptId": "tokyo-sakura-stage-4"
+    },
+    {
+      "stage": 5,
+      "minGrowth": 60,
+      "src": "/backgrounds/tokyo-sakura/stage-5.webp",
+      "blurSrc": "/backgrounds/tokyo-sakura/stage-5.webp",
+      "promptId": "tokyo-sakura-stage-5"
+    }
+  ],
+  "petAnchors": {
+    "center": {
+      "x": 0.5,
+      "y": 0.62
+    },
+    "left": {
+      "x": 0.3,
+      "y": 0.64
+    },
+    "right": {
+      "x": 0.73,
+      "y": 0.62
+    },
+    "rest": {
+      "x": 0.38,
+      "y": 0.68
+    },
+    "decor": {
+      "x": 0.74,
+      "y": 0.6
+    },
+    "lamp": {
+      "x": 0.72,
+      "y": 0.5
+    },
+    "pond": {
+      "x": 0.28,
+      "y": 0.64
+    },
+    "quest": {
+      "x": 0.5,
+      "y": 0.23
+    },
+    "timer": {
+      "x": 0.5,
+      "y": 0.82
+    }
+  },
+  "overlayProfile": "dust"
+}

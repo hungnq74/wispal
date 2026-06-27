@@ -1,0 +1,106 @@
+{
+  "id": "train-window",
+  "name": "Train Window",
+  "metaphor": "room",
+  "palette": {
+    "--page-0": "#384d62",
+    "--page-1": "#171d29",
+    "--panel": "#202b39",
+    "--surface": "#2a394a",
+    "--ink": "#eff5f6",
+    "--ink-dim": "#b5c7d2",
+    "--border": "#42586f",
+    "--ember": "#f1a35f",
+    "--glow": "#f5d477",
+    "--wisp": "#78ccd0",
+    "--bloom": "#d79ab0",
+    "--rest": "#88afe8"
+  },
+  "musicRef": null,
+  "rarity": "rare",
+  "renderer": "image",
+  "styleFamily": "aesthetic",
+  "backgroundStages": [
+    {
+      "stage": 0,
+      "minGrowth": 0,
+      "src": "/backgrounds/train-window/stage-0.webp",
+      "blurSrc": "/backgrounds/train-window/stage-0.webp",
+      "promptId": "train-window-stage-0"
+    },
+    {
+      "stage": 1,
+      "minGrowth": 1,
+      "src": "/backgrounds/train-window/stage-1.webp",
+      "blurSrc": "/backgrounds/train-window/stage-1.webp",
+      "promptId": "train-window-stage-1"
+    },
+    {
+      "stage": 2,
+      "minGrowth": 6,
+      "src": "/backgrounds/train-window/stage-2.webp",
+      "blurSrc": "/backgrounds/train-window/stage-2.webp",
+      "promptId": "train-window-stage-2"
+    },
+    {
+      "stage": 3,
+      "minGrowth": 15,
+      "src": "/backgrounds/train-window/stage-3.webp",
+      "blurSrc": "/backgrounds/train-window/stage-3.webp",
+      "promptId": "train-window-stage-3"
+    },
+    {
+      "stage": 4,
+      "minGrowth": 30,
+      "src": "/backgrounds/train-window/stage-4.webp",
+      "blurSrc": "/backgrounds/train-window/stage-4.webp",
+      "promptId": "train-window-stage-4"
+    },
+    {
+      "stage": 5,
+      "minGrowth": 60,
+      "src": "/backgrounds/train-window/stage-5.webp",
+      "blurSrc": "/backgrounds/train-window/stage-5.webp",
+      "promptId": "train-window-stage-5"
+    }
+  ],
+  "petAnchors": {
+    "center": {
+      "x": 0.51,
+      "y": 0.61
+    },
+    "left": {
+      "x": 0.28,
+      "y": 0.66
+    },
+    "right": {
+      "x": 0.76,
+      "y": 0.65
+    },
+    "rest": {
+      "x": 0.38,
+      "y": 0.67
+    },
+    "decor": {
+      "x": 0.7,
+      "y": 0.62
+    },
+    "lamp": {
+      "x": 0.75,
+      "y": 0.5
+    },
+    "pond": {
+      "x": 0.3,
+      "y": 0.66
+    },
+    "quest": {
+      "x": 0.5,
+      "y": 0.22
+    },
+    "timer": {
+      "x": 0.5,
+      "y": 0.82
+    }
+  },
+  "overlayProfile": "rain"
+}

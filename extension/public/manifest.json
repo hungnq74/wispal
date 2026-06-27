@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Wispal — study beside someone",
+  "version": "0.1.0",
+  "description": "Open a new tab and your study buddy is already there. The focus app that refuses to burn you out.",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["idle", "storage", "declarativeNetRequest"],
+  "host_permissions": ["<all_urls>"],
+  "minimum_chrome_version": "102"
+}

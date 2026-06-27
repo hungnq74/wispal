@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wispal focus gate</title>
+    <style>
+      :root { color-scheme: dark; font-family: system-ui, -apple-system, sans-serif; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at 70% 20%, #2b2658, #0e0c20 70%);
+        color: #ece9ff;
+      }
+      main {
+        width: min(460px, calc(100vw - 32px));
+        border: 2px solid #3a3470;
+        border-radius: 16px;
+        background: #191634;
+        padding: 28px;
+        box-shadow: 0 20px 50px -24px rgba(10, 8, 28, 0.7);
+      }
+      h1 { margin: 0; font-size: 24px; }
+      p { color: #bcb5e8; line-height: 1.5; }
+      button, a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 12px;
+        padding: 11px 16px;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .primary { background: #ff9e6d; color: #15233f; }
+      .secondary { background: #2b2654; color: #ece9ff; border: 2px solid #3a3470; }
+      .row { display: flex; gap: 10px; flex-wrap: wrap; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Your wisp is holding this door.</h1>
+      <p>Strict focus gate is on for this session. Return to Wispal, take a real break, or use one short bypass.</p>
+      <div class="row">
+        <a class="primary" href="newtab.html">Return to Wispal</a>
+        <button id="bypass" class="secondary">Bypass 5 min</button>
+      </div>
+    </main>
+    <script type="module" src="/src/blocked.ts"></script>
+  </body>
+</html>

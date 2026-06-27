@@ -1,0 +1,51 @@
+{
+  "themeId": "space-observatory",
+  "themeName": "Space Observatory",
+  "source": "imagegen-seeded",
+  "seedPath": "/backgrounds/_imagegen-seeds/space-observatory.png",
+  "compositionContract": [
+    "16:9 study background",
+    "no text, logos, or watermarks",
+    "clear lower-center pet-safe zone",
+    "avoid busy detail behind timer and input panel",
+    "same camera and framing across growth stages"
+  ],
+  "prompts": [
+    {
+      "id": "space-observatory-stage-0",
+      "stage": 0,
+      "minGrowth": 0,
+      "prompt": "16:9 space observatory study room, telescope, stars, quiet cosmic desk; quiet empty scene, minimal study setup, clear lower-center pet-safe zone; no text, no logos, no watermark."
+    },
+    {
+      "id": "space-observatory-stage-1",
+      "stage": 1,
+      "minGrowth": 1,
+      "prompt": "16:9 space observatory study room, telescope, stars, quiet cosmic desk; first visible sign of progress, one warm light or small plant added; no text, no logos, no watermark."
+    },
+    {
+      "id": "space-observatory-stage-2",
+      "stage": 2,
+      "minGrowth": 6,
+      "prompt": "16:9 space observatory study room, telescope, stars, quiet cosmic desk; scene begins filling with books, plants, lamps, and gentle focus details; no text, no logos, no watermark."
+    },
+    {
+      "id": "space-observatory-stage-3",
+      "stage": 3,
+      "minGrowth": 15,
+      "prompt": "16:9 space observatory study room, telescope, stars, quiet cosmic desk; stronger study identity, organized tools, richer weather or view; no text, no logos, no watermark."
+    },
+    {
+      "id": "space-observatory-stage-4",
+      "stage": 4,
+      "minGrowth": 30,
+      "prompt": "16:9 space observatory study room, telescope, stars, quiet cosmic desk; warm lived-in study sanctuary, cozy decor, layered ambience, still calm; no text, no logos, no watermark."
+    },
+    {
+      "id": "space-observatory-stage-5",
+      "stage": 5,
+      "minGrowth": 60,
+      "prompt": "16:9 space observatory study room, telescope, stars, quiet cosmic desk; legendary mature scene, magical wisps and polished cozy details, no clutter behind timer; no text, no logos, no watermark."
+    }
+  ]
+}

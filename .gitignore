@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# next.js
+web/.next/
+web/out/
+web/build/
+web/next-env.d.ts
+
+# extension build
+extension/dist/
+
+# env
+.env
+.env.local
+.env*.local
+web/.env
+web/.env.local
+
+# misc
+.DS_Store
+*.log
+npm-debug.log*
+.vercel
+*.tsbuildinfo
+
+# pwa / serwist generated
+web/public/sw.js
+web/public/sw.js.map
+web/public/swe-worker*.js

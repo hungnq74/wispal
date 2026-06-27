@@ -1,0 +1,17 @@
+{
+  "id": "mote",
+  "name": "Mote the Orb",
+  "riveAsset": "builtin:mote",
+  "moodMap": {
+    "idle": "idle",
+    "studying": "studying",
+    "celebrating": "celebrating",
+    "sleepy": "sleepy",
+    "tired": "tired",
+    "resting": "resting",
+    "greeting": "greeting",
+    "welcomeBack": "welcomeBack"
+  },
+  "defaultVoicePackId": "gentle",
+  "rarity": "rare"
+}

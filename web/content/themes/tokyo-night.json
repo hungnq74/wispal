@@ -1,0 +1,106 @@
+{
+  "id": "tokyo-night",
+  "name": "Pixel Night Meadow",
+  "metaphor": "nightSky",
+  "palette": {
+    "--page-0": "#13112a",
+    "--page-1": "#0e0c20",
+    "--panel": "#191634",
+    "--surface": "#201c40",
+    "--ink": "#ece9ff",
+    "--ink-dim": "#bcb5e8",
+    "--border": "#3a3470",
+    "--ember": "#ff9e6d",
+    "--glow": "#ffd27d",
+    "--wisp": "#8be0d6",
+    "--bloom": "#f3a9cb",
+    "--rest": "#8fb8f0"
+  },
+  "musicRef": null,
+  "rarity": "common",
+  "renderer": "pixel",
+  "styleFamily": "pixel",
+  "backgroundStages": [
+    {
+      "stage": 0,
+      "minGrowth": 0,
+      "src": "/backgrounds/tokyo-night/stage-0.webp",
+      "blurSrc": "/backgrounds/tokyo-night/stage-0.webp",
+      "promptId": "tokyo-night-stage-0"
+    },
+    {
+      "stage": 1,
+      "minGrowth": 1,
+      "src": "/backgrounds/tokyo-night/stage-1.webp",
+      "blurSrc": "/backgrounds/tokyo-night/stage-1.webp",
+      "promptId": "tokyo-night-stage-1"
+    },
+    {
+      "stage": 2,
+      "minGrowth": 6,
+      "src": "/backgrounds/tokyo-night/stage-2.webp",
+      "blurSrc": "/backgrounds/tokyo-night/stage-2.webp",
+      "promptId": "tokyo-night-stage-2"
+    },
+    {
+      "stage": 3,
+      "minGrowth": 15,
+      "src": "/backgrounds/tokyo-night/stage-3.webp",
+      "blurSrc": "/backgrounds/tokyo-night/stage-3.webp",
+      "promptId": "tokyo-night-stage-3"
+    },
+    {
+      "stage": 4,
+      "minGrowth": 30,
+      "src": "/backgrounds/tokyo-night/stage-4.webp",
+      "blurSrc": "/backgrounds/tokyo-night/stage-4.webp",
+      "promptId": "tokyo-night-stage-4"
+    },
+    {
+      "stage": 5,
+      "minGrowth": 60,
+      "src": "/backgrounds/tokyo-night/stage-5.webp",
+      "blurSrc": "/backgrounds/tokyo-night/stage-5.webp",
+      "promptId": "tokyo-night-stage-5"
+    }
+  ],
+  "petAnchors": {
+    "center": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "left": {
+      "x": 0.23,
+      "y": 0.64
+    },
+    "right": {
+      "x": 0.78,
+      "y": 0.68
+    },
+    "rest": {
+      "x": 0.32,
+      "y": 0.7
+    },
+    "decor": {
+      "x": 0.62,
+      "y": 0.64
+    },
+    "lamp": {
+      "x": 0.23,
+      "y": 0.68
+    },
+    "pond": {
+      "x": 0.76,
+      "y": 0.72
+    },
+    "quest": {
+      "x": 0.5,
+      "y": 0.2
+    },
+    "timer": {
+      "x": 0.5,
+      "y": 0.82
+    }
+  },
+  "overlayProfile": "stars"
+}

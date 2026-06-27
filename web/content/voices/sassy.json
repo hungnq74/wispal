@@ -1,0 +1,31 @@
+{
+  "id": "sassy",
+  "name": "Sassy",
+  "locale": "en",
+  "lines": [
+    { "trigger": "greeting", "text": "Oh, NOW you show up. Kidding. Sit. Let's go." },
+    { "trigger": "greeting", "text": "Look who decided to be productive today." },
+    { "trigger": "greeting", "text": "Missed me? Obviously. Boot it up.", "minBondTier": "familiar" },
+
+    { "trigger": "session_start", "text": "“{intention}”? Bold. I respect it. Timer's on." },
+    { "trigger": "session_start", "text": "{minutes} minutes. No doomscrolling. I'm watching." },
+
+    { "trigger": "session_complete", "text": "Booked it. That's a block. Don't let it go to your head." },
+    { "trigger": "session_complete", "text": "Okay okay, that was actually good. Proud, ugh." },
+    { "trigger": "session_complete", "text": "We're kind of a great team, huh? Don't tell anyone.", "minBondTier": "trusted" },
+
+    { "trigger": "goal_hit", "text": "Goal: demolished. You may now log off and touch grass." },
+
+    { "trigger": "flow", "text": "Ohhh you're locked in. I won't ruin it. Go." },
+
+    { "trigger": "fatigue_rest", "text": "Nope. We're done. You're not turning into a gremlin on my watch." },
+    { "trigger": "fatigue_rest", "text": "Put it down. Resting is the flex today, trust me." },
+
+    { "trigger": "welcome_back", "text": "Back from your little vacation? No notes. Let's just go." },
+    { "trigger": "welcome_back", "text": "I didn't even notice you were gone. (I noticed.)", "minBondTier": "familiar" },
+
+    { "trigger": "reflection_prompt", "text": "Spill it. How'd today actually go?" },
+
+    { "trigger": "morning_gift", "text": "Got you a thing. Don't make it weird. Open it." }
+  ]
+}

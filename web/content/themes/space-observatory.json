@@ -1,0 +1,106 @@
+{
+  "id": "space-observatory",
+  "name": "Space Observatory",
+  "metaphor": "nightSky",
+  "palette": {
+    "--page-0": "#1f2455",
+    "--page-1": "#070917",
+    "--panel": "#151936",
+    "--surface": "#242a58",
+    "--ink": "#f0efff",
+    "--ink-dim": "#b8b8e8",
+    "--border": "#3d4588",
+    "--ember": "#ff9e7d",
+    "--glow": "#ffd27d",
+    "--wisp": "#8be0f0",
+    "--bloom": "#dba7ff",
+    "--rest": "#8fa8ff"
+  },
+  "musicRef": null,
+  "rarity": "rare",
+  "renderer": "image",
+  "styleFamily": "aesthetic",
+  "backgroundStages": [
+    {
+      "stage": 0,
+      "minGrowth": 0,
+      "src": "/backgrounds/space-observatory/stage-0.webp",
+      "blurSrc": "/backgrounds/space-observatory/stage-0.webp",
+      "promptId": "space-observatory-stage-0"
+    },
+    {
+      "stage": 1,
+      "minGrowth": 1,
+      "src": "/backgrounds/space-observatory/stage-1.webp",
+      "blurSrc": "/backgrounds/space-observatory/stage-1.webp",
+      "promptId": "space-observatory-stage-1"
+    },
+    {
+      "stage": 2,
+      "minGrowth": 6,
+      "src": "/backgrounds/space-observatory/stage-2.webp",
+      "blurSrc": "/backgrounds/space-observatory/stage-2.webp",
+      "promptId": "space-observatory-stage-2"
+    },
+    {
+      "stage": 3,
+      "minGrowth": 15,
+      "src": "/backgrounds/space-observatory/stage-3.webp",
+      "blurSrc": "/backgrounds/space-observatory/stage-3.webp",
+      "promptId": "space-observatory-stage-3"
+    },
+    {
+      "stage": 4,
+      "minGrowth": 30,
+      "src": "/backgrounds/space-observatory/stage-4.webp",
+      "blurSrc": "/backgrounds/space-observatory/stage-4.webp",
+      "promptId": "space-observatory-stage-4"
+    },
+    {
+      "stage": 5,
+      "minGrowth": 60,
+      "src": "/backgrounds/space-observatory/stage-5.webp",
+      "blurSrc": "/backgrounds/space-observatory/stage-5.webp",
+      "promptId": "space-observatory-stage-5"
+    }
+  ],
+  "petAnchors": {
+    "center": {
+      "x": 0.5,
+      "y": 0.61
+    },
+    "left": {
+      "x": 0.25,
+      "y": 0.66
+    },
+    "right": {
+      "x": 0.78,
+      "y": 0.64
+    },
+    "rest": {
+      "x": 0.36,
+      "y": 0.68
+    },
+    "decor": {
+      "x": 0.67,
+      "y": 0.6
+    },
+    "lamp": {
+      "x": 0.78,
+      "y": 0.5
+    },
+    "pond": {
+      "x": 0.29,
+      "y": 0.64
+    },
+    "quest": {
+      "x": 0.5,
+      "y": 0.22
+    },
+    "timer": {
+      "x": 0.5,
+      "y": 0.82
+    }
+  },
+  "overlayProfile": "stars"
+}

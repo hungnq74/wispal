@@ -1,0 +1,51 @@
+{
+  "themeId": "academia",
+  "themeName": "Dark Academia Library",
+  "source": "imagegen-seeded",
+  "seedPath": "/backgrounds/_imagegen-seeds/academia.png",
+  "compositionContract": [
+    "16:9 study background",
+    "no text, logos, or watermarks",
+    "clear lower-center pet-safe zone",
+    "avoid busy detail behind timer and input panel",
+    "same camera and framing across growth stages"
+  ],
+  "prompts": [
+    {
+      "id": "academia-stage-0",
+      "stage": 0,
+      "minGrowth": 0,
+      "prompt": "16:9 dark academia library study room, shelves, brass lamp, leather chair; quiet empty scene, minimal study setup, clear lower-center pet-safe zone; no text, no logos, no watermark."
+    },
+    {
+      "id": "academia-stage-1",
+      "stage": 1,
+      "minGrowth": 1,
+      "prompt": "16:9 dark academia library study room, shelves, brass lamp, leather chair; first visible sign of progress, one warm light or small plant added; no text, no logos, no watermark."
+    },
+    {
+      "id": "academia-stage-2",
+      "stage": 2,
+      "minGrowth": 6,
+      "prompt": "16:9 dark academia library study room, shelves, brass lamp, leather chair; scene begins filling with books, plants, lamps, and gentle focus details; no text, no logos, no watermark."
+    },
+    {
+      "id": "academia-stage-3",
+      "stage": 3,
+      "minGrowth": 15,
+      "prompt": "16:9 dark academia library study room, shelves, brass lamp, leather chair; stronger study identity, organized tools, richer weather or view; no text, no logos, no watermark."
+    },
+    {
+      "id": "academia-stage-4",
+      "stage": 4,
+      "minGrowth": 30,
+      "prompt": "16:9 dark academia library study room, shelves, brass lamp, leather chair; warm lived-in study sanctuary, cozy decor, layered ambience, still calm; no text, no logos, no watermark."
+    },
+    {
+      "id": "academia-stage-5",
+      "stage": 5,
+      "minGrowth": 60,
+      "prompt": "16:9 dark academia library study room, shelves, brass lamp, leather chair; legendary mature scene, magical wisps and polished cozy details, no clutter behind timer; no text, no logos, no watermark."
+    }
+  ]
+}

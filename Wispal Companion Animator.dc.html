@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Pixelify+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--n950:#0e0c20;--n900:#13112a;--n800:#201c40;--n700:#2b2654;--n600:#3a3470;--n500:#4d4690;--lav:#ece9ff;--lav-dim:#bcb5e8;--lav-mut:#8a83bd;--ember:#ff9e6d;--glow:#ffd27d;--wisp:#8be0d6;--wisp-d:#4fb3a6;--bloom:#f3a9cb;}
+  *{box-sizing:border-box;}
+  body{margin:0;-webkit-font-smoothing:antialiased;}
+  @keyframes twinkle{0%,100%{opacity:.25}50%{opacity:1}}
+  @keyframes a_bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  @keyframes a_bobw{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  @keyframes a_step{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @keyframes a_swing{0%,100%{transform:rotate(13deg)}50%{transform:rotate(-13deg)}}
+  @keyframes a_armidle{0%,100%{transform:rotate(9deg)}50%{transform:rotate(3deg)}}
+  @keyframes a_stroll{0%{transform:translateX(-72px) scaleX(1)}48%{transform:translateX(72px) scaleX(1)}50%{transform:translateX(72px) scaleX(-1)}98%{transform:translateX(-72px) scaleX(-1)}100%{transform:translateX(-72px) scaleX(1)}}
+  @keyframes a_hop{0%,100%{transform:translateY(0)}18%{transform:translateY(0)}50%{transform:translateY(-38px)}82%{transform:translateY(0)}}
+  @keyframes a_squash{0%,100%{transform:scale(1,1)}14%{transform:scale(1.08,.9)}50%{transform:scale(.95,1.06)}86%{transform:scale(1.08,.9)}}
+  @keyframes a_tuck{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+  @keyframes a_side{0%,100%{transform:translateX(-12px)}50%{transform:translateX(12px)}}
+  @keyframes a_wiggle{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
+  @keyframes a_dancearm{0%,100%{transform:rotate(-34deg)}50%{transform:rotate(10deg)}}
+  @keyframes a_tap{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes a_armup{0%,100%{transform:rotate(-20deg)}50%{transform:rotate(-38deg)}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:radial-gradient(130% 80% at 75% -10%,#2b2658 0%,#16132f 46%,#0e0c20 100%);background-attachment:fixed;padding:44px 40px 60px;font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden;">
+  <div style="position:absolute;width:3px;height:3px;background:var(--lav);top:60px;left:160px;animation:twinkle 3s ease-in-out infinite;"></div>
+  <div style="position:absolute;width:2px;height:2px;background:var(--wisp);top:110px;left:520px;animation:twinkle 3.6s .4s ease-in-out infinite;"></div>
+  <div style="position:absolute;width:2px;height:2px;background:var(--glow);top:80px;right:240px;animation:twinkle 2.8s .2s ease-in-out infinite;"></div>
+
+  <div style="max-width:1080px;margin:0 auto;position:relative;z-index:2;">
+    <div style="font:400 12px 'Silkscreen',monospace;letter-spacing:4px;color:var(--wisp);text-transform:uppercase;">Wispal · Motion</div>
+    <div style="font:700 40px 'Silkscreen',monospace;color:var(--lav);margin-top:12px;text-shadow:0 0 24px rgba(143,184,240,.35);">Companion Animator</div>
+    <div style="font:500 16px 'Space Grotesk';color:var(--lav-dim);margin-top:10px;max-width:620px;">Now with cute little arms &amp; legs. Pick a buddy, pick a move — they walk, hop and dance right on your screen.</div>
+
+    <!-- controls -->
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:26px;">
+      <div style="display:flex;gap:7px;">
+        <sc-for list="{{ modeChips }}" as="m" hint-placeholder-count="4">
+          <button onClick="{{ m.onClick }}" style="font:600 13px 'Space Grotesk';cursor:pointer;border-radius:999px;padding:9px 18px;background:{{ m.bg }};color:{{ m.fg }};border:2px solid {{ m.bd }};">{{ m.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;margin-left:auto;background:var(--n800);border:2px solid var(--n600);border-radius:999px;padding:5px 6px;">
+        <button onClick="{{ prev }}" style="width:34px;height:34px;border-radius:50%;border:none;background:var(--n700);color:var(--lav);font:700 16px 'Space Grotesk';cursor:pointer;">‹</button>
+        <div style="min-width:118px;text-align:center;"><div style="font:600 15px 'Pixelify Sans';color:var(--lav);">{{ petName }}</div><div style="font:600 9px 'Space Mono';color:var(--lav-mut);text-transform:uppercase;">{{ petSpecies }}</div></div>
+        <button onClick="{{ next }}" style="width:34px;height:34px;border-radius:50%;border:none;background:var(--n700);color:var(--lav);font:700 16px 'Space Grotesk';cursor:pointer;">›</button>
+      </div>
+    </div>
+
+    <!-- stage -->
+    <div style="position:relative;height:300px;margin-top:18px;border-radius:20px;overflow:hidden;border:2px solid var(--n600);background:radial-gradient(120% 90% at 50% 0%,#2a2658,#15122e 60%,#0e0c20);">
+      <div style="position:absolute;width:2px;height:2px;background:var(--lav);top:34px;left:120px;animation:twinkle 3s ease-in-out infinite;"></div>
+      <div style="position:absolute;width:2px;height:2px;background:var(--wisp);top:60px;left:680px;animation:twinkle 3.4s .3s ease-in-out infinite;"></div>
+      <div style="position:absolute;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 70%);opacity:.5;top:30px;right:80px;"></div>
+      <!-- ground -->
+      <div style="position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(180deg,#241f4a,#1a1636);border-top:2px solid #332d5e;"></div>
+      <!-- shadow + character -->
+      <div style="position:absolute;left:50%;bottom:56px;width:84px;height:14px;margin-left:-42px;border-radius:50%;background:rgba(0,0,0,.35);filter:blur(3px);"></div>
+      <div style="position:absolute;left:50%;bottom:62px;margin-left:-66px;">{{ featured }}</div>
+    </div>
+
+    <!-- troupe -->
+    <div style="font:600 11px 'Space Mono';color:var(--wisp);margin-top:26px;text-transform:uppercase;letter-spacing:1px;">The whole troupe — same move, all at once</div>
+    <div style="margin-top:14px;background:var(--n850, #191634);border:2px solid var(--n600);border-radius:18px;padding:24px 18px 16px;">{{ troupeEl }}</div>
+
+    <!-- note -->
+    <div style="margin-top:22px;background:var(--n800);border:2px solid var(--n600);border-radius:16px;padding:20px 24px;display:flex;gap:14px;align-items:flex-start;">
+      <div style="font:600 11px 'Space Mono';color:var(--glow);white-space:nowrap;">FSM →</div>
+      <div style="font:500 13px/1.6 'Space Grotesk';color:var(--lav-dim);">Each move is a companion <b style="color:var(--lav);">mood state</b>: Idle = <span style="color:var(--wisp);">idle/greeting</span>, Walk = roaming between sessions, Hop = <span style="color:var(--wisp);">celebrating</span> a finished block, Dance = goal hit. The rig (body + 2 arms + 2 legs as separate layers) maps 1:1 onto a Rive state machine later — these CSS moves are the spec.</div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mode:'walk', idx:0 };
+
+  px(grid, pal, unit){
+    const h=React.createElement, rects=[];
+    for(let y=0;y<grid.length;y++){const row=grid[y];for(let x=0;x<row.length;x++){const fill=pal[row[x]];if(!fill)continue;rects.push(h('rect',{key:x+'_'+y,x:x*unit,y:y*unit,width:unit,height:unit,fill}));}}
+    const w=(grid[0]?grid[0].length:0)*unit, ht=grid.length*unit;
+    return h('svg',{width:w,height:ht,viewBox:'0 0 '+w+' '+ht,shapeRendering:'crispEdges',style:{display:'block'}},rects);
+  }
+  compose(layers){
+    const W=12,H=16, c=Array.from({length:H},()=>Array(W).fill('.'));
+    for(const L of layers){const g=L.grid,dx=L.dx||0,dy=L.dy||0;
+      for(let y=0;y<g.length;y++)for(let x=0;x<g[y].length;x++){const ch=g[y][x];if(ch==='.'||ch===' ')continue;const ty=y+dy,tx=x+dx;if(ty>=0&&ty<H&&tx>=0&&tx<W)c[ty][tx]=ch;}}
+    return c.map(r=>r.join(''));
+  }
+
+  renderVals(){
+    const self=this, h=React.createElement;
+    const BASE=["............","............","............","............","...oooooo...","..obllbbbo..",".obllbbbbbo.",".obbbbbbbbo.",".obbbbbbbbo.",".obbbbbbbbo.",".obbbbbbbbo.",".obbbbbbbbo.","..obbbbbbo..","...oooooo...","............","............"];
+    const FEAT={
+      ears_cat:{dy:2,grid:["..o......o..",".obo....obo.",".obbo..obbo."]},
+      ears_shiba:{dy:3,grid:["..o......o..",".obo....obo."]},
+      ears_fox:{dy:0,grid:[".o........o.",".oo......oo.",".oko....oko.",".obko..okbo.",".obbo..obbo."]},
+      ears_bunny:{dy:0,grid:["...oo..oo...","..oko..oko..","..obo..obo..","..obo..obo.."]},
+      ears_round:{dy:3,grid:[".oo......oo.","obbo....obbo",".oo......oo."]},
+      ears_horns:{dy:1,grid:[".k........k.",".ko......ok.","..o......o.."]},
+      ears_antenna:{dy:0,grid:["....k..k....","....o..o....","....o..o...."]},
+      ears_frills:{dy:5,grid:["k..........k","kk........kk","k..........k"]},
+      ears_crest:{dy:1,grid:["....g.g.....","...grgr.....","....rrr....."]},
+      eye_dot:{dy:7,grid:["...ee..ee...","...ee..ee..."]},
+      eye_happy:{dy:7,grid:["...e....e...","..eee..eee.."]},
+      eye_sleepy:{dy:8,grid:["..eee..eee..","............"]},
+      eye_wide:{dy:6,grid:["..www..www..","..wew..wew..","..www..www.."]},
+      eye_grumpy:{dy:6,grid:["..o.o..o.o..","...ee..ee..."]},
+      eye_derp:{dy:6,grid:["..www..e....","..wew..e....","..www......."]},
+      eye_visor:{dy:6,grid:["..oooooooo..","..okkkkkko..","..oooooooo.."]},
+      m_blush:{dy:9,grid:["..p......p.."]},
+      m_tongue:{dy:10,grid:[".....pp....."]},
+      m_beak:{dy:9,grid:[".....rr....."]},
+      m_smile:{dy:10,grid:[".....mm....."]},
+      belly:{dy:8,grid:["....ww......","...wwww.....","...wwww.....","...wwww....."]},
+      acc_hat:{dy:0,grid:["......k.....",".....kk.....","....kkk.....","...kgkkk....","..kkkkkkk...",".kkkkkkkkk.."]},
+      acc_crown:{dy:2,grid:["..g.g.g.g...","..ggggggg.."]},
+      acc_star:{dy:9,grid:["..g......g.."]},
+      acc_helmet:{dy:3,grid:["...cccccc...","..cccccccc..","...o....o..."]},
+      acc_band:{dy:6,grid:["..kkkkkkkk..","....k.k....."]},
+      acc_sword:{dy:4,grid:["..........c.","..........c.","..........c.","..........c.","..........c.","..........c.","..........c.","..........o.","..........o."]},
+      acc_wing:{dy:6,grid:[".........kk.",".........kkk",".........kk.","..........k."]},
+      acc_tail:{dy:11,grid:[".........kk.","........okko",".........kk."]},
+      acc_blanket:{dy:11,grid:["..ssssssss..","..ssssssss.."]},
+    };
+    const FOOT=[".oo.","obbo","oooo"];
+    const ARM=["obo","obo","obo","obb"];
+
+    const petData=(o)=>{
+      const pal={o:'#15233f',b:o.b,l:o.l||o.b,e:o.e||'#15233f',m:'#15233f',p:'#f3a9cb',w:'#ffffff',g:'#ffd27d',r:'#ff9e6d',s:'#8fb8f0',c:'#cdd3e0',k:o.k||'#ffffff'};
+      const L=[]; if(o.back)L.push(FEAT[o.back]); L.push({grid:BASE});
+      if(o.ears)L.push(FEAT[o.ears]); if(o.belly)L.push(FEAT.belly);
+      L.push(FEAT['eye_'+(o.eyes||'dot')]); if(o.mouth)L.push(FEAT[o.mouth]);
+      (o.accs||[]).forEach(a=>L.push(FEAT[a]));
+      return {grid:self.compose(L), pal};
+    };
+
+    const ANIM={
+      idle:{cont:'',bob:'a_bob 3.2s ease-in-out infinite',body:'',armL:'a_armidle 3.2s ease-in-out infinite',armR:'a_armidle 3.2s ease-in-out infinite .3s',legL:'',legR:''},
+      walk:{cont:'a_stroll 5s linear infinite',bob:'a_bobw .5s ease-in-out infinite',body:'',armL:'a_swing .5s ease-in-out infinite',armR:'a_swing .5s ease-in-out infinite .25s',legL:'a_step .5s ease-in-out infinite',legR:'a_step .5s ease-in-out infinite .25s'},
+      hop:{cont:'a_hop 1.1s ease-in-out infinite',bob:'',body:'a_squash 1.1s ease-in-out infinite',armL:'a_armup 1.1s ease-in-out infinite',armR:'a_armup 1.1s ease-in-out infinite',legL:'a_tuck 1.1s ease-in-out infinite',legR:'a_tuck 1.1s ease-in-out infinite'},
+      dance:{cont:'a_side .8s ease-in-out infinite',bob:'',body:'a_wiggle .8s ease-in-out infinite',armL:'a_dancearm .8s ease-in-out infinite',armR:'a_dancearm .8s ease-in-out infinite .4s',legL:'a_tap .8s ease-in-out infinite',legR:'a_tap .8s ease-in-out infinite .4s'},
+    };
+
+    const buildChar=(d,U,mode,roam)=>{
+      const {grid,pal}=d;
+      const body=self.px(grid,pal,U), foot=self.px(FOOT,pal,U), arm=self.px(ARM,pal,U);
+      let A=ANIM[mode]||ANIM.idle;
+      if(!roam && mode==='walk') A={...A,cont:''};
+      const W=12*U, H=16*U;
+      const at=(child,style,anim,origin)=>h('div',{style:{position:'absolute',animation:anim||'',transformOrigin:origin||'center',...style}},child);
+      const inner=h('div',{style:{position:'relative',width:W,height:H,animation:A.bob}},
+        at(arm,{left:(0.3*U)+'px',top:(7.6*U)+'px'},A.armL,'top center'),
+        at(arm,{left:(8.7*U)+'px',top:(7.6*U)+'px'},A.armR,'top center'),
+        at(foot,{left:(2.5*U)+'px',top:(12.4*U)+'px'},A.legL),
+        at(foot,{left:(6.5*U)+'px',top:(12.4*U)+'px'},A.legR),
+        h('div',{style:{position:'absolute',left:0,top:0,animation:A.body,transformOrigin:'bottom center'}},body),
+      );
+      return h('div',{style:{position:'relative',width:W,height:H,animation:A.cont}},inner);
+    };
+
+    const PETS=[
+      {name:'Mochi',species:'House cat',o:{b:'#e8945a',l:'#f4b483',ears:'ears_cat',mouth:'m_blush'}},
+      {name:'Biscuit',species:'Shiba pup',o:{b:'#e8a85a',l:'#f4c98a',ears:'ears_shiba',eyes:'happy',mouth:'m_blush'}},
+      {name:'Yuki',species:'Red fox',o:{b:'#ff9e6d',l:'#ffc7a0',k:'#ffffff',ears:'ears_fox',belly:1,accs:['acc_tail']}},
+      {name:'Marsh',species:'Lop bunny',o:{b:'#ece9ff',l:'#ffffff',k:'#f3a9cb',ears:'ears_bunny',mouth:'m_blush'}},
+      {name:'Peanut',species:'Hamster',o:{b:'#f0c98a',l:'#ffe0b0',ears:'ears_round',mouth:'m_blush'}},
+      {name:'Pico',species:'Axolotl',o:{b:'#f3a9cb',l:'#ffd0e0',k:'#ff7ec0',ears:'ears_frills',mouth:'m_smile'}},
+      {name:'Lily',species:'Tree frog',o:{b:'#8fc08c',l:'#b8dca8',eyes:'wide',mouth:'m_smile'}},
+      {name:'Tux',species:'Penguin',o:{b:'#2b2654',l:'#3a3470',eyes:'wide',belly:1,mouth:'m_beak'}},
+      {name:'Magus',species:'Chibi mage',o:{b:'#b8a0e8',l:'#d8c8f5',k:'#5d4b9e',accs:['acc_hat']}},
+      {name:'Stella',species:'Star idol',o:{b:'#f3a9cb',l:'#ffd0e0',eyes:'wide',accs:['acc_crown','acc_star']}},
+      {name:'Bolt',species:'Mecha-pet',o:{b:'#a8b0c8',l:'#cdd3e0',k:'#8be0d6',ears:'ears_antenna',eyes:'visor'}},
+      {name:'Sir Gloop',species:'Slime knight',o:{b:'#8fc08c',l:'#b8e0a8',accs:['acc_helmet']}},
+      {name:'Kuro',species:'Samurai cat',o:{b:'#4a4570',l:'#5d588a',k:'#e05a5a',ears:'ears_cat',eyes:'grumpy',accs:['acc_band','acc_sword']}},
+      {name:'Derp',species:'Doggo',o:{b:'#e8c89a',l:'#f5dcb0',ears:'ears_round',eyes:'derp',mouth:'m_tongue'}},
+      {name:'Grump',species:'Loaf cat',o:{b:'#b0aabc',l:'#cfc9d8',ears:'ears_cat',eyes:'grumpy',mouth:'m_smile'}},
+      {name:'Shook',species:'Lil’ blob',o:{b:'#8be0d6',l:'#c8f5ee',eyes:'wide'}},
+      {name:'Spud',species:'Couch potato',o:{b:'#d8a86a',l:'#e8c290',eyes:'sleepy',accs:['acc_blanket']}},
+      {name:'Drako',species:'Baby dragon',o:{b:'#6f9cba',l:'#9ec7d8',k:'#ffd27d',ears:'ears_horns',belly:1,accs:['acc_wing']}},
+      {name:'Pyra',species:'Phoenix chick',o:{b:'#ff9e6d',l:'#ffc7a0',k:'#ffd27d',ears:'ears_crest',mouth:'m_beak',accs:['acc_wing']}},
+      {name:'Tama',species:'Nine-tail fox',o:{b:'#ffffff',l:'#ffffff',k:'#ff9e6d',ears:'ears_fox',accs:['acc_tail','acc_star']}},
+    ];
+    PETS.forEach(p=>{p.data=petData(p.o);});
+
+    const mode=this.state.mode, idx=((this.state.idx%PETS.length)+PETS.length)%PETS.length;
+    const cur=PETS[idx];
+
+    const modes=[['Idle','idle'],['Walk','walk'],['Hop','hop'],['Dance','dance']];
+    const modeChips=modes.map(([label,key])=>{
+      const active=mode===key;
+      return {label,onClick:()=>this.setState({mode:key}),
+        bg:active?'#8be0d6':'#201c40',fg:active?'#13112a':'#ece9ff',bd:active?'#8be0d6':'#3a3470'};
+    });
+
+    const troupe=PETS.slice(0,8);
+    const troupeEl=h('div',{style:{display:'flex',flexWrap:'wrap',gap:'10px',justifyContent:'center',alignItems:'flex-end'}},
+      troupe.map((p,i)=>h('div',{key:p.name,style:{width:'100px',display:'flex',flexDirection:'column',alignItems:'center',gap:'2px'}},
+        h('div',{style:{height:'92px',display:'flex',alignItems:'flex-end',justifyContent:'center'}}, buildChar(p.data,5,mode,false)),
+        h('div',{style:{font:"600 11px 'Pixelify Sans'",color:'#ece9ff'}},p.name),
+      ))
+    );
+
+    return {
+      featured: buildChar(cur.data,11,mode,true),
+      troupeEl,
+      modeChips,
+      petName: cur.name,
+      petSpecies: cur.species,
+      prev: ()=>this.setState(s=>({idx:s.idx-1})),
+      next: ()=>this.setState(s=>({idx:s.idx+1})),
+    };
+  }
+}
+</script>
+</body>
+</html>

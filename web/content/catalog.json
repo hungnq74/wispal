@@ -1,0 +1,262 @@
+[
+  {
+    "id": "shop_theme_cozy_fireplace",
+    "type": "theme",
+    "packId": "cozy-fireplace",
+    "name": "Cozy Fireplace",
+    "description": "Cozy Fireplace study scene with six visual growth stages.",
+    "price": 0,
+    "requiresPlus": false,
+    "rarity": "common"
+  },
+  {
+    "id": "shop_theme_rainy_lofi_room",
+    "type": "theme",
+    "packId": "rainy-lofi-room",
+    "name": "Rainy Lofi Room",
+    "description": "Rainy Lofi Room study scene with six visual growth stages.",
+    "price": 80,
+    "requiresPlus": false,
+    "rarity": "common"
+  },
+  {
+    "id": "shop_theme_tokyo_sakura",
+    "type": "theme",
+    "packId": "tokyo-sakura",
+    "name": "Tokyo Sakura",
+    "description": "Tokyo Sakura study scene with six visual growth stages.",
+    "price": 120,
+    "requiresPlus": false,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_theme_seoul_sunrise",
+    "type": "theme",
+    "packId": "seoul-sunrise",
+    "name": "Seoul Sunrise",
+    "description": "Seoul Sunrise study scene with six visual growth stages.",
+    "price": 90,
+    "requiresPlus": false,
+    "rarity": "common"
+  },
+  {
+    "id": "shop_theme_academia",
+    "type": "theme",
+    "packId": "academia",
+    "name": "Dark Academia Library",
+    "description": "Dark Academia Library study scene with six visual growth stages.",
+    "price": 0,
+    "requiresPlus": true,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_theme_forest_cabin",
+    "type": "theme",
+    "packId": "forest-cabin",
+    "name": "Forest Cabin",
+    "description": "Forest Cabin study scene with six visual growth stages.",
+    "price": 130,
+    "requiresPlus": false,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_theme_snow_window",
+    "type": "theme",
+    "packId": "snow-window",
+    "name": "Snow Window",
+    "description": "Snow Window study scene with six visual growth stages.",
+    "price": 100,
+    "requiresPlus": false,
+    "rarity": "common"
+  },
+  {
+    "id": "shop_theme_ocean_balcony",
+    "type": "theme",
+    "packId": "ocean-balcony",
+    "name": "Ocean Balcony",
+    "description": "Ocean Balcony study scene with six visual growth stages.",
+    "price": 90,
+    "requiresPlus": false,
+    "rarity": "common"
+  },
+  {
+    "id": "shop_theme_garden_greenhouse",
+    "type": "theme",
+    "packId": "garden-greenhouse",
+    "name": "Garden Greenhouse",
+    "description": "Garden Greenhouse study scene with six visual growth stages.",
+    "price": 140,
+    "requiresPlus": false,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_theme_train_window",
+    "type": "theme",
+    "packId": "train-window",
+    "name": "Train Window",
+    "description": "Train Window study scene with six visual growth stages.",
+    "price": 150,
+    "requiresPlus": false,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_theme_space_observatory",
+    "type": "theme",
+    "packId": "space-observatory",
+    "name": "Space Observatory",
+    "description": "Space Observatory study scene with six visual growth stages.",
+    "price": 180,
+    "requiresPlus": false,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_theme_cloud_loft",
+    "type": "theme",
+    "packId": "cloud-loft",
+    "name": "Cloud Loft",
+    "description": "Cloud Loft study scene with six visual growth stages.",
+    "price": 110,
+    "requiresPlus": false,
+    "rarity": "common"
+  },
+  {
+    "id": "shop_theme_tokyo_night",
+    "type": "theme",
+    "packId": "tokyo-night",
+    "name": "Pixel Night Meadow",
+    "description": "Pixel Night Meadow study scene with six visual growth stages.",
+    "price": 0,
+    "requiresPlus": false,
+    "rarity": "common"
+  },
+  {
+    "id": "shop_theme_dawn",
+    "type": "theme",
+    "packId": "dawn",
+    "name": "Pixel Dawn Grove",
+    "description": "Pixel Dawn Grove study scene with six visual growth stages.",
+    "price": 120,
+    "requiresPlus": false,
+    "rarity": "common"
+  },
+  {
+    "id": "shop_theme_lofi",
+    "type": "theme",
+    "packId": "lofi",
+    "name": "Pixel Lofi Cafe",
+    "description": "Pixel Lofi Cafe study scene with six visual growth stages.",
+    "price": 0,
+    "requiresPlus": true,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_theme_pastel",
+    "type": "theme",
+    "packId": "pastel",
+    "name": "Pixel Star Pond",
+    "description": "Pixel Star Pond study scene with six visual growth stages.",
+    "price": 150,
+    "requiresPlus": false,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_companion_lumen",
+    "type": "companion",
+    "packId": "lumen",
+    "name": "Lumen the Ghost",
+    "description": "A friendly study-haunt with the most expressive face.",
+    "price": 300,
+    "requiresPlus": false,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_companion_mote",
+    "type": "companion",
+    "packId": "mote",
+    "name": "Mote the Orb",
+    "description": "The calmest spirit. Zero whimsy, pure focus.",
+    "price": 300,
+    "requiresPlus": false,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_companion_ember",
+    "type": "companion",
+    "packId": "ember",
+    "name": "Ember the Lantern",
+    "description": "A little carried light. Warmest of the four.",
+    "price": 0,
+    "requiresPlus": true,
+    "rarity": "event"
+  },
+  {
+    "id": "shop_voice_sassy",
+    "type": "voicePack",
+    "packId": "sassy",
+    "name": "Sassy voice pack",
+    "description": "A buddy with bite. Same warmth, more attitude.",
+    "price": 0,
+    "requiresPlus": true,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_decor_lantern",
+    "type": "decor",
+    "packId": "decor_lantern",
+    "name": "Tiny lantern",
+    "description": "A little light for the edge of your night.",
+    "price": 90,
+    "requiresPlus": false,
+    "rarity": "common"
+  },
+  {
+    "id": "shop_decor_cushion",
+    "type": "decor",
+    "packId": "decor_cushion",
+    "name": "Rest cushion",
+    "description": "A soft reminder that breaks count too.",
+    "price": 110,
+    "requiresPlus": false,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_action_dance_pack",
+    "type": "actionPack",
+    "packId": "dance_pack",
+    "name": "Tiny dance pack",
+    "description": "Unlocks extra happy dances for taps, goals, and celebration moments.",
+    "price": 160,
+    "requiresPlus": false,
+    "rarity": "rare"
+  },
+  {
+    "id": "shop_action_study_pose_pack",
+    "type": "actionPack",
+    "packId": "study_pose_pack",
+    "name": "Study pose pack",
+    "description": "Adds page turns and focused desk poses when your wisp studies beside you.",
+    "price": 140,
+    "requiresPlus": false,
+    "rarity": "common"
+  },
+  {
+    "id": "shop_action_rest_pose_pack",
+    "type": "actionPack",
+    "packId": "rest_pose_pack",
+    "name": "Rest pose pack",
+    "description": "Adds softer tea and curl-up moments when you accept a break.",
+    "price": 120,
+    "requiresPlus": false,
+    "rarity": "common"
+  },
+  {
+    "id": "shop_action_celebration_pack",
+    "type": "actionPack",
+    "packId": "celebration_pack",
+    "name": "Celebration pack",
+    "description": "Adds bigger star bursts for completed quests, sessions, and goal days.",
+    "price": 180,
+    "requiresPlus": false,
+    "rarity": "rare"
+  }
+]

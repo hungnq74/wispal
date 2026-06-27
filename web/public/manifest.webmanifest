@@ -1,0 +1,20 @@
+{
+  "name": "Wispal — study beside someone",
+  "short_name": "Wispal",
+  "description": "A cozy study companion that studies alongside you and refuses to burn you out.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#faf6ee",
+  "theme_color": "#faf6ee",
+  "categories": ["productivity", "education", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

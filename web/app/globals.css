@@ -1,0 +1,435 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   Wispal — the night-study design system, applied app-wide.
+   Tokyo Night is the default identity; four more ambiences (dawn / lofi /
+   academia / pastel) reskin the SAME tokens via [data-theme]. The old cream/
+   garden palette has been removed — this is the brand now.
+   Tokens, keyframes, and the ds-* component classes are global so every
+   surface (app + /design showcase) shares one system.
+   ============================================================================ */
+
+:root {
+  color-scheme: dark;
+
+  /* — fonts (provided by next/font in the root layout) — */
+  --font-pixel: var(--font-silkscreen), "Courier New", monospace;
+  --font-head: var(--font-pixelify), system-ui, sans-serif;
+  --font-body: var(--font-grotesk), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-spacemono), ui-monospace, monospace;
+
+  /* — surfaces (Tokyo Night) — */
+  --page-0: #13112a;
+  --page-1: #0e0c20;
+  --panel: #191634;
+  --panel-grad-a: #231f48;
+  --panel-grad-b: #13112a;
+  --surface: #201c40;
+  --surface-2: #2b2654;
+  --border: #3a3470;
+  --border-2: #2b2654;
+
+  /* — ink — */
+  --ink: #ece9ff;
+  --ink-dim: #bcb5e8;
+  --ink-mut: #8a83bd;
+  --label: rgba(236, 233, 255, 0.6);
+
+  /* — accents (the glow) — */
+  --ember: #ff9e6d;
+  --ember-d: #c96a4a;
+  --glow: #ffd27d;
+  --wisp: #8be0d6;
+  --wisp-d: #4fb3a6;
+  --bloom: #f3a9cb;
+  --rest: #8fb8f0;
+  --on-accent: #15233f;
+
+  --shadow: 0 20px 50px -24px rgba(10, 8, 28, 0.7);
+  --shadow-card: 0 14px 36px -22px rgba(10, 8, 28, 0.6);
+
+  --radius-cozy: 18px;
+}
+
+/* ── Ambiences (reskin the same tokens) ───────────────────────────────────── */
+[data-theme="dawn"] {
+  color-scheme: light;
+  --page-0: #fdf3f8; --page-1: #e3ddf6;
+  --panel: #ffffff; --panel-grad-a: #ffffff; --panel-grad-b: #f3eefb;
+  --surface: #f3eefb; --surface-2: #ece7f8; --border: #e3def5; --border-2: #ece7f8;
+  --ink: #2a2348; --ink-dim: #5a5280; --ink-mut: #7b73a8;
+  --label: rgba(38, 32, 72, 0.72);
+  --wisp: #4fb3a6; --wisp-d: #2f8d82; --bloom: #e98bb6; --rest: #6f9be0;
+  --shadow: 0 18px 44px -22px rgba(40, 32, 72, 0.35);
+  --shadow-card: 0 14px 36px -22px rgba(40, 32, 72, 0.3);
+}
+[data-theme="lofi"] {
+  --page-0: #5a4334; --page-1: #2a1d16;
+  --panel: #3a2a20; --panel-grad-a: #4a3528; --panel-grad-b: #2a1d16;
+  --surface: #4a3528; --surface-2: #5a4334; --border: #6a4f3a; --border-2: #4a3528;
+  --ink: #f5e6d5; --ink-dim: #d8b89a; --ink-mut: #a8866a;
+  --label: rgba(245, 230, 213, 0.55);
+  --ember: #e8b87a; --ember-d: #c98a5a; --glow: #ffd27d;
+  --wisp: #a8c4a0; --wisp-d: #7a9a72; --bloom: #d99a7a; --rest: #c2a07a;
+  --on-accent: #2a1d16;
+}
+[data-theme="academia"] {
+  --page-0: #2d3a2c; --page-1: #141a16;
+  --panel: #1d2620; --panel-grad-a: #26332a; --panel-grad-b: #141a16;
+  --surface: #26332a; --surface-2: #324032; --border: #3e4f3c; --border-2: #26332a;
+  --ink: #ece3d0; --ink-dim: #c2b596; --ink-mut: #8a8268;
+  --label: rgba(236, 227, 208, 0.55);
+  --ember: #c98a5a; --ember-d: #8a3a2a; --glow: #d4b483;
+  --wisp: #5a7a52; --wisp-d: #43603c; --bloom: #c08a6a; --rest: #7a9a8a;
+  --on-accent: #141a16;
+}
+[data-theme="pastel"] {
+  color-scheme: light;
+  --page-0: #d7c8f5; --page-1: #b8e6dc;
+  --panel: #ffffff; --panel-grad-a: #ffffff; --panel-grad-b: #f0eafb;
+  --surface: #efe8fb; --surface-2: #e4dbf6; --border: #d9c2ec; --border-2: #e4dbf6;
+  --ink: #3a2f5e; --ink-dim: #6a5e92; --ink-mut: #8a7eb0;
+  --label: rgba(58, 47, 94, 0.6);
+  --ember: #ff9e6d; --ember-d: #d97a52; --glow: #ffe08a;
+  --wisp: #4bbfae; --wisp-d: #36a394; --bloom: #ff8fb3; --rest: #7aa9f0;
+  --on-accent: #2a1d3a;
+  --shadow: 0 18px 44px -22px rgba(60, 40, 90, 0.25);
+  --shadow-card: 0 14px 36px -22px rgba(60, 40, 90, 0.22);
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: radial-gradient(125% 90% at 70% -10%, var(--page-0), var(--page-1) 60%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Motion ────────────────────────────────────────────────────────────────── */
+@keyframes ds-floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes ds-floaty2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes twinkle { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes ds-pulse { 0%, 100% { opacity: 0.55; transform: scale(1); } 50% { opacity: 0.9; transform: scale(1.12); } }
+@keyframes pop-in { 0% { transform: scale(0.6); opacity: 0; } 70% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes breathe { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-3px) scale(1.02); } }
+@keyframes drift { 0% { transform: translateX(12px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+@keyframes pet-wiggle { 0%,100% { transform: translateY(0) rotate(0deg) scale(1); } 20% { transform: translateY(-5px) rotate(-7deg) scale(1.04,.96); } 45% { transform: translateY(2px) rotate(6deg) scale(.98,1.06); } 70% { transform: translateY(-3px) rotate(-3deg) scale(1.02); } }
+@keyframes pet-jump { 0%,100% { transform: translateY(0) scale(1); } 22% { transform: translateY(8px) scale(1.12,.88); } 48% { transform: translateY(-38px) scale(.92,1.12); } 78% { transform: translateY(2px) scale(1.08,.92); } }
+@keyframes pet-dance { 0%,100% { transform: translateY(0) rotate(0deg); } 16% { transform: translateY(-8px) rotate(-12deg); } 32% { transform: translateY(0) rotate(10deg); } 48% { transform: translateY(-7px) rotate(14deg); } 64% { transform: translateY(0) rotate(-10deg); } 82% { transform: translateY(-4px) rotate(6deg); } }
+@keyframes pet-wave { 0%,100% { transform: translateY(0) rotate(0deg); } 30% { transform: translateY(-4px) rotate(-5deg); } 60% { transform: translateY(-3px) rotate(5deg); } }
+@keyframes pet-walk { 0%,100% { transform: translateY(0); } 20% { transform: translateY(-3px) skewX(-3deg); } 45% { transform: translateY(1px) skewX(3deg); } 70% { transform: translateY(-2px) skewX(-2deg); } }
+@keyframes pet-flow { 0%,100% { filter: drop-shadow(0 0 12px rgba(139,224,214,.45)); } 50% { filter: drop-shadow(0 0 26px rgba(139,224,214,.8)); } }
+@keyframes pet-gift { 0% { transform: scale(.7) rotate(-8deg); opacity: .4; } 60% { transform: scale(1.12) rotate(4deg); opacity: 1; } 100% { transform: scale(1) rotate(0); opacity: 1; } }
+@keyframes pet-particle { 0% { transform: translate(0,0) scale(.65); opacity: 0; } 20% { opacity: 1; } 100% { transform: translate(var(--tx), var(--ty)) scale(1.15); opacity: 0; } }
+@keyframes pet-eye-blink { 0%, 88%, 100% { transform: scaleY(1); } 92% { transform: scaleY(.16); } }
+@keyframes pet-prop-pop { 0% { transform: translate(var(--prop-x), calc(var(--prop-y) + 8px)) scale(.55) rotate(calc(var(--prop-r) - 8deg)); opacity: 0; } 65% { transform: translate(var(--prop-x), calc(var(--prop-y) - 2px)) scale(1.08) rotate(calc(var(--prop-r) + 3deg)); opacity: 1; } 100% { transform: translate(var(--prop-x), var(--prop-y)) scale(1) rotate(var(--prop-r)); opacity: 1; } }
+@keyframes pet-thought-pop { 0% { transform: translateY(8px) scale(.65); opacity: 0; } 60% { transform: translateY(-2px) scale(1.08); opacity: 1; } 100% { transform: translateY(0) scale(1); opacity: 1; } }
+/* Limbed companion rig (body + 2 arms + 2 legs) — ported from the Companion Animator.
+   Per-mode timing is assigned in CompanionRig.tsx; these are the raw limb motions. */
+@keyframes pet-rig-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes pet-rig-bobw { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes pet-rig-step { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes pet-rig-swing { 0%, 100% { transform: rotate(13deg); } 50% { transform: rotate(-13deg); } }
+@keyframes pet-rig-armidle { 0%, 100% { transform: rotate(9deg); } 50% { transform: rotate(3deg); } }
+@keyframes pet-rig-hop { 0%, 18%, 100% { transform: translateY(0); } 50% { transform: translateY(-38px); } 82% { transform: translateY(0); } }
+@keyframes pet-rig-squash { 0%, 100% { transform: scale(1, 1); } 14% { transform: scale(1.08, .9); } 50% { transform: scale(.95, 1.06); } 86% { transform: scale(1.08, .9); } }
+@keyframes pet-rig-tuck { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
+@keyframes pet-rig-side { 0%, 100% { transform: translateX(-12px); } 50% { transform: translateX(12px); } }
+@keyframes pet-rig-wiggle { 0%, 100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }
+@keyframes pet-rig-dancearm { 0%, 100% { transform: rotate(-34deg); } 50% { transform: rotate(10deg); } }
+@keyframes pet-rig-tap { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes pet-rig-armup { 0%, 100% { transform: rotate(-20deg); } 50% { transform: rotate(-38deg); } }
+@keyframes pet-rig-droop { 0%, 100% { transform: translateY(3px) scale(1.02, .94); } 50% { transform: translateY(5px) scale(1.03, .92); } }
+@keyframes scene-fade-in { 0% { opacity: 0; transform: scale(1.018); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes scene-rain { 0% { transform: translate3d(0, -48px, 0); } 100% { transform: translate3d(-30px, 48px, 0); } }
+@keyframes scene-drift { 0% { transform: translate3d(-2%, -1%, 0); opacity: .22; } 50% { opacity: .42; } 100% { transform: translate3d(2%, 1%, 0); opacity: .24; } }
+@keyframes scene-snow { 0% { transform: translate3d(0, -40px, 0); } 100% { transform: translate3d(22px, 50px, 0); } }
+
+/* ── Study scene backgrounds ──────────────────────────────────────────────── */
+.study-scene { position: absolute; inset: 0; pointer-events: none; overflow: hidden; background: radial-gradient(125% 90% at 70% -10%, var(--page-0), var(--page-1) 60%); }
+.study-scene__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; animation: scene-fade-in .9s ease both; }
+.study-scene__ui-scrim { position: absolute; inset: 0; background:
+  linear-gradient(180deg, rgba(5, 8, 18, .08) 0%, rgba(5, 8, 18, .02) 38%, rgba(5, 8, 18, .16) 100%),
+  radial-gradient(52% 44% at 50% 72%, rgba(255, 255, 255, .12), transparent 68%),
+  radial-gradient(46% 30% at 50% 58%, rgba(12, 16, 30, .04), transparent 70%);
+}
+.study-scene__overlay { position: absolute; inset: -8%; opacity: .6; mix-blend-mode: screen; }
+.study-scene__overlay--none { display: none; }
+.study-scene__overlay--stars { background-image:
+  radial-gradient(circle at 12% 18%, rgba(255, 255, 255, .72) 0 1px, transparent 2px),
+  radial-gradient(circle at 42% 28%, rgba(255, 210, 125, .7) 0 1px, transparent 2px),
+  radial-gradient(circle at 70% 16%, rgba(139, 224, 214, .72) 0 1px, transparent 2px),
+  radial-gradient(circle at 84% 38%, rgba(255, 255, 255, .62) 0 1px, transparent 2px);
+  background-size: 220px 160px, 260px 180px, 310px 210px, 240px 190px;
+  animation: scene-drift 9s ease-in-out infinite alternate;
+}
+.study-scene__overlay--rain { background-image: repeating-linear-gradient(112deg, transparent 0 18px, rgba(170, 215, 235, .28) 19px 21px, transparent 22px 42px); animation: scene-rain .85s linear infinite; opacity: .5; }
+.study-scene__overlay--dust { background-image:
+  radial-gradient(circle at 12% 26%, rgba(255, 226, 164, .26) 0 1px, transparent 2px),
+  radial-gradient(circle at 44% 18%, rgba(255, 245, 220, .22) 0 1px, transparent 2px),
+  radial-gradient(circle at 76% 34%, rgba(255, 226, 164, .2) 0 1px, transparent 2px);
+  background-size: 180px 160px, 260px 210px, 220px 180px;
+  animation: scene-drift 11s ease-in-out infinite alternate;
+}
+.study-scene__overlay--fireflies { background-image:
+  radial-gradient(circle at 16% 70%, rgba(248, 215, 124, .75) 0 2px, transparent 4px),
+  radial-gradient(circle at 68% 58%, rgba(139, 224, 177, .7) 0 2px, transparent 4px),
+  radial-gradient(circle at 84% 74%, rgba(248, 215, 124, .64) 0 2px, transparent 4px);
+  background-size: 260px 220px, 330px 260px, 300px 240px;
+  animation: scene-drift 7s ease-in-out infinite alternate;
+}
+.study-scene__overlay--snow { background-image:
+  radial-gradient(circle, rgba(255, 255, 255, .82) 0 1.5px, transparent 3px),
+  radial-gradient(circle, rgba(255, 255, 255, .55) 0 1px, transparent 3px);
+  background-position: 0 0, 60px 80px;
+  background-size: 140px 140px, 220px 220px;
+  animation: scene-snow 4.6s linear infinite;
+  opacity: .58;
+}
+
+.ds-sprite { display: inline-flex; }
+.ds-floaty { animation: ds-floaty 5s ease-in-out infinite; }
+.ds-floaty2 { animation: ds-floaty2 5.4s ease-in-out infinite; }
+.ds-pulse { animation: ds-pulse 4s ease-in-out infinite; }
+.animate-pop-in { animation: pop-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.animate-bob { animation: bob 1.4s ease-in-out infinite; }
+.animate-breathe { animation: breathe 4s ease-in-out infinite; }
+.ds-star { position: absolute; border-radius: 50%; animation: twinkle 3s ease-in-out infinite; }
+
+/* ── Interactive pet stage ─────────────────────────────────────────────────── */
+.pet-stage { position: relative; width: 260px; min-height: 218px; display: grid; place-items: center; cursor: pointer; }
+.pet-fallback-stage { position: relative; width: 240px; height: 190px; display: grid; place-items: center; }
+.pet-positioner { display: inline-flex; transition: transform .5s cubic-bezier(.22,1,.36,1); }
+.pet-positioner-route { transition-duration: .32s; transition-timing-function: cubic-bezier(.2, .95, .2, 1); }
+.pet-sprite-wrap { position: relative; display: inline-flex; transform-origin: 50% 86%; transition: transform .5s cubic-bezier(.22,1,.36,1), filter .18s ease, opacity .18s ease; filter: drop-shadow(0 0 14px rgba(139,224,214,.5)); }
+/* Limbed pets carry their own per-limb motion, so neutralise the whole-body mood/action
+   transform while keeping the mood glow (filter) and hover behaviour intact. */
+.pet-sprite-wrap.limbed { animation: none !important; transform: none !important; }
+.pet-stage-shadow { position: absolute; left: 50%; top: 50%; width: 84px; height: 18px; margin-left: -42px; margin-top: 46px; border-radius: 999px; background: radial-gradient(ellipse at center, rgba(21,35,63,.34), rgba(21,35,63,0) 70%); filter: blur(2px); opacity: .72; transition: transform .5s cubic-bezier(.22,1,.36,1), opacity .18s ease, width .18s ease; }
+.pet-hovered { filter: drop-shadow(0 0 20px rgba(139,224,214,.72)); }
+.pet-mood-idle { animation: ds-floaty 5s ease-in-out infinite; }
+.pet-mood-studying { animation: ds-floaty2 4.2s ease-in-out infinite; filter: drop-shadow(0 0 13px rgba(139,224,214,.42)); }
+.pet-mood-celebrating { animation: pet-dance 1.1s ease-in-out both; filter: drop-shadow(0 0 23px rgba(255,210,125,.75)); }
+.pet-mood-sleepy { animation: ds-floaty2 6s ease-in-out infinite; filter: drop-shadow(0 0 11px rgba(143,184,240,.44)); }
+.pet-mood-tired { opacity: .82; transform: translateY(8px) scale(1.04,.9); filter: drop-shadow(0 0 7px rgba(143,184,240,.25)); }
+.pet-mood-resting { animation: breathe 4.8s ease-in-out infinite; filter: drop-shadow(0 0 12px rgba(143,184,240,.46)); }
+.pet-action-blink { animation: breathe .5s ease-in-out both; }
+.pet-action-look { animation: pet-wave .9s ease-in-out both; }
+.pet-action-study { animation: pet-flow 1.1s ease-in-out both; }
+.pet-action-flow { animation: pet-flow .85s ease-in-out 2; }
+.pet-action-sleepy { animation: breathe 1.4s ease-in-out both; }
+.pet-action-tired { transform: translateY(10px) scale(1.08,.86) !important; }
+.pet-action-rest { animation: breathe 1.6s ease-in-out both; }
+.pet-action-jump { animation: pet-jump .78s cubic-bezier(.2,1.3,.32,1) both; }
+.pet-action-dance { animation: pet-dance 1.2s ease-in-out both; }
+.pet-action-wave { animation: pet-wave .9s ease-in-out both; }
+.pet-action-wiggle { animation: pet-wiggle .72s ease-in-out both; }
+.pet-action-gift { animation: pet-gift .72s cubic-bezier(.34,1.56,.64,1) both; }
+.pet-action-celebrate { animation: pet-jump .82s cubic-bezier(.2,1.3,.32,1) both; }
+.pet-action-celebrate-big { animation: pet-dance 1.25s ease-in-out both; }
+.pet-action-walk, .pet-action-inspect { animation: pet-walk 1.25s ease-in-out both; }
+.pet-face { pointer-events: none; position: absolute; left: 50%; top: 50%; width: 72px; height: 56px; transform: translate(-50%, -48%); }
+.pet-eye { position: absolute; top: 18px; width: 12px; height: 18px; background: #15233f; transform-origin: 50% 50%; animation: pet-eye-blink 4.8s ease-in-out infinite; }
+.pet-eye-left { left: 15px; }
+.pet-eye-right { right: 15px; }
+.pet-mouth { position: absolute; left: 50%; top: 43px; width: 20px; height: 8px; transform: translateX(-50%); background: #15233f; }
+.pet-cheek { position: absolute; top: 35px; width: 10px; height: 8px; border-radius: 50%; background: var(--bloom); opacity: 0; }
+.pet-cheek-left { left: 4px; }
+.pet-cheek-right { right: 4px; }
+.pet-expression-happy .pet-eye { height: 10px; top: 20px; border-radius: 999px 999px 4px 4px; }
+.pet-expression-happy .pet-mouth { top: 39px; height: 11px; border-radius: 0 0 999px 999px; }
+.pet-expression-happy .pet-cheek { opacity: .85; }
+.pet-expression-sleepy .pet-eye, .pet-expression-tired .pet-eye { top: 24px; height: 5px; border-radius: 999px; animation-duration: 7s; }
+.pet-expression-sleepy .pet-mouth { top: 42px; width: 13px; height: 5px; border-radius: 999px; opacity: .75; }
+.pet-expression-tired .pet-mouth { top: 43px; width: 24px; height: 5px; border-radius: 999px; opacity: .7; }
+.pet-expression-surprised .pet-eye { width: 14px; height: 20px; top: 16px; }
+.pet-expression-surprised .pet-mouth { top: 41px; width: 13px; height: 13px; border-radius: 999px; }
+.pet-expression-focused .pet-eye { top: 20px; height: 13px; transform: skewX(-7deg); animation-duration: 6.5s; }
+.pet-expression-focused .pet-mouth { top: 42px; width: 18px; height: 5px; opacity: .85; }
+.pet-sweat { position: absolute; right: -1px; top: 5px; width: 8px; height: 14px; border-radius: 999px 999px 999px 2px; background: var(--rest); transform: rotate(20deg); opacity: .9; }
+.pet-thought { position: absolute; top: -24px; right: -22px; min-width: 24px; height: 24px; display: grid; place-items: center; border-radius: 999px; background: var(--surface); border: 2px solid var(--border); color: var(--ink); font: 700 13px var(--font-mono); box-shadow: var(--shadow-card); animation: pet-thought-pop .42s cubic-bezier(.34,1.56,.64,1) both; }
+.pet-prop { --prop-x: 0px; --prop-y: 0px; --prop-r: 0deg; pointer-events: none; position: absolute; z-index: 2; animation: pet-prop-pop .42s cubic-bezier(.34,1.56,.64,1) both; }
+.pet-prop-book { --prop-x: -50%; left: 50%; bottom: 13px; width: 46px; height: 24px; border-radius: 4px; background: linear-gradient(90deg, var(--surface-2) 0 46%, var(--ink) 46% 52%, var(--surface) 52% 100%); border: 2px solid var(--ink); box-shadow: 0 4px 0 rgba(21,35,63,.18); }
+.pet-prop-book::before { content: ""; position: absolute; left: 7px; top: 6px; width: 10px; height: 2px; background: var(--wisp-d); box-shadow: 19px 0 0 var(--wisp-d), 0 6px 0 var(--wisp-d), 19px 6px 0 var(--wisp-d); opacity: .75; }
+.pet-prop-pencil { --prop-r: -28deg; right: 13px; bottom: 25px; width: 34px; height: 7px; border-radius: 4px; background: linear-gradient(90deg, var(--glow) 0 72%, var(--bloom) 72% 86%, var(--ink) 86% 100%); box-shadow: 0 2px 0 rgba(21,35,63,.2); }
+.pet-prop-tea { right: 1px; bottom: 18px; width: 24px; height: 19px; border-radius: 4px 4px 9px 9px; background: var(--surface-2); border: 2px solid var(--ink); }
+.pet-prop-tea::before { content: ""; position: absolute; right: -9px; top: 4px; width: 9px; height: 8px; border: 2px solid var(--ink); border-left: 0; border-radius: 0 999px 999px 0; }
+.pet-prop-tea::after { content: ""; position: absolute; left: 6px; top: -13px; width: 3px; height: 10px; background: color-mix(in srgb, var(--ink) 40%, transparent); box-shadow: 7px -4px 0 color-mix(in srgb, var(--ink) 32%, transparent); border-radius: 999px; opacity: .65; }
+.pet-prop-blanket { --prop-x: -50%; left: 50%; bottom: 6px; width: 78px; height: 42px; border-radius: 16px 16px 8px 8px; background: repeating-linear-gradient(90deg, var(--rest) 0 12px, var(--surface-2) 12px 24px); border: 2px solid var(--ink); opacity: .9; }
+.pet-prop-gift { right: -7px; bottom: 7px; width: 28px; height: 28px; background: var(--bloom); border: 2px solid var(--ink); box-shadow: inset 10px 0 0 color-mix(in srgb, var(--glow) 70%, white); }
+.pet-prop-gift::before { content: ""; position: absolute; left: 11px; top: -8px; width: 7px; height: 36px; background: var(--glow); border-left: 2px solid var(--ink); border-right: 2px solid var(--ink); }
+.pet-prop-gift::after { content: ""; position: absolute; left: 4px; top: -10px; width: 18px; height: 10px; border: 2px solid var(--ink); border-radius: 999px 999px 0 0; background: var(--glow); }
+.pet-prop-snack { right: 5px; top: 28px; width: 20px; height: 20px; border-radius: 50%; background: var(--glow); border: 2px solid var(--ink); box-shadow: inset -4px -4px 0 color-mix(in srgb, var(--ember) 65%, transparent), 0 0 12px color-mix(in srgb, var(--glow) 80%, transparent); }
+.pet-zzz { position: absolute; top: -14px; right: -24px; color: var(--rest); font: 700 20px var(--font-pixel); animation: bob 1.4s ease-in-out infinite; }
+.pet-zzz span { font-size: 13px; }
+.pet-particles { pointer-events: none; position: absolute; inset: -24px; }
+.pet-particle { position: absolute; left: 50%; top: 50%; animation: pet-particle .86s ease-out both; }
+.pet-particle-0 { --tx: -60px; --ty: -58px; animation-delay: 0ms; }
+.pet-particle-1 { --tx: 58px; --ty: -48px; animation-delay: 55ms; }
+.pet-particle-2 { --tx: -34px; --ty: 42px; animation-delay: 95ms; }
+.pet-particle-3 { --tx: 42px; --ty: 46px; animation-delay: 135ms; }
+.pet-particle-4 { --tx: 4px; --ty: -74px; animation-delay: 180ms; }
+.pet-controls { position: absolute; bottom: 4px; left: 50%; display: flex; gap: 7px; transform: translateX(-50%) translateY(6px); opacity: 0; transition: opacity .16s ease, transform .16s ease; }
+.pet-stage:hover .pet-controls, .pet-stage:focus-within .pet-controls { opacity: 1; transform: translateX(-50%) translateY(0); }
+.pet-controls button { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; background: var(--surface-2); border: 2px solid var(--border); cursor: pointer; box-shadow: var(--shadow-card); }
+.pet-controls button:hover { border-color: var(--wisp-d); transform: translateY(-1px); }
+.decor-hotspot { position: absolute; width: 54px; height: 54px; border: 0; border-radius: 999px; background: transparent; cursor: pointer; }
+.decor-hotspot::after { content: ""; position: absolute; inset: 8px; border-radius: 999px; border: 2px solid transparent; transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease; }
+.decor-hotspot:hover::after, .decor-hotspot:focus-visible::after { border-color: color-mix(in srgb, var(--glow) 70%, transparent); box-shadow: 0 0 16px color-mix(in srgb, var(--glow) 55%, transparent); transform: scale(1.04); }
+.decor-hotspot:focus-visible { outline: none; }
+.decor-hotspot--image::after { inset: 12px; background: color-mix(in srgb, var(--glow) 12%, transparent); border-color: color-mix(in srgb, var(--ink) 18%, transparent); backdrop-filter: blur(2px); }
+
+/* ── Ambience background gallery ──────────────────────────────────────────── */
+.theme-gallery { min-width: 0; }
+.theme-gallery__header { margin-bottom: 8px; color: var(--ink-mut); font: 700 11px var(--font-mono); text-transform: uppercase; }
+.theme-gallery__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(132px, 1fr)); gap: 10px; }
+.theme-card {
+  position: relative;
+  isolation: isolate;
+  min-height: 98px;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  text-align: left;
+  transition: transform .12s ease, border-color .16s ease, filter .16s ease;
+}
+.theme-card:hover, .theme-card:focus-visible { transform: translateY(-1px); border-color: var(--wisp); outline: none; }
+.theme-card--active { border-color: var(--glow); box-shadow: 0 0 0 2px color-mix(in srgb, var(--glow) 28%, transparent), var(--shadow-card); }
+.theme-card--locked { filter: saturate(.72); }
+.theme-card__image, .theme-card__fallback { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.theme-card__fallback { background: linear-gradient(145deg, var(--page-0), var(--page-1)); }
+.theme-card__shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8, 10, 20, .08), rgba(8, 10, 20, .72)); }
+.theme-card__meta { position: absolute; inset: auto 10px 9px; z-index: 2; display: grid; gap: 2px; color: white; text-shadow: 0 1px 8px rgba(0, 0, 0, .55); }
+.theme-card__name { font: 700 13px/1.15 var(--font-body); }
+.theme-card__sub { font: 700 10px var(--font-mono); opacity: .78; }
+.theme-card__lock {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 3;
+  max-width: calc(100% - 16px);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 88%, transparent);
+  color: var(--page-1);
+  padding: 4px 7px;
+  font: 700 10px var(--font-mono);
+  box-shadow: var(--shadow-card);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .study-scene__overlay { display: none; }
+  .study-scene__image { animation: none; }
+}
+
+/* ── Cards & panels ───────────────────────────────────────────────────────── */
+.ds-card {
+  border-radius: var(--radius-cozy);
+  background: var(--panel);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-card);
+  padding: 28px;
+}
+.ds-card--night { background: radial-gradient(120% 100% at 80% 0%, var(--panel-grad-a), var(--panel-grad-b) 70%); }
+/* translucent floating panel used over the live night scene */
+.ds-glass {
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--panel) 84%, transparent);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(8px);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────────── */
+.ds-btn {
+  font: 600 15px var(--font-body);
+  border-radius: 12px;
+  padding: 12px 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: none;
+  transition: transform 0.06s ease, filter 0.15s ease;
+}
+.ds-btn:active { transform: translateY(1px); }
+.ds-btn--primary { color: var(--on-accent); background: var(--ember); border-bottom: 4px solid var(--ember-d); }
+.ds-btn--primary:hover { filter: brightness(1.05); }
+.ds-btn--secondary { color: var(--ink); background: var(--surface-2); border: 2px solid var(--border); border-bottom: 4px solid var(--border); }
+.ds-btn--ghost { color: var(--ink-dim); background: transparent; }
+.ds-btn--ghost:hover { color: var(--ink); }
+.ds-btn--locked { color: var(--ink-mut); background: var(--surface); border: 2px solid var(--border-2); cursor: not-allowed; }
+.ds-btn:disabled { opacity: 0.85; }
+.ds-btn-icon {
+  width: 42px; height: 42px; border-radius: 11px;
+  background: var(--surface-2); border: 2px solid var(--border);
+  display: grid; place-items: center; cursor: pointer; transition: border-color 0.15s ease;
+}
+.ds-btn-icon:hover { border-color: var(--wisp-d); }
+
+/* ── Pills ─────────────────────────────────────────────────────────────────── */
+.ds-pill {
+  font: 600 14px var(--font-body); color: var(--ink-mut);
+  background: var(--surface-2); border: 2px solid var(--border);
+  border-radius: 999px; padding: 7px 16px; cursor: pointer; transition: all 0.12s ease;
+}
+.ds-pill--active { color: var(--on-accent); background: var(--wisp); border-color: var(--wisp); }
+
+/* ── Toggle ────────────────────────────────────────────────────────────────── */
+.ds-toggle {
+  width: 50px; height: 28px; border-radius: 999px; background: var(--surface-2);
+  border: none; position: relative; cursor: pointer; padding: 0; transition: background 0.18s ease; flex: none;
+}
+.ds-toggle--on { background: var(--ds-toggle-accent, var(--wisp-d)); }
+.ds-toggle__knob {
+  position: absolute; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--ink-mut); top: 3px; left: 3px; transition: left 0.18s ease, background 0.18s ease;
+}
+.ds-toggle--on .ds-toggle__knob { left: 25px; background: #fff; }
+
+/* ── Progress ──────────────────────────────────────────────────────────────── */
+.ds-progress { height: 10px; background: var(--page-1); border-radius: 999px; overflow: hidden; }
+.ds-progress__fill { height: 100%; border-radius: 999px; transition: width 0.4s ease; }
+
+/* ── Chips ─────────────────────────────────────────────────────────────────── */
+.ds-chip { display: inline-flex; align-items: center; gap: 7px; font: 600 13px var(--font-body); border-radius: 999px; padding: 6px 13px; }
+.ds-chip--outline { color: var(--ink); background: var(--surface); border: 2px solid var(--border); }
+.ds-chip--wisp { color: var(--on-accent); background: var(--wisp); }
+.ds-chip--glow { color: var(--on-accent); background: var(--glow); }
+.ds-chip--bloom { color: var(--on-accent); background: var(--bloom); }
+.ds-chip--ember { color: var(--on-accent); background: var(--ember); }
+.ds-chip--rest { color: var(--on-accent); background: var(--rest); }
+
+/* ── Speech bubble ─────────────────────────────────────────────────────────── */
+.ds-bubble { position: relative; background: var(--ink); color: var(--page-1); font: 500 14px var(--font-body); padding: 10px 16px; border-radius: 14px; max-width: 320px; text-align: center; }
+.ds-bubble::after { content: ""; position: absolute; bottom: -6px; left: 50%; width: 13px; height: 13px; background: var(--ink); transform: translateX(-50%) rotate(45deg); }
+
+/* ── Inputs ────────────────────────────────────────────────────────────────── */
+.ds-field-label { font: 600 12px var(--font-mono); color: var(--ink-mut); margin-bottom: 7px; text-transform: uppercase; letter-spacing: 0.5px; }
+.ds-input {
+  width: 100%; background: var(--page-1); border: 2px solid var(--border); border-radius: 12px;
+  padding: 12px 15px; font: 500 15px var(--font-body); color: var(--ink); outline: none; transition: border-color 0.15s ease;
+}
+.ds-input::placeholder { color: var(--ink-mut); opacity: 0.7; }
+.ds-input:focus { border-color: var(--wisp-d); }
+.ds-caret { color: var(--wisp); animation: twinkle 1.1s steps(1) infinite; }
+
+/* ── Eyebrows / section type (shared with the showcase) ────────────────────── */
+.ds-eyebrow { font: 700 11px var(--font-pixel); letter-spacing: 2px; color: var(--label); text-transform: uppercase; }
+.ds-section-head { margin-bottom: 26px; }
+.ds-section-title { font: 600 30px var(--font-head); color: var(--ink); margin: 8px 0 0; }
+.ds-section-sub { font: 500 15px/1.5 var(--font-body); color: var(--label); margin: 6px 0 0; max-width: 660px; }
+
+.ds-divider { height: 2px; background: var(--border-2); border: none; margin: 18px 0; }

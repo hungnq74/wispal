@@ -1,0 +1,106 @@
+{
+  "id": "ocean-balcony",
+  "name": "Ocean Balcony",
+  "metaphor": "island",
+  "palette": {
+    "--page-0": "#a6e0e5",
+    "--page-1": "#2c6990",
+    "--panel": "#f7fff9",
+    "--surface": "#dff0ec",
+    "--ink": "#15334a",
+    "--ink-dim": "#526f7e",
+    "--border": "#afd7d7",
+    "--ember": "#ff9d6a",
+    "--glow": "#ffe18e",
+    "--wisp": "#4bbfae",
+    "--bloom": "#f092b6",
+    "--rest": "#76b8e8"
+  },
+  "musicRef": null,
+  "rarity": "common",
+  "renderer": "image",
+  "styleFamily": "aesthetic",
+  "backgroundStages": [
+    {
+      "stage": 0,
+      "minGrowth": 0,
+      "src": "/backgrounds/ocean-balcony/stage-0.webp",
+      "blurSrc": "/backgrounds/ocean-balcony/stage-0.webp",
+      "promptId": "ocean-balcony-stage-0"
+    },
+    {
+      "stage": 1,
+      "minGrowth": 1,
+      "src": "/backgrounds/ocean-balcony/stage-1.webp",
+      "blurSrc": "/backgrounds/ocean-balcony/stage-1.webp",
+      "promptId": "ocean-balcony-stage-1"
+    },
+    {
+      "stage": 2,
+      "minGrowth": 6,
+      "src": "/backgrounds/ocean-balcony/stage-2.webp",
+      "blurSrc": "/backgrounds/ocean-balcony/stage-2.webp",
+      "promptId": "ocean-balcony-stage-2"
+    },
+    {
+      "stage": 3,
+      "minGrowth": 15,
+      "src": "/backgrounds/ocean-balcony/stage-3.webp",
+      "blurSrc": "/backgrounds/ocean-balcony/stage-3.webp",
+      "promptId": "ocean-balcony-stage-3"
+    },
+    {
+      "stage": 4,
+      "minGrowth": 30,
+      "src": "/backgrounds/ocean-balcony/stage-4.webp",
+      "blurSrc": "/backgrounds/ocean-balcony/stage-4.webp",
+      "promptId": "ocean-balcony-stage-4"
+    },
+    {
+      "stage": 5,
+      "minGrowth": 60,
+      "src": "/backgrounds/ocean-balcony/stage-5.webp",
+      "blurSrc": "/backgrounds/ocean-balcony/stage-5.webp",
+      "promptId": "ocean-balcony-stage-5"
+    }
+  ],
+  "petAnchors": {
+    "center": {
+      "x": 0.5,
+      "y": 0.62
+    },
+    "left": {
+      "x": 0.3,
+      "y": 0.64
+    },
+    "right": {
+      "x": 0.73,
+      "y": 0.62
+    },
+    "rest": {
+      "x": 0.38,
+      "y": 0.68
+    },
+    "decor": {
+      "x": 0.74,
+      "y": 0.6
+    },
+    "lamp": {
+      "x": 0.72,
+      "y": 0.5
+    },
+    "pond": {
+      "x": 0.28,
+      "y": 0.64
+    },
+    "quest": {
+      "x": 0.5,
+      "y": 0.23
+    },
+    "timer": {
+      "x": 0.5,
+      "y": 0.82
+    }
+  },
+  "overlayProfile": "none"
+}

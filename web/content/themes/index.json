@@ -1,0 +1,1698 @@
+[
+  {
+    "id": "cozy-fireplace",
+    "name": "Cozy Fireplace",
+    "metaphor": "room",
+    "palette": {
+      "--page-0": "#301f1a",
+      "--page-1": "#120d10",
+      "--panel": "#2b211d",
+      "--surface": "#3a2a24",
+      "--ink": "#fff0df",
+      "--ink-dim": "#d9c2aa",
+      "--border": "#6a4734",
+      "--ember": "#ff9e64",
+      "--glow": "#ffd27d",
+      "--wisp": "#8be0d6",
+      "--bloom": "#f6a7bd",
+      "--rest": "#89a7cc"
+    },
+    "musicRef": null,
+    "rarity": "common",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/cozy-fireplace/stage-0.webp",
+        "blurSrc": "/backgrounds/cozy-fireplace/stage-0.webp",
+        "promptId": "cozy-fireplace-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/cozy-fireplace/stage-1.webp",
+        "blurSrc": "/backgrounds/cozy-fireplace/stage-1.webp",
+        "promptId": "cozy-fireplace-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/cozy-fireplace/stage-2.webp",
+        "blurSrc": "/backgrounds/cozy-fireplace/stage-2.webp",
+        "promptId": "cozy-fireplace-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/cozy-fireplace/stage-3.webp",
+        "blurSrc": "/backgrounds/cozy-fireplace/stage-3.webp",
+        "promptId": "cozy-fireplace-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/cozy-fireplace/stage-4.webp",
+        "blurSrc": "/backgrounds/cozy-fireplace/stage-4.webp",
+        "promptId": "cozy-fireplace-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/cozy-fireplace/stage-5.webp",
+        "blurSrc": "/backgrounds/cozy-fireplace/stage-5.webp",
+        "promptId": "cozy-fireplace-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.57
+      },
+      "left": {
+        "x": 0.23,
+        "y": 0.66
+      },
+      "right": {
+        "x": 0.78,
+        "y": 0.68
+      },
+      "rest": {
+        "x": 0.39,
+        "y": 0.64
+      },
+      "decor": {
+        "x": 0.72,
+        "y": 0.58
+      },
+      "lamp": {
+        "x": 0.78,
+        "y": 0.48
+      },
+      "pond": {
+        "x": 0.34,
+        "y": 0.64
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.23
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "dust"
+  },
+  {
+    "id": "rainy-lofi-room",
+    "name": "Rainy Lofi Room",
+    "metaphor": "room",
+    "palette": {
+      "--page-0": "#2b3b4e",
+      "--page-1": "#101722",
+      "--panel": "#182333",
+      "--surface": "#223148",
+      "--ink": "#edf7ff",
+      "--ink-dim": "#aecaeb",
+      "--border": "#354b67",
+      "--ember": "#ffb46d",
+      "--glow": "#ffd58f",
+      "--wisp": "#7bd5e6",
+      "--bloom": "#d59acc",
+      "--rest": "#83b4ef"
+    },
+    "musicRef": null,
+    "rarity": "common",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/rainy-lofi-room/stage-0.webp",
+        "blurSrc": "/backgrounds/rainy-lofi-room/stage-0.webp",
+        "promptId": "rainy-lofi-room-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/rainy-lofi-room/stage-1.webp",
+        "blurSrc": "/backgrounds/rainy-lofi-room/stage-1.webp",
+        "promptId": "rainy-lofi-room-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/rainy-lofi-room/stage-2.webp",
+        "blurSrc": "/backgrounds/rainy-lofi-room/stage-2.webp",
+        "promptId": "rainy-lofi-room-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/rainy-lofi-room/stage-3.webp",
+        "blurSrc": "/backgrounds/rainy-lofi-room/stage-3.webp",
+        "promptId": "rainy-lofi-room-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/rainy-lofi-room/stage-4.webp",
+        "blurSrc": "/backgrounds/rainy-lofi-room/stage-4.webp",
+        "promptId": "rainy-lofi-room-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/rainy-lofi-room/stage-5.webp",
+        "blurSrc": "/backgrounds/rainy-lofi-room/stage-5.webp",
+        "promptId": "rainy-lofi-room-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.57
+      },
+      "left": {
+        "x": 0.23,
+        "y": 0.66
+      },
+      "right": {
+        "x": 0.78,
+        "y": 0.68
+      },
+      "rest": {
+        "x": 0.39,
+        "y": 0.64
+      },
+      "decor": {
+        "x": 0.72,
+        "y": 0.58
+      },
+      "lamp": {
+        "x": 0.78,
+        "y": 0.48
+      },
+      "pond": {
+        "x": 0.34,
+        "y": 0.64
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.23
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "rain"
+  },
+  {
+    "id": "tokyo-sakura",
+    "name": "Tokyo Sakura",
+    "metaphor": "room",
+    "palette": {
+      "--page-0": "#ffd7e7",
+      "--page-1": "#958cd8",
+      "--panel": "#fff6fb",
+      "--surface": "#f6e6f4",
+      "--ink": "#352849",
+      "--ink-dim": "#6b5a88",
+      "--border": "#e7bdd9",
+      "--ember": "#ff926f",
+      "--glow": "#ffe08a",
+      "--wisp": "#50bdb4",
+      "--bloom": "#ff8fbd",
+      "--rest": "#839ee8"
+    },
+    "musicRef": null,
+    "rarity": "rare",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/tokyo-sakura/stage-0.webp",
+        "blurSrc": "/backgrounds/tokyo-sakura/stage-0.webp",
+        "promptId": "tokyo-sakura-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/tokyo-sakura/stage-1.webp",
+        "blurSrc": "/backgrounds/tokyo-sakura/stage-1.webp",
+        "promptId": "tokyo-sakura-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/tokyo-sakura/stage-2.webp",
+        "blurSrc": "/backgrounds/tokyo-sakura/stage-2.webp",
+        "promptId": "tokyo-sakura-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/tokyo-sakura/stage-3.webp",
+        "blurSrc": "/backgrounds/tokyo-sakura/stage-3.webp",
+        "promptId": "tokyo-sakura-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/tokyo-sakura/stage-4.webp",
+        "blurSrc": "/backgrounds/tokyo-sakura/stage-4.webp",
+        "promptId": "tokyo-sakura-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/tokyo-sakura/stage-5.webp",
+        "blurSrc": "/backgrounds/tokyo-sakura/stage-5.webp",
+        "promptId": "tokyo-sakura-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.62
+      },
+      "left": {
+        "x": 0.3,
+        "y": 0.64
+      },
+      "right": {
+        "x": 0.73,
+        "y": 0.62
+      },
+      "rest": {
+        "x": 0.38,
+        "y": 0.68
+      },
+      "decor": {
+        "x": 0.74,
+        "y": 0.6
+      },
+      "lamp": {
+        "x": 0.72,
+        "y": 0.5
+      },
+      "pond": {
+        "x": 0.28,
+        "y": 0.64
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.23
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "dust"
+  },
+  {
+    "id": "seoul-sunrise",
+    "name": "Seoul Sunrise",
+    "metaphor": "room",
+    "palette": {
+      "--page-0": "#ffe2b6",
+      "--page-1": "#92bed4",
+      "--panel": "#fffaf1",
+      "--surface": "#f1e7d5",
+      "--ink": "#342a25",
+      "--ink-dim": "#766355",
+      "--border": "#e7cba6",
+      "--ember": "#ff996b",
+      "--glow": "#ffd27d",
+      "--wisp": "#54b5ae",
+      "--bloom": "#f09ab2",
+      "--rest": "#7faee2"
+    },
+    "musicRef": null,
+    "rarity": "common",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/seoul-sunrise/stage-0.webp",
+        "blurSrc": "/backgrounds/seoul-sunrise/stage-0.webp",
+        "promptId": "seoul-sunrise-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/seoul-sunrise/stage-1.webp",
+        "blurSrc": "/backgrounds/seoul-sunrise/stage-1.webp",
+        "promptId": "seoul-sunrise-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/seoul-sunrise/stage-2.webp",
+        "blurSrc": "/backgrounds/seoul-sunrise/stage-2.webp",
+        "promptId": "seoul-sunrise-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/seoul-sunrise/stage-3.webp",
+        "blurSrc": "/backgrounds/seoul-sunrise/stage-3.webp",
+        "promptId": "seoul-sunrise-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/seoul-sunrise/stage-4.webp",
+        "blurSrc": "/backgrounds/seoul-sunrise/stage-4.webp",
+        "promptId": "seoul-sunrise-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/seoul-sunrise/stage-5.webp",
+        "blurSrc": "/backgrounds/seoul-sunrise/stage-5.webp",
+        "promptId": "seoul-sunrise-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.62
+      },
+      "left": {
+        "x": 0.3,
+        "y": 0.64
+      },
+      "right": {
+        "x": 0.73,
+        "y": 0.62
+      },
+      "rest": {
+        "x": 0.38,
+        "y": 0.68
+      },
+      "decor": {
+        "x": 0.74,
+        "y": 0.6
+      },
+      "lamp": {
+        "x": 0.72,
+        "y": 0.5
+      },
+      "pond": {
+        "x": 0.28,
+        "y": 0.64
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.23
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "dust"
+  },
+  {
+    "id": "academia",
+    "name": "Dark Academia Library",
+    "metaphor": "room",
+    "palette": {
+      "--page-0": "#2d3a2c",
+      "--page-1": "#141a16",
+      "--panel": "#1d2620",
+      "--surface": "#26332a",
+      "--ink": "#ece3d0",
+      "--ink-dim": "#c2b596",
+      "--border": "#3e4f3c",
+      "--ember": "#c98a5a",
+      "--glow": "#d4b483",
+      "--wisp": "#89b487",
+      "--bloom": "#c08a6a",
+      "--rest": "#7a9a8a"
+    },
+    "musicRef": null,
+    "rarity": "rare",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/academia/stage-0.webp",
+        "blurSrc": "/backgrounds/academia/stage-0.webp",
+        "promptId": "academia-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/academia/stage-1.webp",
+        "blurSrc": "/backgrounds/academia/stage-1.webp",
+        "promptId": "academia-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/academia/stage-2.webp",
+        "blurSrc": "/backgrounds/academia/stage-2.webp",
+        "promptId": "academia-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/academia/stage-3.webp",
+        "blurSrc": "/backgrounds/academia/stage-3.webp",
+        "promptId": "academia-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/academia/stage-4.webp",
+        "blurSrc": "/backgrounds/academia/stage-4.webp",
+        "promptId": "academia-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/academia/stage-5.webp",
+        "blurSrc": "/backgrounds/academia/stage-5.webp",
+        "promptId": "academia-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.48,
+        "y": 0.61
+      },
+      "left": {
+        "x": 0.25,
+        "y": 0.65
+      },
+      "right": {
+        "x": 0.75,
+        "y": 0.66
+      },
+      "rest": {
+        "x": 0.34,
+        "y": 0.67
+      },
+      "decor": {
+        "x": 0.68,
+        "y": 0.62
+      },
+      "lamp": {
+        "x": 0.78,
+        "y": 0.5
+      },
+      "pond": {
+        "x": 0.32,
+        "y": 0.68
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.22
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "dust"
+  },
+  {
+    "id": "forest-cabin",
+    "name": "Forest Cabin",
+    "metaphor": "garden",
+    "palette": {
+      "--page-0": "#29473a",
+      "--page-1": "#0e1a16",
+      "--panel": "#172a22",
+      "--surface": "#233b31",
+      "--ink": "#eff8ea",
+      "--ink-dim": "#b8d0b1",
+      "--border": "#385c4b",
+      "--ember": "#e0a35e",
+      "--glow": "#f8d77c",
+      "--wisp": "#8be0b1",
+      "--bloom": "#df9fa9",
+      "--rest": "#80aac8"
+    },
+    "musicRef": null,
+    "rarity": "rare",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/forest-cabin/stage-0.webp",
+        "blurSrc": "/backgrounds/forest-cabin/stage-0.webp",
+        "promptId": "forest-cabin-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/forest-cabin/stage-1.webp",
+        "blurSrc": "/backgrounds/forest-cabin/stage-1.webp",
+        "promptId": "forest-cabin-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/forest-cabin/stage-2.webp",
+        "blurSrc": "/backgrounds/forest-cabin/stage-2.webp",
+        "promptId": "forest-cabin-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/forest-cabin/stage-3.webp",
+        "blurSrc": "/backgrounds/forest-cabin/stage-3.webp",
+        "promptId": "forest-cabin-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/forest-cabin/stage-4.webp",
+        "blurSrc": "/backgrounds/forest-cabin/stage-4.webp",
+        "promptId": "forest-cabin-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/forest-cabin/stage-5.webp",
+        "blurSrc": "/backgrounds/forest-cabin/stage-5.webp",
+        "promptId": "forest-cabin-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.62
+      },
+      "left": {
+        "x": 0.22,
+        "y": 0.67
+      },
+      "right": {
+        "x": 0.77,
+        "y": 0.66
+      },
+      "rest": {
+        "x": 0.37,
+        "y": 0.68
+      },
+      "decor": {
+        "x": 0.64,
+        "y": 0.63
+      },
+      "lamp": {
+        "x": 0.26,
+        "y": 0.56
+      },
+      "pond": {
+        "x": 0.8,
+        "y": 0.66
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.22
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "fireflies"
+  },
+  {
+    "id": "snow-window",
+    "name": "Snow Window",
+    "metaphor": "room",
+    "palette": {
+      "--page-0": "#d7e5f7",
+      "--page-1": "#1c2a3d",
+      "--panel": "#f7fbff",
+      "--surface": "#e6eef8",
+      "--ink": "#1c2a3d",
+      "--ink-dim": "#5a6b80",
+      "--border": "#c7d6e8",
+      "--ember": "#e58f65",
+      "--glow": "#f7d88c",
+      "--wisp": "#68b8c5",
+      "--bloom": "#da9dbe",
+      "--rest": "#7faee8"
+    },
+    "musicRef": null,
+    "rarity": "common",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/snow-window/stage-0.webp",
+        "blurSrc": "/backgrounds/snow-window/stage-0.webp",
+        "promptId": "snow-window-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/snow-window/stage-1.webp",
+        "blurSrc": "/backgrounds/snow-window/stage-1.webp",
+        "promptId": "snow-window-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/snow-window/stage-2.webp",
+        "blurSrc": "/backgrounds/snow-window/stage-2.webp",
+        "promptId": "snow-window-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/snow-window/stage-3.webp",
+        "blurSrc": "/backgrounds/snow-window/stage-3.webp",
+        "promptId": "snow-window-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/snow-window/stage-4.webp",
+        "blurSrc": "/backgrounds/snow-window/stage-4.webp",
+        "promptId": "snow-window-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/snow-window/stage-5.webp",
+        "blurSrc": "/backgrounds/snow-window/stage-5.webp",
+        "promptId": "snow-window-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.51,
+        "y": 0.61
+      },
+      "left": {
+        "x": 0.28,
+        "y": 0.66
+      },
+      "right": {
+        "x": 0.76,
+        "y": 0.65
+      },
+      "rest": {
+        "x": 0.38,
+        "y": 0.67
+      },
+      "decor": {
+        "x": 0.7,
+        "y": 0.62
+      },
+      "lamp": {
+        "x": 0.75,
+        "y": 0.5
+      },
+      "pond": {
+        "x": 0.3,
+        "y": 0.66
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.22
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "snow"
+  },
+  {
+    "id": "ocean-balcony",
+    "name": "Ocean Balcony",
+    "metaphor": "island",
+    "palette": {
+      "--page-0": "#a6e0e5",
+      "--page-1": "#2c6990",
+      "--panel": "#f7fff9",
+      "--surface": "#dff0ec",
+      "--ink": "#15334a",
+      "--ink-dim": "#526f7e",
+      "--border": "#afd7d7",
+      "--ember": "#ff9d6a",
+      "--glow": "#ffe18e",
+      "--wisp": "#4bbfae",
+      "--bloom": "#f092b6",
+      "--rest": "#76b8e8"
+    },
+    "musicRef": null,
+    "rarity": "common",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/ocean-balcony/stage-0.webp",
+        "blurSrc": "/backgrounds/ocean-balcony/stage-0.webp",
+        "promptId": "ocean-balcony-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/ocean-balcony/stage-1.webp",
+        "blurSrc": "/backgrounds/ocean-balcony/stage-1.webp",
+        "promptId": "ocean-balcony-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/ocean-balcony/stage-2.webp",
+        "blurSrc": "/backgrounds/ocean-balcony/stage-2.webp",
+        "promptId": "ocean-balcony-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/ocean-balcony/stage-3.webp",
+        "blurSrc": "/backgrounds/ocean-balcony/stage-3.webp",
+        "promptId": "ocean-balcony-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/ocean-balcony/stage-4.webp",
+        "blurSrc": "/backgrounds/ocean-balcony/stage-4.webp",
+        "promptId": "ocean-balcony-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/ocean-balcony/stage-5.webp",
+        "blurSrc": "/backgrounds/ocean-balcony/stage-5.webp",
+        "promptId": "ocean-balcony-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.62
+      },
+      "left": {
+        "x": 0.3,
+        "y": 0.64
+      },
+      "right": {
+        "x": 0.73,
+        "y": 0.62
+      },
+      "rest": {
+        "x": 0.38,
+        "y": 0.68
+      },
+      "decor": {
+        "x": 0.74,
+        "y": 0.6
+      },
+      "lamp": {
+        "x": 0.72,
+        "y": 0.5
+      },
+      "pond": {
+        "x": 0.28,
+        "y": 0.64
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.23
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "none"
+  },
+  {
+    "id": "garden-greenhouse",
+    "name": "Garden Greenhouse",
+    "metaphor": "garden",
+    "palette": {
+      "--page-0": "#bde9cb",
+      "--page-1": "#2d6b52",
+      "--panel": "#f6fff5",
+      "--surface": "#dcefdc",
+      "--ink": "#1d3d2f",
+      "--ink-dim": "#567764",
+      "--border": "#acd2ad",
+      "--ember": "#f0a66e",
+      "--glow": "#f4d76e",
+      "--wisp": "#48b897",
+      "--bloom": "#ee91ac",
+      "--rest": "#7baed4"
+    },
+    "musicRef": null,
+    "rarity": "rare",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/garden-greenhouse/stage-0.webp",
+        "blurSrc": "/backgrounds/garden-greenhouse/stage-0.webp",
+        "promptId": "garden-greenhouse-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/garden-greenhouse/stage-1.webp",
+        "blurSrc": "/backgrounds/garden-greenhouse/stage-1.webp",
+        "promptId": "garden-greenhouse-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/garden-greenhouse/stage-2.webp",
+        "blurSrc": "/backgrounds/garden-greenhouse/stage-2.webp",
+        "promptId": "garden-greenhouse-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/garden-greenhouse/stage-3.webp",
+        "blurSrc": "/backgrounds/garden-greenhouse/stage-3.webp",
+        "promptId": "garden-greenhouse-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/garden-greenhouse/stage-4.webp",
+        "blurSrc": "/backgrounds/garden-greenhouse/stage-4.webp",
+        "promptId": "garden-greenhouse-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/garden-greenhouse/stage-5.webp",
+        "blurSrc": "/backgrounds/garden-greenhouse/stage-5.webp",
+        "promptId": "garden-greenhouse-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.63
+      },
+      "left": {
+        "x": 0.24,
+        "y": 0.67
+      },
+      "right": {
+        "x": 0.76,
+        "y": 0.65
+      },
+      "rest": {
+        "x": 0.36,
+        "y": 0.68
+      },
+      "decor": {
+        "x": 0.66,
+        "y": 0.64
+      },
+      "lamp": {
+        "x": 0.68,
+        "y": 0.52
+      },
+      "pond": {
+        "x": 0.82,
+        "y": 0.66
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.22
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "fireflies"
+  },
+  {
+    "id": "train-window",
+    "name": "Train Window",
+    "metaphor": "room",
+    "palette": {
+      "--page-0": "#384d62",
+      "--page-1": "#171d29",
+      "--panel": "#202b39",
+      "--surface": "#2a394a",
+      "--ink": "#eff5f6",
+      "--ink-dim": "#b5c7d2",
+      "--border": "#42586f",
+      "--ember": "#f1a35f",
+      "--glow": "#f5d477",
+      "--wisp": "#78ccd0",
+      "--bloom": "#d79ab0",
+      "--rest": "#88afe8"
+    },
+    "musicRef": null,
+    "rarity": "rare",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/train-window/stage-0.webp",
+        "blurSrc": "/backgrounds/train-window/stage-0.webp",
+        "promptId": "train-window-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/train-window/stage-1.webp",
+        "blurSrc": "/backgrounds/train-window/stage-1.webp",
+        "promptId": "train-window-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/train-window/stage-2.webp",
+        "blurSrc": "/backgrounds/train-window/stage-2.webp",
+        "promptId": "train-window-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/train-window/stage-3.webp",
+        "blurSrc": "/backgrounds/train-window/stage-3.webp",
+        "promptId": "train-window-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/train-window/stage-4.webp",
+        "blurSrc": "/backgrounds/train-window/stage-4.webp",
+        "promptId": "train-window-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/train-window/stage-5.webp",
+        "blurSrc": "/backgrounds/train-window/stage-5.webp",
+        "promptId": "train-window-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.51,
+        "y": 0.61
+      },
+      "left": {
+        "x": 0.28,
+        "y": 0.66
+      },
+      "right": {
+        "x": 0.76,
+        "y": 0.65
+      },
+      "rest": {
+        "x": 0.38,
+        "y": 0.67
+      },
+      "decor": {
+        "x": 0.7,
+        "y": 0.62
+      },
+      "lamp": {
+        "x": 0.75,
+        "y": 0.5
+      },
+      "pond": {
+        "x": 0.3,
+        "y": 0.66
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.22
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "rain"
+  },
+  {
+    "id": "space-observatory",
+    "name": "Space Observatory",
+    "metaphor": "nightSky",
+    "palette": {
+      "--page-0": "#1f2455",
+      "--page-1": "#070917",
+      "--panel": "#151936",
+      "--surface": "#242a58",
+      "--ink": "#f0efff",
+      "--ink-dim": "#b8b8e8",
+      "--border": "#3d4588",
+      "--ember": "#ff9e7d",
+      "--glow": "#ffd27d",
+      "--wisp": "#8be0f0",
+      "--bloom": "#dba7ff",
+      "--rest": "#8fa8ff"
+    },
+    "musicRef": null,
+    "rarity": "rare",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/space-observatory/stage-0.webp",
+        "blurSrc": "/backgrounds/space-observatory/stage-0.webp",
+        "promptId": "space-observatory-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/space-observatory/stage-1.webp",
+        "blurSrc": "/backgrounds/space-observatory/stage-1.webp",
+        "promptId": "space-observatory-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/space-observatory/stage-2.webp",
+        "blurSrc": "/backgrounds/space-observatory/stage-2.webp",
+        "promptId": "space-observatory-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/space-observatory/stage-3.webp",
+        "blurSrc": "/backgrounds/space-observatory/stage-3.webp",
+        "promptId": "space-observatory-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/space-observatory/stage-4.webp",
+        "blurSrc": "/backgrounds/space-observatory/stage-4.webp",
+        "promptId": "space-observatory-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/space-observatory/stage-5.webp",
+        "blurSrc": "/backgrounds/space-observatory/stage-5.webp",
+        "promptId": "space-observatory-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.61
+      },
+      "left": {
+        "x": 0.25,
+        "y": 0.66
+      },
+      "right": {
+        "x": 0.78,
+        "y": 0.64
+      },
+      "rest": {
+        "x": 0.36,
+        "y": 0.68
+      },
+      "decor": {
+        "x": 0.67,
+        "y": 0.6
+      },
+      "lamp": {
+        "x": 0.78,
+        "y": 0.5
+      },
+      "pond": {
+        "x": 0.29,
+        "y": 0.64
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.22
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "stars"
+  },
+  {
+    "id": "cloud-loft",
+    "name": "Cloud Loft",
+    "metaphor": "island",
+    "palette": {
+      "--page-0": "#dce9ff",
+      "--page-1": "#91b9e4",
+      "--panel": "#ffffff",
+      "--surface": "#edf4ff",
+      "--ink": "#24304c",
+      "--ink-dim": "#667293",
+      "--border": "#cbd8f0",
+      "--ember": "#ffa173",
+      "--glow": "#ffe08a",
+      "--wisp": "#60bfc8",
+      "--bloom": "#f2a3c5",
+      "--rest": "#87aef0"
+    },
+    "musicRef": null,
+    "rarity": "common",
+    "renderer": "image",
+    "styleFamily": "aesthetic",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/cloud-loft/stage-0.webp",
+        "blurSrc": "/backgrounds/cloud-loft/stage-0.webp",
+        "promptId": "cloud-loft-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/cloud-loft/stage-1.webp",
+        "blurSrc": "/backgrounds/cloud-loft/stage-1.webp",
+        "promptId": "cloud-loft-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/cloud-loft/stage-2.webp",
+        "blurSrc": "/backgrounds/cloud-loft/stage-2.webp",
+        "promptId": "cloud-loft-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/cloud-loft/stage-3.webp",
+        "blurSrc": "/backgrounds/cloud-loft/stage-3.webp",
+        "promptId": "cloud-loft-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/cloud-loft/stage-4.webp",
+        "blurSrc": "/backgrounds/cloud-loft/stage-4.webp",
+        "promptId": "cloud-loft-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/cloud-loft/stage-5.webp",
+        "blurSrc": "/backgrounds/cloud-loft/stage-5.webp",
+        "promptId": "cloud-loft-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.62
+      },
+      "left": {
+        "x": 0.29,
+        "y": 0.65
+      },
+      "right": {
+        "x": 0.76,
+        "y": 0.63
+      },
+      "rest": {
+        "x": 0.38,
+        "y": 0.68
+      },
+      "decor": {
+        "x": 0.68,
+        "y": 0.61
+      },
+      "lamp": {
+        "x": 0.76,
+        "y": 0.5
+      },
+      "pond": {
+        "x": 0.28,
+        "y": 0.65
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.22
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "none"
+  },
+  {
+    "id": "tokyo-night",
+    "name": "Pixel Night Meadow",
+    "metaphor": "nightSky",
+    "palette": {
+      "--page-0": "#13112a",
+      "--page-1": "#0e0c20",
+      "--panel": "#191634",
+      "--surface": "#201c40",
+      "--ink": "#ece9ff",
+      "--ink-dim": "#bcb5e8",
+      "--border": "#3a3470",
+      "--ember": "#ff9e6d",
+      "--glow": "#ffd27d",
+      "--wisp": "#8be0d6",
+      "--bloom": "#f3a9cb",
+      "--rest": "#8fb8f0"
+    },
+    "musicRef": null,
+    "rarity": "common",
+    "renderer": "pixel",
+    "styleFamily": "pixel",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/tokyo-night/stage-0.webp",
+        "blurSrc": "/backgrounds/tokyo-night/stage-0.webp",
+        "promptId": "tokyo-night-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/tokyo-night/stage-1.webp",
+        "blurSrc": "/backgrounds/tokyo-night/stage-1.webp",
+        "promptId": "tokyo-night-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/tokyo-night/stage-2.webp",
+        "blurSrc": "/backgrounds/tokyo-night/stage-2.webp",
+        "promptId": "tokyo-night-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/tokyo-night/stage-3.webp",
+        "blurSrc": "/backgrounds/tokyo-night/stage-3.webp",
+        "promptId": "tokyo-night-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/tokyo-night/stage-4.webp",
+        "blurSrc": "/backgrounds/tokyo-night/stage-4.webp",
+        "promptId": "tokyo-night-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/tokyo-night/stage-5.webp",
+        "blurSrc": "/backgrounds/tokyo-night/stage-5.webp",
+        "promptId": "tokyo-night-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "left": {
+        "x": 0.23,
+        "y": 0.64
+      },
+      "right": {
+        "x": 0.78,
+        "y": 0.68
+      },
+      "rest": {
+        "x": 0.32,
+        "y": 0.7
+      },
+      "decor": {
+        "x": 0.62,
+        "y": 0.64
+      },
+      "lamp": {
+        "x": 0.23,
+        "y": 0.68
+      },
+      "pond": {
+        "x": 0.76,
+        "y": 0.72
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.2
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "stars"
+  },
+  {
+    "id": "dawn",
+    "name": "Pixel Dawn Grove",
+    "metaphor": "garden",
+    "palette": {
+      "--page-0": "#fdf3f8",
+      "--page-1": "#e3ddf6",
+      "--panel": "#ffffff",
+      "--surface": "#f3eefb",
+      "--ink": "#2a2348",
+      "--ink-dim": "#5a5280",
+      "--border": "#e3def5",
+      "--ember": "#ff9e6d",
+      "--glow": "#ffe08a",
+      "--wisp": "#4fb3a6",
+      "--bloom": "#e98bb6",
+      "--rest": "#6f9be0"
+    },
+    "musicRef": null,
+    "rarity": "common",
+    "renderer": "image",
+    "styleFamily": "pixel",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/dawn/stage-0.webp",
+        "blurSrc": "/backgrounds/dawn/stage-0.webp",
+        "promptId": "dawn-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/dawn/stage-1.webp",
+        "blurSrc": "/backgrounds/dawn/stage-1.webp",
+        "promptId": "dawn-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/dawn/stage-2.webp",
+        "blurSrc": "/backgrounds/dawn/stage-2.webp",
+        "promptId": "dawn-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/dawn/stage-3.webp",
+        "blurSrc": "/backgrounds/dawn/stage-3.webp",
+        "promptId": "dawn-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/dawn/stage-4.webp",
+        "blurSrc": "/backgrounds/dawn/stage-4.webp",
+        "promptId": "dawn-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/dawn/stage-5.webp",
+        "blurSrc": "/backgrounds/dawn/stage-5.webp",
+        "promptId": "dawn-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "left": {
+        "x": 0.23,
+        "y": 0.64
+      },
+      "right": {
+        "x": 0.78,
+        "y": 0.68
+      },
+      "rest": {
+        "x": 0.32,
+        "y": 0.7
+      },
+      "decor": {
+        "x": 0.62,
+        "y": 0.64
+      },
+      "lamp": {
+        "x": 0.23,
+        "y": 0.68
+      },
+      "pond": {
+        "x": 0.76,
+        "y": 0.72
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.2
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "dust"
+  },
+  {
+    "id": "lofi",
+    "name": "Pixel Lofi Cafe",
+    "metaphor": "room",
+    "palette": {
+      "--page-0": "#5a4334",
+      "--page-1": "#2a1d16",
+      "--panel": "#3a2a20",
+      "--surface": "#4a3528",
+      "--ink": "#f5e6d5",
+      "--ink-dim": "#d8b89a",
+      "--border": "#6a4f3a",
+      "--ember": "#e8b87a",
+      "--glow": "#ffd27d",
+      "--wisp": "#a8c4a0",
+      "--bloom": "#d99a7a",
+      "--rest": "#c2a07a"
+    },
+    "musicRef": null,
+    "rarity": "rare",
+    "renderer": "image",
+    "styleFamily": "pixel",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/lofi/stage-0.webp",
+        "blurSrc": "/backgrounds/lofi/stage-0.webp",
+        "promptId": "lofi-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/lofi/stage-1.webp",
+        "blurSrc": "/backgrounds/lofi/stage-1.webp",
+        "promptId": "lofi-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/lofi/stage-2.webp",
+        "blurSrc": "/backgrounds/lofi/stage-2.webp",
+        "promptId": "lofi-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/lofi/stage-3.webp",
+        "blurSrc": "/backgrounds/lofi/stage-3.webp",
+        "promptId": "lofi-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/lofi/stage-4.webp",
+        "blurSrc": "/backgrounds/lofi/stage-4.webp",
+        "promptId": "lofi-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/lofi/stage-5.webp",
+        "blurSrc": "/backgrounds/lofi/stage-5.webp",
+        "promptId": "lofi-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "left": {
+        "x": 0.23,
+        "y": 0.64
+      },
+      "right": {
+        "x": 0.78,
+        "y": 0.68
+      },
+      "rest": {
+        "x": 0.32,
+        "y": 0.7
+      },
+      "decor": {
+        "x": 0.62,
+        "y": 0.64
+      },
+      "lamp": {
+        "x": 0.23,
+        "y": 0.68
+      },
+      "pond": {
+        "x": 0.76,
+        "y": 0.72
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.2
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "rain"
+  },
+  {
+    "id": "pastel",
+    "name": "Pixel Star Pond",
+    "metaphor": "island",
+    "palette": {
+      "--page-0": "#d7c8f5",
+      "--page-1": "#b8e6dc",
+      "--panel": "#ffffff",
+      "--surface": "#efe8fb",
+      "--ink": "#3a2f5e",
+      "--ink-dim": "#6a5e92",
+      "--border": "#d9c2ec",
+      "--ember": "#ff9e6d",
+      "--glow": "#ffe08a",
+      "--wisp": "#4bbfae",
+      "--bloom": "#ff8fb3",
+      "--rest": "#7aa9f0"
+    },
+    "musicRef": null,
+    "rarity": "rare",
+    "renderer": "image",
+    "styleFamily": "pixel",
+    "backgroundStages": [
+      {
+        "stage": 0,
+        "minGrowth": 0,
+        "src": "/backgrounds/pastel/stage-0.webp",
+        "blurSrc": "/backgrounds/pastel/stage-0.webp",
+        "promptId": "pastel-stage-0"
+      },
+      {
+        "stage": 1,
+        "minGrowth": 1,
+        "src": "/backgrounds/pastel/stage-1.webp",
+        "blurSrc": "/backgrounds/pastel/stage-1.webp",
+        "promptId": "pastel-stage-1"
+      },
+      {
+        "stage": 2,
+        "minGrowth": 6,
+        "src": "/backgrounds/pastel/stage-2.webp",
+        "blurSrc": "/backgrounds/pastel/stage-2.webp",
+        "promptId": "pastel-stage-2"
+      },
+      {
+        "stage": 3,
+        "minGrowth": 15,
+        "src": "/backgrounds/pastel/stage-3.webp",
+        "blurSrc": "/backgrounds/pastel/stage-3.webp",
+        "promptId": "pastel-stage-3"
+      },
+      {
+        "stage": 4,
+        "minGrowth": 30,
+        "src": "/backgrounds/pastel/stage-4.webp",
+        "blurSrc": "/backgrounds/pastel/stage-4.webp",
+        "promptId": "pastel-stage-4"
+      },
+      {
+        "stage": 5,
+        "minGrowth": 60,
+        "src": "/backgrounds/pastel/stage-5.webp",
+        "blurSrc": "/backgrounds/pastel/stage-5.webp",
+        "promptId": "pastel-stage-5"
+      }
+    ],
+    "petAnchors": {
+      "center": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "left": {
+        "x": 0.23,
+        "y": 0.64
+      },
+      "right": {
+        "x": 0.78,
+        "y": 0.68
+      },
+      "rest": {
+        "x": 0.32,
+        "y": 0.7
+      },
+      "decor": {
+        "x": 0.62,
+        "y": 0.64
+      },
+      "lamp": {
+        "x": 0.23,
+        "y": 0.68
+      },
+      "pond": {
+        "x": 0.76,
+        "y": 0.72
+      },
+      "quest": {
+        "x": 0.5,
+        "y": 0.2
+      },
+      "timer": {
+        "x": 0.5,
+        "y": 0.82
+      }
+    },
+    "overlayProfile": "fireflies"
+  }
+]

@@ -1,0 +1,69 @@
+/* ============================================================================
+   /design showcase — layout-only styles. Tokens, ambiences, keyframes and the
+   ds-* component classes now live globally in app/globals.css (applied app-wide).
+   This file only adds the documentation page's scaffolding.
+   ============================================================================ */
+
+.ds-root {
+  min-height: 100vh;
+  background: radial-gradient(120% 80% at 70% -5%, var(--page-0), var(--page-1) 70%);
+  color: var(--ink);
+}
+
+.ds-page { max-width: 1180px; margin: 0 auto; padding: 88px 28px 120px; }
+.ds-section { margin-top: 96px; }
+.ds-section:first-of-type { margin-top: 0; }
+.ds-grid { display: grid; gap: 18px; }
+
+/* ── Theme switcher (sticky toolbar) ───────────────────────────────────────── */
+.ds-themebar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  padding: 14px 28px;
+  background: color-mix(in srgb, var(--page-1) 82%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-2);
+}
+.ds-themebar__label { font: 700 10px var(--font-pixel); letter-spacing: 1.5px; text-transform: uppercase; color: var(--label); margin-right: 4px; }
+.ds-themebtn {
+  font: 600 12px var(--font-body); color: var(--ink-dim);
+  background: var(--surface); border: 2px solid var(--border);
+  border-radius: 999px; padding: 6px 14px; cursor: pointer; transition: all 0.15s ease;
+}
+.ds-themebtn:hover { color: var(--ink); }
+.ds-themebtn[aria-pressed="true"] { color: var(--on-accent); background: var(--wisp); border-color: var(--wisp); }
+
+/* ── Sticky note ───────────────────────────────────────────────────────────── */
+.ds-note {
+  background: #fef4a8; color: #5a4a1a; padding: 16px 18px;
+  font: 500 13px/1.5 var(--font-body);
+  box-shadow: 0 8px 20px -8px rgba(40, 32, 72, 0.3);
+  transform: rotate(-1.2deg); border-radius: 3px;
+}
+
+/* ── Swatch (colour docs) ──────────────────────────────────────────────────── */
+.ds-swatch { display: flex; align-items: center; gap: 12px; }
+.ds-swatch__chip { width: 46px; height: 46px; border-radius: 11px; flex: none; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08); }
+.ds-swatch__name { font: 600 14px var(--font-body); color: var(--ink); }
+.ds-swatch__meta { font: 600 10px var(--font-mono); color: var(--ink-mut); }
+
+/* ── Browser frame (applied screens) ───────────────────────────────────────── */
+.ds-screen { border-radius: 14px; overflow: hidden; border: 2px solid var(--border); box-shadow: var(--shadow); }
+.ds-screen__chrome { background: var(--panel-grad-b); padding: 9px 12px; display: flex; align-items: center; gap: 10px; }
+.ds-screen__dots { display: flex; gap: 6px; }
+.ds-screen__dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+.ds-screen__tab { flex: 1; background: var(--page-1); border-radius: 8px; padding: 5px 12px; font: 500 11px var(--font-mono); color: var(--ink-mut); text-align: center; }
+.ds-screen__body { position: relative; background: radial-gradient(120% 80% at 70% -5%, var(--page-0), var(--page-1) 60%); min-height: 420px; padding: 18px; display: flex; flex-direction: column; align-items: center; }
+
+/* ── Type specimen helpers ─────────────────────────────────────────────────── */
+.ds-type-pixel { font-family: var(--font-pixel); }
+.ds-type-head { font-family: var(--font-head); }
+.ds-type-body { font-family: var(--font-body); }
+.ds-type-mono { font-family: var(--font-mono); }
+
+/* ── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .ds-cover-grid { grid-template-columns: 1fr !important; }
+  .ds-page { padding: 64px 18px 100px; }
+  .ds-section { margin-top: 72px; }
+}

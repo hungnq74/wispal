@@ -1,0 +1,10 @@
+packages:
+  - 'web'
+  - 'extension'
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+overrides:
+  electron-to-chromium: 1.5.379
+  js-yaml: 4.1.0

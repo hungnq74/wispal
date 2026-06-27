@@ -1,0 +1,19 @@
+{
+  "name": "wispal",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Wispal — the study companion that lives in your new tab and refuses to burn you out.",
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build && pnpm --filter extension build",
+    "build:web": "pnpm --filter web build",
+    "build:ext": "pnpm --filter extension build",
+    "start": "pnpm --filter web start",
+    "lint": "pnpm --filter web lint",
+    "test": "pnpm --filter web test",
+    "guardrails": "node scripts/guardrails.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

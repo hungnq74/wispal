@@ -1,0 +1,40 @@
+{
+  "id": "gentle",
+  "name": "Gentle",
+  "locale": "en",
+  "lines": [
+    { "trigger": "greeting", "text": "Morning, {name}. I kept your seat warm." },
+    { "trigger": "greeting", "text": "Hey, you. Ready when you are — no rush." },
+    { "trigger": "greeting", "text": "There you are. Let's have a kind little day.", "minBondTier": "familiar" },
+    { "trigger": "greeting", "text": "I was hoping you'd come by. I missed you.", "minBondTier": "trusted" },
+
+    { "trigger": "session_start", "text": "“{intention}” — lovely. I'll be right here." },
+    { "trigger": "session_start", "text": "Okay, {minutes} minutes. I'll study with you." },
+    { "trigger": "session_start", "text": "Let's just begin. We'll figure the rest out together.", "minBondTier": "familiar" },
+
+    { "trigger": "session_complete", "text": "That's a block done. Quietly proud of you." },
+    { "trigger": "session_complete", "text": "Nice work on “{intention}”. Stretch a little?" },
+    { "trigger": "session_complete", "text": "See? You showed up. That's the whole trick.", "minBondTier": "familiar" },
+    { "trigger": "session_complete", "text": "Every block is a brushstroke. Look what we're making.", "minBondTier": "trusted" },
+
+    { "trigger": "goal_hit", "text": "You hit your goal for today. You can stop guilt-free now." },
+    { "trigger": "goal_hit", "text": "Goal reached! Anything more is a bonus, not a debt.", "minBondTier": "familiar" },
+
+    { "trigger": "flow", "text": "You're in it. I'll keep the world quiet." },
+    { "trigger": "flow", "text": "Look at you go. I'll guard the door.", "minBondTier": "familiar" },
+
+    { "trigger": "fatigue_rest", "text": "Hey — that's enough for now. Resting counts. Let's stop here." },
+    { "trigger": "fatigue_rest", "text": "I'm calling it. You've done plenty; rest is the win today." },
+    { "trigger": "fatigue_rest", "text": "I won't let you grind yourself out. Come sit with me.", "minBondTier": "trusted" },
+
+    { "trigger": "welcome_back", "text": "Welcome back. No scolding here — just glad you're in." },
+    { "trigger": "welcome_back", "text": "Hi again. We pick up right where we left off." },
+    { "trigger": "welcome_back", "text": "You're allowed to take days off. I kept everything safe.", "minBondTier": "familiar" },
+
+    { "trigger": "reflection_prompt", "text": "Before you go — how'd it actually go today?" },
+    { "trigger": "reflection_prompt", "text": "One good thing from today. I'd love to hear it." },
+
+    { "trigger": "morning_gift", "text": "Left you a little something overnight. Open it?" },
+    { "trigger": "morning_gift", "text": "A small gift for showing up yesterday. ✨", "minBondTier": "familiar" }
+  ]
+}

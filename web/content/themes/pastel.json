@@ -1,0 +1,106 @@
+{
+  "id": "pastel",
+  "name": "Pixel Star Pond",
+  "metaphor": "island",
+  "palette": {
+    "--page-0": "#d7c8f5",
+    "--page-1": "#b8e6dc",
+    "--panel": "#ffffff",
+    "--surface": "#efe8fb",
+    "--ink": "#3a2f5e",
+    "--ink-dim": "#6a5e92",
+    "--border": "#d9c2ec",
+    "--ember": "#ff9e6d",
+    "--glow": "#ffe08a",
+    "--wisp": "#4bbfae",
+    "--bloom": "#ff8fb3",
+    "--rest": "#7aa9f0"
+  },
+  "musicRef": null,
+  "rarity": "rare",
+  "renderer": "image",
+  "styleFamily": "pixel",
+  "backgroundStages": [
+    {
+      "stage": 0,
+      "minGrowth": 0,
+      "src": "/backgrounds/pastel/stage-0.webp",
+      "blurSrc": "/backgrounds/pastel/stage-0.webp",
+      "promptId": "pastel-stage-0"
+    },
+    {
+      "stage": 1,
+      "minGrowth": 1,
+      "src": "/backgrounds/pastel/stage-1.webp",
+      "blurSrc": "/backgrounds/pastel/stage-1.webp",
+      "promptId": "pastel-stage-1"
+    },
+    {
+      "stage": 2,
+      "minGrowth": 6,
+      "src": "/backgrounds/pastel/stage-2.webp",
+      "blurSrc": "/backgrounds/pastel/stage-2.webp",
+      "promptId": "pastel-stage-2"
+    },
+    {
+      "stage": 3,
+      "minGrowth": 15,
+      "src": "/backgrounds/pastel/stage-3.webp",
+      "blurSrc": "/backgrounds/pastel/stage-3.webp",
+      "promptId": "pastel-stage-3"
+    },
+    {
+      "stage": 4,
+      "minGrowth": 30,
+      "src": "/backgrounds/pastel/stage-4.webp",
+      "blurSrc": "/backgrounds/pastel/stage-4.webp",
+      "promptId": "pastel-stage-4"
+    },
+    {
+      "stage": 5,
+      "minGrowth": 60,
+      "src": "/backgrounds/pastel/stage-5.webp",
+      "blurSrc": "/backgrounds/pastel/stage-5.webp",
+      "promptId": "pastel-stage-5"
+    }
+  ],
+  "petAnchors": {
+    "center": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "left": {
+      "x": 0.23,
+      "y": 0.64
+    },
+    "right": {
+      "x": 0.78,
+      "y": 0.68
+    },
+    "rest": {
+      "x": 0.32,
+      "y": 0.7
+    },
+    "decor": {
+      "x": 0.62,
+      "y": 0.64
+    },
+    "lamp": {
+      "x": 0.23,
+      "y": 0.68
+    },
+    "pond": {
+      "x": 0.76,
+      "y": 0.72
+    },
+    "quest": {
+      "x": 0.5,
+      "y": 0.2
+    },
+    "timer": {
+      "x": 0.5,
+      "y": 0.82
+    }
+  },
+  "overlayProfile": "fireflies"
+}

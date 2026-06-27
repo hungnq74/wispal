@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Pixelify+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --n950:#0e0c20; --n900:#13112a; --n850:#191634; --n800:#201c40; --n700:#2b2654; --n600:#3a3470; --n500:#4d4690;
+    --lav:#ece9ff; --lav-dim:#bcb5e8; --lav-mut:#8a83bd;
+    --ember:#ff9e6d; --ember-d:#c96a4a; --glow:#ffd27d; --wisp:#8be0d6; --wisp-d:#4fb3a6; --bloom:#f3a9cb; --rest:#8fb8f0;
+    --dawn-bg:#efeaf9; --dawn-panel:#ffffff; --dawn-ink:#2a2348; --dawn-mut:#7b73a8;
+    --label:rgba(38,32,72,.72);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @keyframes floaty2{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  @keyframes twinkle{0%,100%{opacity:.25}50%{opacity:1}}
+  @keyframes pulseGlow{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.9;transform:scale(1.12)}}
+  @keyframes barfill{0%{width:0}100%{width:62%}}
+</style>
+</helmet>
+
+<!-- ===================== COVER ===================== -->
+<div style="position:absolute;left:80px;top:80px;width:860px;">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;font:700 11px 'Silkscreen',monospace;letter-spacing:2px;color:var(--label);text-transform:uppercase;">Brand · 01 — Identity</div>
+  <div style="position:relative;overflow:hidden;border-radius:20px;background:radial-gradient(120% 90% at 78% 8%, #2b2658 0%, #16132f 48%, #0e0c20 100%);border:2px solid var(--n600);box-shadow:0 24px 60px -24px rgba(10,8,28,.7);padding:48px 48px 44px;">
+    <div style="position:absolute;width:3px;height:3px;background:var(--lav);top:42px;left:120px;animation:twinkle 3s ease-in-out infinite;"></div>
+    <div style="position:absolute;width:3px;height:3px;background:var(--wisp);top:88px;left:300px;animation:twinkle 4s .5s ease-in-out infinite;"></div>
+    <div style="position:absolute;width:2px;height:2px;background:var(--glow);top:60px;left:520px;animation:twinkle 2.6s .3s ease-in-out infinite;"></div>
+    <div style="position:absolute;width:3px;height:3px;background:var(--lav);top:130px;left:700px;animation:twinkle 3.4s .8s ease-in-out infinite;"></div>
+    <div style="position:absolute;width:2px;height:2px;background:var(--bloom);top:200px;left:130px;animation:twinkle 3.1s .2s ease-in-out infinite;"></div>
+    <div style="position:absolute;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,var(--wisp) 0%,transparent 70%);opacity:.35;top:150px;right:90px;animation:pulseGlow 5s ease-in-out infinite;"></div>
+
+    <div style="display:flex;align-items:center;gap:18px;position:relative;z-index:2;">
+      <div style="filter:drop-shadow(0 0 10px rgba(139,224,214,.5));animation:floaty 5s ease-in-out infinite;">{{ wispLg }}</div>
+      <div>
+        <div style="font:400 13px 'Silkscreen',monospace;letter-spacing:5px;color:var(--wisp);text-transform:uppercase;">Night Study Club</div>
+        <div style="font:700 72px/0.9 'Silkscreen',monospace;color:var(--lav);letter-spacing:1px;margin-top:10px;text-shadow:0 0 24px rgba(143,184,240,.35);">Wispal</div>
+      </div>
+    </div>
+
+    <p style="position:relative;z-index:2;max-width:560px;margin:30px 0 0;font:500 21px/1.5 'Space Grotesk',sans-serif;color:var(--lav-dim);">The focus companion that studies beside you at night — and <span style="color:var(--ember);">refuses to let you grind yourself to dust.</span></p>
+
+    <div style="position:relative;z-index:2;display:flex;gap:10px;margin-top:26px;flex-wrap:wrap;">
+      <span style="font:600 12px 'Space Mono',monospace;color:var(--n900);background:var(--wisp);padding:7px 12px;border-radius:8px;">pixel</span>
+      <span style="font:600 12px 'Space Mono',monospace;color:var(--n900);background:var(--glow);padding:7px 12px;border-radius:8px;">playful</span>
+      <span style="font:600 12px 'Space Mono',monospace;color:var(--n900);background:var(--bloom);padding:7px 12px;border-radius:8px;">ambient</span>
+    </div>
+  </div>
+</div>
+
+<!-- positioning -->
+<div style="position:absolute;left:980px;top:80px;width:540px;">
+  <div data-drags-parent="1" style="position:absolute;top:-26px;font:700 11px 'Silkscreen',monospace;letter-spacing:2px;color:var(--label);text-transform:uppercase;">The redesign brief</div>
+  <div style="border-radius:20px;background:var(--dawn-panel);border:2px solid #e3def5;box-shadow:0 16px 40px -22px rgba(40,32,72,.4);padding:34px;height:100%;">
+    <div style="font:600 13px 'Space Mono',monospace;color:var(--ember-d);">WHAT WE KILLED</div>
+    <p style="margin:8px 0 22px;font:500 16px/1.55 'Space Grotesk',sans-serif;color:var(--dawn-ink);">The cozy-kiddie leaf sprite, washed-out cream palette, and emoji-as-icons — it read like a meditation app for children, with no ownable identity.</p>
+    <div style="height:2px;background:#ece8f7;margin:0 0 22px;"></div>
+    <div style="font:600 13px 'Space Mono',monospace;color:var(--wisp-d);">WHAT WE BUILT</div>
+    <ul style="margin:8px 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:12px;">
+      <li style="font:500 15px/1.45 'Space Grotesk',sans-serif;color:var(--dawn-ink);display:flex;gap:10px;"><span style="color:var(--wisp-d);font-family:'Silkscreen';">▸</span> A <b>wisp spirit</b> companion that finally earns the name <i>Wispal</i>.</li>
+      <li style="font:500 15px/1.45 'Space Grotesk',sans-serif;color:var(--dawn-ink);display:flex;gap:10px;"><span style="color:var(--wisp-d);font-family:'Silkscreen';">▸</span> A <b>night-ambient</b> world — calm is the brand, not a feature.</li>
+      <li style="font:500 15px/1.45 'Space Grotesk',sans-serif;color:var(--dawn-ink);display:flex;gap:10px;"><span style="color:var(--wisp-d);font-family:'Silkscreen';">▸</span> <b>Pixel craft</b> with grown-up restraint — playful, not childish.</li>
+      <li style="font:500 15px/1.45 'Space Grotesk',sans-serif;color:var(--dawn-ink);display:flex;gap:10px;"><span style="color:var(--wisp-d);font-family:'Silkscreen';">▸</span> One identity, <b>five swappable ambiences</b> = the premium theme engine.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===================== DIRECTIONS / THEMES ===================== -->
+<div data-drags-parent="0" style="position:absolute;left:80px;top:600px;width:900px;">
+  <div style="font:700 11px 'Silkscreen',monospace;letter-spacing:2px;color:var(--label);text-transform:uppercase;">Brand · 02 — Directions</div>
+  <div style="font:600 30px 'Pixelify Sans',sans-serif;color:var(--dawn-ink);margin-top:6px;">One brand, five ambiences</div>
+  <div style="font:500 15px 'Space Grotesk',sans-serif;color:var(--label);margin-top:4px;max-width:620px;">The aesthetic options become the product's theme system. <b style="color:var(--dawn-ink);">Tokyo Night</b> is the core identity; the rest ship as unlockable world + music themes.</div>
+</div>
+
+<!-- tile 1 — Tokyo Night (selected) -->
+<div style="position:absolute;left:80px;top:720px;width:268px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;display:flex;align-items:center;gap:8px;font:700 11px 'Silkscreen',monospace;color:var(--label);">TOKYO NIGHT <span style="background:var(--wisp-d);color:#fff;font:600 9px 'Space Mono';padding:2px 6px;border-radius:5px;letter-spacing:0;">CORE</span></div>
+  <div style="border-radius:16px;overflow:hidden;border:3px solid var(--wisp-d);box-shadow:0 14px 30px -16px rgba(40,32,72,.5);">
+    <div style="height:150px;background:radial-gradient(110% 80% at 70% 15%,#2b2658,#13112a 60%,#0e0c20);position:relative;display:grid;place-items:center;">
+      <div style="position:absolute;width:2px;height:2px;background:var(--lav);top:24px;left:40px;"></div>
+      <div style="position:absolute;width:2px;height:2px;background:var(--glow);top:38px;left:200px;"></div>
+      <div style="position:absolute;width:2px;height:2px;background:var(--wisp);top:18px;left:150px;"></div>
+      <div style="filter:drop-shadow(0 0 8px rgba(139,224,214,.6));animation:floaty2 5s ease-in-out infinite;">{{ wispMd }}</div>
+    </div>
+    <div style="display:flex;height:14px;">
+      <div style="flex:1;background:var(--n800);"></div><div style="flex:1;background:var(--ember);"></div><div style="flex:1;background:var(--wisp);"></div><div style="flex:1;background:var(--glow);"></div><div style="flex:1;background:var(--bloom);"></div>
+    </div>
+  </div>
+</div>
+
+<!-- tile 2 — Dawn -->
+<div style="position:absolute;left:378px;top:720px;width:268px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">DAWN — LIGHT MODE</div>
+  <div style="border-radius:16px;overflow:hidden;border:3px solid #e3def5;box-shadow:0 14px 30px -16px rgba(40,32,72,.4);">
+    <div style="height:150px;background:linear-gradient(180deg,#fdf3f8,#efeaf9 70%,#e3ddf6);position:relative;display:grid;place-items:center;">
+      <div style="filter:drop-shadow(0 4px 8px rgba(143,184,240,.4));animation:floaty2 5.4s ease-in-out infinite;">{{ wispMd }}</div>
+    </div>
+    <div style="display:flex;height:14px;">
+      <div style="flex:1;background:#efeaf9;"></div><div style="flex:1;background:#ffc7a0;"></div><div style="flex:1;background:#7fd0c6;"></div><div style="flex:1;background:#ffd27d;"></div><div style="flex:1;background:#f3a9cb;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- tile 3 — Lofi Café -->
+<div style="position:absolute;left:676px;top:720px;width:268px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">LOFI CAFÉ</div>
+  <div style="border-radius:16px;overflow:hidden;border:3px solid #d8c4ad;box-shadow:0 14px 30px -16px rgba(40,32,72,.4);">
+    <div style="height:150px;background:radial-gradient(110% 80% at 70% 20%,#5a4334,#3a2a20 70%,#2a1d16);position:relative;display:grid;place-items:center;">
+      <div style="position:absolute;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle,#ffd27d,transparent 70%);top:24px;right:36px;opacity:.7;"></div>
+      <div style="animation:floaty2 5.2s ease-in-out infinite;">{{ wispMd }}</div>
+    </div>
+    <div style="display:flex;height:14px;">
+      <div style="flex:1;background:#3a2a20;"></div><div style="flex:1;background:#c98a5a;"></div><div style="flex:1;background:#e8b87a;"></div><div style="flex:1;background:#a8c4a0;"></div><div style="flex:1;background:#d99a7a;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- tile 4 — Dark Academia -->
+<div style="position:absolute;left:80px;top:910px;width:268px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">DARK ACADEMIA</div>
+  <div style="border-radius:16px;overflow:hidden;border:3px solid #4a3a28;box-shadow:0 14px 30px -16px rgba(40,32,72,.4);">
+    <div style="height:150px;background:radial-gradient(110% 80% at 70% 18%,#2d3a2c,#1d2620 65%,#141a16);position:relative;display:grid;place-items:center;">
+      <div style="position:absolute;width:2px;height:2px;background:#d4b483;top:30px;left:60px;"></div>
+      <div style="animation:floaty2 5.6s ease-in-out infinite;">{{ wispMd }}</div>
+    </div>
+    <div style="display:flex;height:14px;">
+      <div style="flex:1;background:#1d2620;"></div><div style="flex:1;background:#8a3a2a;"></div><div style="flex:1;background:#d4b483;"></div><div style="flex:1;background:#5a7a52;"></div><div style="flex:1;background:#c2a05a;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- tile 5 — Pastel Pixel -->
+<div style="position:absolute;left:378px;top:910px;width:268px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">PASTEL PIXEL</div>
+  <div style="border-radius:16px;overflow:hidden;border:3px solid #d9c2ec;box-shadow:0 14px 30px -16px rgba(40,32,72,.4);">
+    <div style="height:150px;background:linear-gradient(180deg,#c9b8f0,#9ec9f0 60%,#b8e6dc);position:relative;display:grid;place-items:center;">
+      <div style="animation:floaty2 5.1s ease-in-out infinite;">{{ wispMd }}</div>
+    </div>
+    <div style="display:flex;height:14px;">
+      <div style="flex:1;background:#c9b8f0;"></div><div style="flex:1;background:#ffb3c8;"></div><div style="flex:1;background:#9ee0d4;"></div><div style="flex:1;background:#ffe08a;"></div><div style="flex:1;background:#a9c9ff;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- note -->
+<div style="position:absolute;left:676px;top:910px;width:268px;">
+  <div style="background:#fef4a8;padding:16px 18px;font:500 13px/1.5 'Space Grotesk',sans-serif;color:#5a4a1a;box-shadow:0 8px 20px -8px rgba(40,32,72,.3);transform:rotate(-1.2deg);border-radius:3px;">Each ambience reskins the same UI tokens + companion — the engine is one system. Premium themes monetize <i>expression</i>, never the loop.</div>
+</div>
+
+
+<!-- ===================== LOGO ===================== -->
+<div data-drags-parent="0" style="position:absolute;left:80px;top:1140px;width:900px;">
+  <div style="font:700 11px 'Silkscreen',monospace;letter-spacing:2px;color:var(--label);text-transform:uppercase;">Brand · 03 — Logo &amp; wordmark</div>
+  <div style="font:600 30px 'Pixelify Sans',sans-serif;color:var(--dawn-ink);margin-top:6px;">Wisp + pal</div>
+  <div style="font:500 15px 'Space Grotesk',sans-serif;color:var(--label);margin-top:4px;max-width:620px;">The wordmark is set in <b style="color:var(--dawn-ink);">Silkscreen</b>. The mark is the wisp itself — the brand's mascot and logo are the same character.</div>
+</div>
+
+<!-- wordmark lockups -->
+<div style="position:absolute;left:80px;top:1270px;width:560px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">LOCKUPS</div>
+  <div style="border-radius:18px;background:radial-gradient(120% 100% at 80% 0%,#231f48,#13112a 70%);border:2px solid var(--n600);padding:30px;display:flex;flex-direction:column;gap:24px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div style="filter:drop-shadow(0 0 8px rgba(139,224,214,.5));">{{ wispSm }}</div>
+      <div style="font:700 40px 'Silkscreen',monospace;color:var(--lav);">Wispal</div>
+    </div>
+    <div style="height:2px;background:var(--n700);"></div>
+    <div style="display:flex;align-items:center;gap:30px;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <div style="filter:drop-shadow(0 0 6px rgba(139,224,214,.5));">{{ wispSm }}</div>
+        <div style="font:700 22px 'Silkscreen',monospace;color:var(--lav);">Wispal</div>
+      </div>
+      <div style="font:700 28px 'Silkscreen',monospace;color:var(--wisp);">Wispal</div>
+      <div style="font:700 28px 'Silkscreen',monospace;color:var(--lav-mut);">Wispal</div>
+    </div>
+  </div>
+  <div style="border-radius:18px;background:var(--dawn-panel);border:2px solid #e3def5;padding:24px 30px;margin-top:14px;display:flex;align-items:center;gap:14px;">
+    <div>{{ wispSm }}</div>
+    <div style="font:700 34px 'Silkscreen',monospace;color:var(--dawn-ink);">Wispal</div>
+    <div style="margin-left:auto;font:600 11px 'Space Mono',monospace;color:var(--dawn-mut);text-align:right;">on light<br>backgrounds</div>
+  </div>
+</div>
+
+<!-- app icon -->
+<div style="position:absolute;left:680px;top:1270px;width:300px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">APP ICON</div>
+  <div style="border-radius:18px;background:var(--dawn-panel);border:2px solid #e3def5;padding:30px;display:flex;flex-direction:column;align-items:center;gap:22px;">
+    <div style="position:relative;width:128px;height:128px;border-radius:28px;background:radial-gradient(110% 90% at 70% 15%,#2f2a60,#16132f 65%,#0e0c20);box-shadow:0 12px 28px -10px rgba(20,16,46,.7);display:grid;place-items:center;overflow:hidden;">
+      <div style="position:absolute;width:3px;height:3px;background:var(--lav);top:22px;left:26px;"></div>
+      <div style="position:absolute;width:2px;height:2px;background:var(--glow);top:34px;left:96px;"></div>
+      <div style="position:absolute;width:2px;height:2px;background:var(--bloom);top:96px;left:30px;"></div>
+      <div style="filter:drop-shadow(0 0 8px rgba(139,224,214,.6));">{{ wispMd }}</div>
+    </div>
+    <div style="display:flex;align-items:flex-end;gap:16px;">
+      <div style="width:56px;height:56px;border-radius:13px;background:radial-gradient(110% 90% at 70% 15%,#2f2a60,#13112a);display:grid;place-items:center;overflow:hidden;">{{ wispXs }}</div>
+      <div style="width:32px;height:32px;border-radius:8px;background:radial-gradient(110% 90% at 70% 15%,#2f2a60,#13112a);display:grid;place-items:center;overflow:hidden;"><div style="transform:scale(.5);">{{ wispXs }}</div></div>
+    </div>
+    <div style="font:600 11px 'Space Mono',monospace;color:var(--dawn-mut);">128 · 56 · 32 px — favicon &amp; PWA</div>
+  </div>
+</div>
+
+<!-- clear space / don'ts -->
+<div style="position:absolute;left:1020px;top:1270px;width:440px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">CLEAR SPACE &amp; MISUSE</div>
+  <div style="border-radius:18px;background:var(--dawn-panel);border:2px solid #e3def5;padding:26px;display:flex;flex-direction:column;gap:16px;">
+    <div style="border:2px dashed #cfc7ea;border-radius:12px;padding:18px;display:flex;align-items:center;gap:12px;justify-content:center;">
+      <div>{{ wispXs }}</div><div style="font:700 22px 'Silkscreen',monospace;color:var(--dawn-ink);">Wispal</div>
+    </div>
+    <div style="font:500 13px/1.5 'Space Grotesk',sans-serif;color:var(--dawn-mut);">Keep clear space equal to the wisp's height on all sides. The mark may stand alone as an avatar.</div>
+    <div style="height:2px;background:#ece8f7;"></div>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <div style="display:flex;gap:9px;align-items:center;font:500 13px 'Space Grotesk',sans-serif;color:var(--ember-d);"><span style="font-family:'Silkscreen';">✕</span> Don't recolor the wisp arbitrarily</div>
+      <div style="display:flex;gap:9px;align-items:center;font:500 13px 'Space Grotesk',sans-serif;color:var(--ember-d);"><span style="font-family:'Silkscreen';">✕</span> Don't set the wordmark in any non-pixel face</div>
+      <div style="display:flex;gap:9px;align-items:center;font:500 13px 'Space Grotesk',sans-serif;color:var(--ember-d);"><span style="font-family:'Silkscreen';">✕</span> Don't add gradients or bevels to the letters</div>
+      <div style="display:flex;gap:9px;align-items:center;font:500 13px 'Space Grotesk',sans-serif;color:var(--ember-d);"><span style="font-family:'Silkscreen';">✕</span> Don't smooth / anti-alias the pixels</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== COLOR ===================== -->
+<div data-drags-parent="0" style="position:absolute;left:80px;top:1720px;width:900px;">
+  <div style="font:700 11px 'Silkscreen',monospace;letter-spacing:2px;color:var(--label);text-transform:uppercase;">Brand · 04 — Color</div>
+  <div style="font:600 30px 'Pixelify Sans',sans-serif;color:var(--dawn-ink);margin-top:6px;">Deep night, warm light</div>
+  <div style="font:500 15px 'Space Grotesk',sans-serif;color:var(--label);margin-top:4px;max-width:640px;">A plum-indigo canvas does the calming; accents are pulled from lamp-light and the wisp's glow. Saturation stays low except where a <i>moment</i> earns it.</div>
+</div>
+
+<!-- night ramp -->
+<div style="position:absolute;left:80px;top:1850px;width:560px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">NIGHT — SURFACES (DEFAULT)</div>
+  <div style="border-radius:18px;background:var(--dawn-panel);border:2px solid #e3def5;padding:20px;">
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-radius:12px;overflow:hidden;">
+      <div style="height:74px;background:#0e0c20;"></div><div style="height:74px;background:#13112a;"></div><div style="height:74px;background:#201c40;"></div><div style="height:74px;background:#2b2654;"></div><div style="height:74px;background:#3a3470;"></div><div style="height:74px;background:#4d4690;"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:0;font:600 9px 'Space Mono',monospace;color:var(--dawn-mut);margin-top:6px;text-align:center;">
+      <div>950<br>0e0c20</div><div>900<br>13112a</div><div>800<br>201c40</div><div>700<br>2b2654</div><div>600<br>3a3470</div><div>500<br>4d4690</div>
+    </div>
+    <div style="height:2px;background:#ece8f7;margin:18px 0;"></div>
+    <div style="font:600 10px 'Space Mono',monospace;color:var(--dawn-mut);margin-bottom:8px;">INK ON NIGHT</div>
+    <div style="display:flex;gap:10px;">
+      <div style="flex:1;background:#13112a;border-radius:10px;padding:12px;"><div style="font:600 16px 'Space Grotesk';color:#ece9ff;">Lavender</div><div style="font:600 10px 'Space Mono';color:#8a83bd;">ece9ff · primary text</div></div>
+      <div style="flex:1;background:#13112a;border-radius:10px;padding:12px;"><div style="font:600 16px 'Space Grotesk';color:#bcb5e8;">Dim</div><div style="font:600 10px 'Space Mono';color:#8a83bd;">bcb5e8 · secondary</div></div>
+      <div style="flex:1;background:#13112a;border-radius:10px;padding:12px;"><div style="font:600 16px 'Space Grotesk';color:#8a83bd;">Muted</div><div style="font:600 10px 'Space Mono';color:#8a83bd;">8a83bd · captions</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- dawn -->
+<div style="position:absolute;left:680px;top:1850px;width:360px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">DAWN — LIGHT MODE</div>
+  <div style="border-radius:18px;background:var(--dawn-panel);border:2px solid #e3def5;padding:20px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:12px;overflow:hidden;">
+      <div style="height:74px;background:#efeaf9;"></div><div style="height:74px;background:#ffffff;"></div><div style="height:74px;background:#2a2348;"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;font:600 9px 'Space Mono',monospace;color:var(--dawn-mut);margin-top:6px;text-align:center;">
+      <div>bg<br>efeaf9</div><div>panel<br>ffffff</div><div>ink<br>2a2348</div>
+    </div>
+    <div style="height:2px;background:#ece8f7;margin:18px 0;"></div>
+    <div style="font:500 13px/1.55 'Space Grotesk',sans-serif;color:var(--dawn-mut);">Same accents, same wisp. Light mode is the daytime ambience — the night palette remains the brand's home.</div>
+  </div>
+</div>
+
+<!-- accents + gradients -->
+<div style="position:absolute;left:1080px;top:1850px;width:400px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">ACCENTS — THE GLOW</div>
+  <div style="border-radius:18px;background:var(--dawn-panel);border:2px solid #e3def5;padding:20px;">
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;align-items:center;gap:12px;"><div style="width:46px;height:46px;border-radius:11px;background:#ff9e6d;"></div><div><div style="font:600 14px 'Space Grotesk';color:var(--dawn-ink);">Ember</div><div style="font:600 10px 'Space Mono';color:var(--dawn-mut);">ff9e6d · primary action, lamp</div></div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div style="width:46px;height:46px;border-radius:11px;background:#ffd27d;"></div><div><div style="font:600 14px 'Space Grotesk';color:var(--dawn-ink);">Glow</div><div style="font:600 10px 'Space Mono';color:var(--dawn-mut);">ffd27d · celebration, goal</div></div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div style="width:46px;height:46px;border-radius:11px;background:#8be0d6;"></div><div><div style="font:600 14px 'Space Grotesk';color:var(--dawn-ink);">Wisp</div><div style="font:600 10px 'Space Mono';color:var(--dawn-mut);">8be0d6 · the companion, focus</div></div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div style="width:46px;height:46px;border-radius:11px;background:#f3a9cb;"></div><div><div style="font:600 14px 'Space Grotesk';color:var(--dawn-ink);">Bloom</div><div style="font:600 10px 'Space Mono';color:var(--dawn-mut);">f3a9cb · bond, warmth</div></div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div style="width:46px;height:46px;border-radius:11px;background:#8fb8f0;"></div><div><div style="font:600 14px 'Space Grotesk';color:var(--dawn-ink);">Rest</div><div style="font:600 10px 'Space Mono';color:var(--dawn-mut);">8fb8f0 · rest, calm states</div></div></div>
+    </div>
+    <div style="height:2px;background:#ece8f7;margin:16px 0;"></div>
+    <div style="font:600 10px 'Space Mono',monospace;color:var(--dawn-mut);margin-bottom:8px;">AMBIENT GRADIENTS</div>
+    <div style="display:flex;gap:8px;">
+      <div style="flex:1;height:40px;border-radius:9px;background:linear-gradient(90deg,#ff9e6d,#f3a9cb);"></div>
+      <div style="flex:1;height:40px;border-radius:9px;background:linear-gradient(90deg,#8be0d6,#8fb8f0);"></div>
+      <div style="flex:1;height:40px;border-radius:9px;background:linear-gradient(90deg,#2b2654,#0e0c20);"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TYPE ===================== -->
+<div data-drags-parent="0" style="position:absolute;left:80px;top:2400px;width:900px;">
+  <div style="font:700 11px 'Silkscreen',monospace;letter-spacing:2px;color:var(--label);text-transform:uppercase;">Brand · 05 — Typography</div>
+  <div style="font:600 30px 'Pixelify Sans',sans-serif;color:var(--dawn-ink);margin-top:6px;">Pixel headlines, humanist body</div>
+  <div style="font:500 15px 'Space Grotesk',sans-serif;color:var(--label);margin-top:4px;max-width:640px;">Pixel faces carry personality at the headline + numeral level; a clean grotesque keeps long-form reflection text effortless to read.</div>
+</div>
+
+<!-- specimen -->
+<div style="position:absolute;left:80px;top:2530px;width:900px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">SPECIMEN</div>
+  <div style="border-radius:18px;background:var(--dawn-panel);border:2px solid #e3def5;padding:30px;display:flex;flex-direction:column;gap:22px;">
+
+    <div style="display:flex;gap:26px;align-items:baseline;border-bottom:2px solid #ece8f7;padding-bottom:20px;">
+      <div style="width:150px;flex:none;"><div style="font:700 15px 'Silkscreen',monospace;color:var(--dawn-ink);">Silkscreen</div><div style="font:600 10px 'Space Mono';color:var(--dawn-mut);margin-top:4px;">WORDMARK · TIMER<br>· EYEBROWS</div></div>
+      <div><div style="font:700 38px 'Silkscreen',monospace;color:var(--dawn-ink);">Stay a while</div><div style="font:700 44px 'Silkscreen',monospace;color:var(--wisp-d);margin-top:8px;letter-spacing:2px;">24:00</div></div>
+    </div>
+
+    <div style="display:flex;gap:26px;align-items:baseline;border-bottom:2px solid #ece8f7;padding-bottom:20px;">
+      <div style="width:150px;flex:none;"><div style="font:600 15px 'Pixelify Sans',sans-serif;color:var(--dawn-ink);">Pixelify Sans</div><div style="font:600 10px 'Space Mono';color:var(--dawn-mut);margin-top:4px;">HEADINGS ·<br>SECTION TITLES</div></div>
+      <div><div style="font:600 40px 'Pixelify Sans',sans-serif;color:var(--dawn-ink);line-height:1;">What are we working on?</div><div style="font:500 24px 'Pixelify Sans',sans-serif;color:var(--dawn-mut);margin-top:8px;">A finished chapter beats a long night.</div></div>
+    </div>
+
+    <div style="display:flex;gap:26px;align-items:baseline;border-bottom:2px solid #ece8f7;padding-bottom:20px;">
+      <div style="width:150px;flex:none;"><div style="font:600 15px 'Space Grotesk',sans-serif;color:var(--dawn-ink);">Space Grotesk</div><div style="font:600 10px 'Space Mono';color:var(--dawn-mut);margin-top:4px;">UI · BODY ·<br>BUTTONS</div></div>
+      <div style="max-width:560px;"><div style="font:500 18px/1.55 'Space Grotesk',sans-serif;color:var(--dawn-ink);">Open a new tab and your wisp is already there. Set a ten-second intention, press start, and the night settles in around you.</div><div style="display:flex;gap:14px;margin-top:10px;font:600 13px 'Space Grotesk';color:var(--dawn-mut);"><span>Regular 400</span><span>Medium 500</span><span style="font-weight:600;">Semibold 600</span><span style="font-weight:700;">Bold 700</span></div></div>
+    </div>
+
+    <div style="display:flex;gap:26px;align-items:baseline;">
+      <div style="width:150px;flex:none;"><div style="font:700 15px 'Space Mono',monospace;color:var(--dawn-ink);">Space Mono</div><div style="font:600 10px 'Space Mono';color:var(--dawn-mut);margin-top:4px;">CAPTIONS ·<br>METADATA · TOKENS</div></div>
+      <div><div style="font:400 16px 'Space Mono',monospace;color:var(--dawn-ink);">today · 62 / 90 min · streak optional</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- scale / rules -->
+<div style="position:absolute;left:1020px;top:2530px;width:460px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">SCALE &amp; RULES</div>
+  <div style="border-radius:18px;background:radial-gradient(120% 100% at 80% 0%,#231f48,#13112a 70%);border:2px solid var(--n600);padding:28px;display:flex;flex-direction:column;gap:14px;">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font:700 34px 'Pixelify Sans';color:var(--lav);">Aa</span><span style="font:600 11px 'Space Mono';color:var(--lav-mut);">display / 32–44</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font:600 24px 'Pixelify Sans';color:var(--lav);">Aa</span><span style="font:600 11px 'Space Mono';color:var(--lav-mut);">title / 22–28</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font:500 18px 'Space Grotesk';color:var(--lav);">Aa</span><span style="font:600 11px 'Space Mono';color:var(--lav-mut);">body / 16–18</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font:600 13px 'Space Grotesk';color:var(--lav);">Aa</span><span style="font:600 11px 'Space Mono';color:var(--lav-mut);">label / 13</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font:400 11px 'Space Mono';color:var(--lav);">Aa</span><span style="font:600 11px 'Space Mono';color:var(--lav-mut);">caption / 11</span></div>
+    <div style="height:2px;background:var(--n700);margin:6px 0;"></div>
+    <div style="font:500 12.5px/1.55 'Space Grotesk',sans-serif;color:var(--lav-dim);">Pixel faces only at 16px+ so glyphs stay crisp. Never set body copy in a pixel face. Keep line-length under ~60 characters for reflection text.</div>
+  </div>
+</div>
+
+<!-- ===================== ICONS ===================== -->
+<div data-drags-parent="0" style="position:absolute;left:80px;top:3140px;width:900px;">
+  <div style="font:700 11px 'Silkscreen',monospace;letter-spacing:2px;color:var(--label);text-transform:uppercase;">Brand · 06 — Iconography</div>
+  <div style="font:600 30px 'Pixelify Sans',sans-serif;color:var(--dawn-ink);margin-top:6px;">Goodbye emoji</div>
+  <div style="font:500 15px 'Space Grotesk',sans-serif;color:var(--label);margin-top:4px;max-width:640px;">A custom 9×9 pixel icon set drawn on the same grid as the wisp. Crisp edges, one weight, recolorable per theme — the cheap-looking emoji are gone.</div>
+</div>
+
+<div style="position:absolute;left:80px;top:3270px;width:1100px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">PIXEL ICON SET</div>
+  <div style="border-radius:18px;background:radial-gradient(120% 100% at 85% 0%,#231f48,#13112a 70%);border:2px solid var(--n600);padding:30px;">
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:14px;">
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.play }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">start</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.pause }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">pause</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.stop }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">end block</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.moon }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">rest / day</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.bag }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">shop</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.book }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">journal</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.settings }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">settings</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.spark }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">sparks</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.heart }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">bond</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.bolt }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">flow</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.note }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">music</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.lock }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">plus / lock</div></div>
+      <div style="background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px;"><div style="display:grid;place-items:center;height:40px;">{{ icons.check }}</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">goal hit</div></div>
+      <div style="background:linear-gradient(135deg,var(--wisp),var(--rest));border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;"><div style="font:700 11px 'Silkscreen';color:var(--n900);text-align:center;">+ more</div><div style="font:600 9px 'Space Mono';color:var(--n900);opacity:.7;">themeable</div></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:18px;align-items:center;flex-wrap:wrap;">
+      <span style="font:600 11px 'Space Mono';color:var(--lav-mut);">recolors per theme →</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;background:var(--n800);padding:6px 10px;border-radius:8px;">{{ iconsLav.spark }}</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;background:var(--n800);padding:6px 10px;border-radius:8px;">{{ iconsMint.spark }}</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;background:var(--n800);padding:6px 10px;border-radius:8px;">{{ iconsEmber.spark }}</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== COMPANIONS ===================== -->
+<div data-drags-parent="0" style="position:absolute;left:80px;top:3790px;width:900px;">
+  <div style="font:700 11px 'Silkscreen',monospace;letter-spacing:2px;color:var(--label);text-transform:uppercase;">Brand · 07 — Companion concepts</div>
+  <div style="font:600 30px 'Pixelify Sans',sans-serif;color:var(--dawn-ink);margin-top:6px;">The relationship is the retention</div>
+  <div style="font:500 15px 'Space Grotesk',sans-serif;color:var(--label);margin-top:4px;max-width:660px;">Four directions for the character you bond with. All are spirits of light — on-theme for a night-study app and true to the name <i>Wispal</i>. Each renders from a sprite grid (the seam where Rive drops in later).</div>
+</div>
+
+<!-- wisp (recommended) -->
+<div style="position:absolute;left:80px;top:3920px;width:268px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;display:flex;gap:8px;align-items:center;font:700 11px 'Silkscreen',monospace;color:var(--label);">THE WISP <span style="background:var(--wisp-d);color:#fff;font:600 9px 'Space Mono';padding:2px 6px;border-radius:5px;">PICK</span></div>
+  <div style="border-radius:16px;background:radial-gradient(110% 90% at 70% 12%,#2b2658,#13112a 65%);border:3px solid var(--wisp-d);padding:24px;display:flex;flex-direction:column;align-items:center;gap:16px;height:312px;justify-content:center;box-shadow:0 0 28px -8px rgba(139,224,214,.4);">
+    <div style="filter:drop-shadow(0 0 12px rgba(139,224,214,.6));animation:floaty 5s ease-in-out infinite;">{{ wispMd }}</div>
+    <div style="text-align:center;">
+      <div style="font:600 19px 'Pixelify Sans';color:var(--lav);">The Wisp</div>
+      <div style="font:500 12.5px/1.5 'Space Grotesk';color:var(--lav-dim);margin-top:6px;">A soft glowing soul. Reads warm, modern, a little magical — and literally <i>is</i> the logo.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ghost -->
+<div style="position:absolute;left:378px;top:3920px;width:268px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">LUMEN</div>
+  <div style="border-radius:16px;background:radial-gradient(110% 90% at 70% 12%,#26224a,#13112a 65%);border:2px solid var(--n600);padding:24px;display:flex;flex-direction:column;align-items:center;gap:16px;height:312px;justify-content:center;">
+    <div style="filter:drop-shadow(0 0 10px rgba(184,179,238,.5));animation:floaty2 5.4s ease-in-out infinite;">{{ ghost }}</div>
+    <div style="text-align:center;">
+      <div style="font:600 19px 'Pixelify Sans';color:var(--lav);">Lumen the Ghost</div>
+      <div style="font:500 12.5px/1.5 'Space Grotesk';color:var(--lav-dim);margin-top:6px;">A friendly study-haunt. Most expressive face, strong Stardew-critter charm.</div>
+    </div>
+  </div>
+</div>
+
+<!-- orb -->
+<div style="position:absolute;left:676px;top:3920px;width:268px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">MOTE</div>
+  <div style="border-radius:16px;background:radial-gradient(110% 90% at 70% 12%,#2a2450,#13112a 65%);border:2px solid var(--n600);padding:24px;display:flex;flex-direction:column;align-items:center;gap:16px;height:312px;justify-content:center;">
+    <div style="filter:drop-shadow(0 0 12px rgba(202,166,240,.55));animation:pulseGlow 4s ease-in-out infinite;">{{ orb }}</div>
+    <div style="text-align:center;">
+      <div style="font:600 19px 'Pixelify Sans';color:var(--lav);">Mote the Orb</div>
+      <div style="font:500 12.5px/1.5 'Space Grotesk';color:var(--lav-dim);margin-top:6px;">The most abstract. Calmest, least "cute" — best for users who want zero whimsy.</div>
+    </div>
+  </div>
+</div>
+
+<!-- lantern -->
+<div style="position:absolute;left:974px;top:3920px;width:268px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">EMBER</div>
+  <div style="border-radius:16px;background:radial-gradient(110% 90% at 70% 12%,#3a2440,#1a1230 65%);border:2px solid var(--n600);padding:24px;display:flex;flex-direction:column;align-items:center;gap:16px;height:312px;justify-content:center;">
+    <div style="filter:drop-shadow(0 0 12px rgba(255,158,109,.55));animation:floaty 5.2s ease-in-out infinite;">{{ lantern }}</div>
+    <div style="text-align:center;">
+      <div style="font:600 19px 'Pixelify Sans';color:var(--lav);">Ember the Lantern</div>
+      <div style="font:500 12.5px/1.5 'Space Grotesk';color:var(--lav-dim);margin-top:6px;">A little carried light. Warmest, cosiest — pairs perfectly with the Lofi Café theme.</div>
+    </div>
+  </div>
+</div>
+
+<!-- recommendation -->
+<div style="position:absolute;left:80px;top:4270px;width:1162px;">
+  <div style="border-radius:16px;background:var(--dawn-panel);border:2px solid #e3def5;padding:22px 26px;display:flex;gap:20px;align-items:center;">
+    <div style="flex:none;background:#13112a;border-radius:12px;padding:12px;display:grid;place-items:center;">{{ wispSm }}</div>
+    <div style="font:500 14px/1.55 'Space Grotesk',sans-serif;color:var(--dawn-ink);"><b>Recommendation: ship The Wisp as the default companion.</b> It's the only concept that doubles as the logo, ties directly to the product name, and carries 8 moods cleanly (idle, studying, sleepy, tired, resting, celebrating, greeting, welcome-back). The other three become unlockable companions in the shop — instant content for the marketplace.</div>
+  </div>
+</div>
+
+<!-- ===================== COMPONENTS ===================== -->
+<div data-drags-parent="0" style="position:absolute;left:80px;top:4440px;width:900px;">
+  <div style="font:700 11px 'Silkscreen',monospace;letter-spacing:2px;color:var(--label);text-transform:uppercase;">Brand · 08 — Components</div>
+  <div style="font:600 30px 'Pixelify Sans',sans-serif;color:var(--dawn-ink);margin-top:6px;">The UI kit</div>
+  <div style="font:500 15px 'Space Grotesk',sans-serif;color:var(--label);margin-top:4px;max-width:640px;">Tactile pixel buttons with a chunky bottom edge, soft-bordered night cards, and progress that fills with focus. Built on the Night surfaces; recolors for Dawn.</div>
+</div>
+
+<!-- buttons -->
+<div style="position:absolute;left:80px;top:4570px;width:400px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">BUTTONS</div>
+  <div style="border-radius:18px;background:radial-gradient(120% 100% at 80% 0%,#231f48,#13112a 70%);border:2px solid var(--n600);padding:28px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;">
+    <button style="font:600 15px 'Space Grotesk';color:#15233f;background:var(--ember);border:none;border-bottom:4px solid var(--ember-d);border-radius:12px;padding:12px 20px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;">{{ iconsInk.play }} Start studying</button>
+    <button style="font:600 15px 'Space Grotesk';color:var(--lav);background:var(--n700);border:2px solid var(--n500);border-bottom:4px solid var(--n500);border-radius:12px;padding:11px 20px;cursor:pointer;">Take a break</button>
+    <button style="font:600 15px 'Space Grotesk';color:var(--lav-dim);background:transparent;border:none;border-radius:12px;padding:11px 16px;cursor:pointer;">End early</button>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <button style="width:42px;height:42px;border-radius:11px;background:var(--n700);border:2px solid var(--n600);display:grid;place-items:center;cursor:pointer;">{{ iconsLav.bag }}</button>
+      <button style="width:42px;height:42px;border-radius:11px;background:var(--n700);border:2px solid var(--n600);display:grid;place-items:center;cursor:pointer;">{{ iconsLav.book }}</button>
+      <button style="width:42px;height:42px;border-radius:11px;background:var(--n700);border:2px solid var(--n600);display:grid;place-items:center;cursor:pointer;">{{ iconsLav.settings }}</button>
+      <button style="width:42px;height:42px;border-radius:11px;background:var(--n700);border:2px solid var(--n600);display:grid;place-items:center;cursor:pointer;">{{ iconsLav.moon }}</button>
+    </div>
+    <button style="font:600 14px 'Space Grotesk';color:var(--lav-mut);background:var(--n800);border:2px solid var(--n700);border-radius:12px;padding:10px 18px;cursor:not-allowed;display:inline-flex;align-items:center;gap:8px;">{{ iconsLav.lock }} Wispal Plus</button>
+  </div>
+</div>
+
+<!-- inputs -->
+<div style="position:absolute;left:520px;top:4570px;width:400px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">INPUTS &amp; CONTROLS</div>
+  <div style="border-radius:18px;background:radial-gradient(120% 100% at 80% 0%,#231f48,#13112a 70%);border:2px solid var(--n600);padding:28px;display:flex;flex-direction:column;gap:18px;">
+    <div>
+      <div style="font:600 12px 'Space Mono';color:var(--lav-mut);margin-bottom:7px;">INTENTION FIELD</div>
+      <div style="background:var(--n900);border:2px solid var(--wisp-d);border-radius:12px;padding:13px 15px;font:500 15px 'Space Grotesk';color:var(--lav);">finish the biology chapter<span style="color:var(--wisp);">|</span></div>
+    </div>
+    <div>
+      <div style="font:600 12px 'Space Mono';color:var(--lav-mut);margin-bottom:7px;">SESSION LENGTH</div>
+      <div style="display:flex;gap:8px;">
+        <span style="font:600 14px 'Space Grotesk';color:var(--lav-mut);background:var(--n700);border:2px solid var(--n600);border-radius:999px;padding:7px 16px;">15 min</span>
+        <span style="font:600 14px 'Space Grotesk';color:#15233f;background:var(--wisp);border-radius:999px;padding:9px 18px;">25 min</span>
+        <span style="font:600 14px 'Space Grotesk';color:var(--lav-mut);background:var(--n700);border:2px solid var(--n600);border-radius:999px;padding:7px 16px;">45 min</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div><div style="font:600 14px 'Space Grotesk';color:var(--lav);">Streaks</div><div style="font:500 11px 'Space Grotesk';color:var(--lav-mut);">opt-in · off by default</div></div>
+      <div style="width:50px;height:28px;border-radius:999px;background:var(--n600);position:relative;"><div style="position:absolute;width:22px;height:22px;border-radius:50%;background:var(--lav-mut);top:3px;left:3px;"></div></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div><div style="font:600 14px 'Space Grotesk';color:var(--lav);">Fatigue guard</div><div style="font:500 11px 'Space Grotesk';color:var(--wisp);">on · the anti-burnout core</div></div>
+      <div style="width:50px;height:28px;border-radius:999px;background:var(--wisp-d);position:relative;"><div style="position:absolute;width:22px;height:22px;border-radius:50%;background:#fff;top:3px;right:3px;"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- data display -->
+<div style="position:absolute;left:960px;top:4570px;width:460px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">PROGRESS, BADGES &amp; BUBBLES</div>
+  <div style="border-radius:18px;background:radial-gradient(120% 100% at 80% 0%,#231f48,#13112a 70%);border:2px solid var(--n600);padding:28px;display:flex;flex-direction:column;gap:18px;">
+    <div>
+      <div style="display:flex;justify-content:space-between;font:600 12px 'Space Mono';color:var(--lav-mut);margin-bottom:7px;"><span style="display:inline-flex;gap:6px;align-items:center;">{{ iconsLav.heart }} BOND · TRUSTED</span><span>→ attached</span></div>
+      <div style="height:10px;background:var(--n900);border-radius:999px;overflow:hidden;"><div style="height:100%;width:64%;background:var(--bloom);border-radius:999px;"></div></div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;font:600 12px 'Space Mono';color:var(--lav-mut);margin-bottom:7px;"><span>TODAY · 62 / 90 MIN</span><span style="display:inline-flex;gap:5px;align-items:center;color:var(--glow);">{{ iconsLav.check }}</span></div>
+      <div style="height:10px;background:var(--n900);border-radius:999px;overflow:hidden;"><div style="height:100%;width:69%;background:var(--glow);border-radius:999px;"></div></div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <span style="display:inline-flex;gap:7px;align-items:center;font:600 14px 'Space Grotesk';color:var(--lav);background:var(--n800);border:2px solid var(--n600);border-radius:999px;padding:6px 14px;">{{ iconsLav.spark }} 248</span>
+      <span style="font:600 12px 'Space Grotesk';color:#15233f;background:var(--wisp);border-radius:999px;padding:6px 12px;">in flow</span>
+      <span style="font:600 12px 'Space Grotesk';color:#15233f;background:var(--glow);border-radius:999px;padding:6px 12px;">goal hit</span>
+    </div>
+    <div style="display:flex;justify-content:center;padding-top:4px;">
+      <div style="position:relative;background:var(--lav);color:#15233f;font:500 14px 'Space Grotesk';padding:10px 16px;border-radius:14px;max-width:280px;text-align:center;">Nice — that's the chapter done. Let's rest a sec.<div style="position:absolute;bottom:-7px;left:50%;width:14px;height:14px;background:var(--lav);transform:translateX(-50%) rotate(45deg);"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== APPLIED SCREENS ===================== -->
+<div data-drags-parent="0" style="position:absolute;left:80px;top:5180px;width:900px;">
+  <div style="font:700 11px 'Silkscreen',monospace;letter-spacing:2px;color:var(--label);text-transform:uppercase;">Brand · 09 — Applied screens</div>
+  <div style="font:600 30px 'Pixelify Sans',sans-serif;color:var(--dawn-ink);margin-top:6px;">The system, in the wild</div>
+  <div style="font:500 15px 'Space Grotesk',sans-serif;color:var(--label);margin-top:4px;max-width:660px;">The full emotional loop on the new-tab page — landing → session → celebration → reflection → shop. Every screen uses only the tokens, type, icons and components above.</div>
+</div>
+
+<!-- SCREEN 1 — LANDING -->
+<div style="position:absolute;left:80px;top:5320px;width:700px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">① NEW-TAB LANDING — time-to-focus &lt; 3s</div>
+  <div style="border-radius:14px;overflow:hidden;border:2px solid var(--n600);box-shadow:0 22px 50px -22px rgba(20,16,46,.6);">
+    <div style="background:#1a1730;padding:9px 12px;display:flex;align-items:center;gap:10px;">
+      <div style="display:flex;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span></div>
+      <div style="flex:1;background:var(--n900);border-radius:8px;padding:5px 12px;font:500 11px 'Space Mono';color:var(--lav-mut);text-align:center;">new tab · wispal</div>
+    </div>
+    <div data-screen-label="Landing" style="position:relative;background:radial-gradient(120% 80% at 70% -5%,#2b2658,#13112a 55%,#0e0c20);min-height:438px;padding:18px;display:flex;flex-direction:column;align-items:center;">
+      <div style="position:absolute;width:2px;height:2px;background:var(--lav);top:50px;left:80px;animation:twinkle 3s ease-in-out infinite;"></div>
+      <div style="position:absolute;width:2px;height:2px;background:var(--glow);top:90px;left:560px;animation:twinkle 2.6s .4s ease-in-out infinite;"></div>
+      <div style="position:absolute;width:3px;height:3px;background:var(--wisp);top:140px;left:120px;animation:twinkle 3.6s .2s ease-in-out infinite;"></div>
+      <!-- top bar -->
+      <div style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;">
+        <div style="background:rgba(32,28,64,.7);border:2px solid var(--n700);border-radius:12px;padding:8px 12px;">
+          <div style="display:flex;gap:6px;align-items:center;font:600 11px 'Space Mono';color:var(--lav-dim);">{{ iconsLav.heart }} trusted</div>
+          <div style="height:6px;width:120px;background:var(--n900);border-radius:999px;margin-top:5px;overflow:hidden;"><div style="height:100%;width:64%;background:var(--bloom);"></div></div>
+        </div>
+        <div style="display:flex;gap:7px;align-items:center;">
+          <span style="display:inline-flex;gap:6px;align-items:center;font:600 12px 'Space Grotesk';color:var(--lav);background:rgba(32,28,64,.7);border:2px solid var(--n700);border-radius:999px;padding:5px 11px;">{{ iconsLav.spark }} 248</span>
+          <span style="width:34px;height:34px;border-radius:9px;background:rgba(32,28,64,.7);border:2px solid var(--n700);display:grid;place-items:center;"><div style="transform:scale(.8)">{{ iconsLav.bag }}</div></span>
+          <span style="width:34px;height:34px;border-radius:9px;background:rgba(32,28,64,.7);border:2px solid var(--n700);display:grid;place-items:center;"><div style="transform:scale(.8)">{{ iconsLav.moon }}</div></span>
+        </div>
+      </div>
+      <!-- wisp + bubble -->
+      <div style="margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <div style="background:var(--lav);color:#15233f;font:500 13px 'Space Grotesk';padding:8px 14px;border-radius:12px;position:relative;">Welcome back. No rush — what's one thing?<div style="position:absolute;bottom:-6px;left:50%;width:12px;height:12px;background:var(--lav);transform:translateX(-50%) rotate(45deg);"></div></div>
+        <div style="filter:drop-shadow(0 0 12px rgba(139,224,214,.5));animation:floaty 5s ease-in-out infinite;">{{ wispMd }}</div>
+      </div>
+      <!-- intention card -->
+      <div style="margin-top:auto;width:100%;max-width:420px;background:rgba(25,22,52,.85);border:2px solid var(--n600);border-radius:16px;padding:18px;">
+        <div style="font:600 12px 'Space Mono';color:var(--lav-mut);margin-bottom:8px;">WHAT ARE WE WORKING ON?</div>
+        <div style="background:var(--n900);border:2px solid var(--wisp-d);border-radius:11px;padding:11px 13px;font:500 14px 'Space Grotesk';color:var(--lav);">finish the biology chapter<span style="color:var(--wisp);">|</span></div>
+        <div style="display:flex;gap:8px;margin-top:12px;align-items:center;">
+          <span style="font:600 13px 'Space Grotesk';color:var(--lav-mut);background:var(--n700);border-radius:999px;padding:6px 13px;">15</span>
+          <span style="font:600 13px 'Space Grotesk';color:#15233f;background:var(--wisp);border-radius:999px;padding:7px 15px;">25 min</span>
+          <span style="font:600 13px 'Space Grotesk';color:var(--lav-mut);background:var(--n700);border-radius:999px;padding:6px 13px;">45</span>
+          <button style="margin-left:auto;font:600 14px 'Space Grotesk';color:#15233f;background:var(--ember);border:none;border-bottom:4px solid var(--ember-d);border-radius:11px;padding:10px 18px;display:inline-flex;align-items:center;gap:8px;">{{ iconsInk.play }} Start</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN 2 — SESSION -->
+<div style="position:absolute;left:840px;top:5320px;width:700px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">② ACTIVE SESSION — focus, paused not penalised</div>
+  <div style="border-radius:14px;overflow:hidden;border:2px solid var(--n600);box-shadow:0 22px 50px -22px rgba(20,16,46,.6);">
+    <div style="background:#1a1730;padding:9px 12px;display:flex;align-items:center;gap:10px;">
+      <div style="display:flex;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span></div>
+      <div style="flex:1;background:var(--n900);border-radius:8px;padding:5px 12px;font:500 11px 'Space Mono';color:var(--lav-mut);text-align:center;">studying · 18:42 left</div>
+    </div>
+    <div data-screen-label="Session" style="position:relative;background:radial-gradient(120% 80% at 50% -5%,#26224a,#13112a 55%,#0e0c20);min-height:438px;padding:18px;display:flex;flex-direction:column;align-items:center;">
+      <div style="position:absolute;width:2px;height:2px;background:var(--wisp);top:60px;left:120px;animation:twinkle 3s ease-in-out infinite;"></div>
+      <div style="position:absolute;width:2px;height:2px;background:var(--lav);top:100px;left:540px;animation:twinkle 3.4s .3s ease-in-out infinite;"></div>
+      <div style="width:100%;display:flex;justify-content:flex-end;">
+        <span style="display:inline-flex;gap:7px;align-items:center;font:600 12px 'Space Grotesk';color:var(--lav-dim);background:rgba(32,28,64,.7);border:2px solid var(--n700);border-radius:999px;padding:5px 12px;">{{ iconsLav.note }} lofi · tokyo rain</span>
+      </div>
+      <div style="margin-top:14px;filter:drop-shadow(0 0 14px rgba(139,224,214,.45));animation:floaty 5.5s ease-in-out infinite;">{{ wispMd }}</div>
+      <div style="margin-top:8px;font:700 64px 'Silkscreen',monospace;color:var(--lav);letter-spacing:2px;text-shadow:0 0 22px rgba(143,184,240,.4);">18:42</div>
+      <div style="font:500 13px 'Space Grotesk';color:var(--wisp);margin-top:2px;">studying together…</div>
+      <div style="width:100%;max-width:420px;height:10px;background:var(--n900);border-radius:999px;margin-top:16px;overflow:hidden;"><div style="height:100%;width:38%;background:var(--wisp);border-radius:999px;"></div></div>
+      <div style="margin-top:auto;display:flex;gap:10px;">
+        <button style="font:600 14px 'Space Grotesk';color:var(--lav);background:var(--n700);border:2px solid var(--n500);border-bottom:4px solid var(--n500);border-radius:12px;padding:10px 20px;">Take a break</button>
+        <button style="font:600 14px 'Space Grotesk';color:var(--lav-mut);background:transparent;border:none;padding:10px 16px;">End early</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN 3 — COMPLETION -->
+<div style="position:absolute;left:1600px;top:5320px;width:700px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">③ COMPLETION — a moment, not a metric</div>
+  <div style="border-radius:14px;overflow:hidden;border:2px solid var(--n600);box-shadow:0 22px 50px -22px rgba(20,16,46,.6);">
+    <div style="background:#1a1730;padding:9px 12px;display:flex;align-items:center;gap:10px;">
+      <div style="display:flex;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span></div>
+      <div style="flex:1;background:var(--n900);border-radius:8px;padding:5px 12px;font:500 11px 'Space Mono';color:var(--lav-mut);text-align:center;">block complete ✦</div>
+    </div>
+    <div data-screen-label="Completion" style="position:relative;background:radial-gradient(120% 80% at 50% -5%,#33285e,#16132f 55%,#0e0c20);min-height:438px;padding:18px;display:flex;flex-direction:column;align-items:center;">
+      <div style="position:absolute;top:40px;left:90px;animation:floaty 4s ease-in-out infinite;">{{ iconsEmber.spark }}</div>
+      <div style="position:absolute;top:70px;right:110px;animation:floaty2 3.4s ease-in-out infinite;">{{ iconsMint.spark }}</div>
+      <div style="position:absolute;top:150px;left:160px;animation:floaty2 4.2s ease-in-out infinite;"><div style="transform:scale(.7)">{{ iconsLav.spark }}</div></div>
+      <div style="margin-top:18px;filter:drop-shadow(0 0 16px rgba(255,210,125,.5));animation:floaty 3.6s ease-in-out infinite;">{{ wispMd }}</div>
+      <div style="font:600 26px 'Pixelify Sans';color:var(--lav);margin-top:10px;">Chapter done.</div>
+      <div style="font:500 13px 'Space Grotesk';color:var(--lav-dim);margin-top:2px;">You painted one more star into the night.</div>
+      <div style="display:flex;gap:10px;margin-top:16px;">
+        <span style="display:inline-flex;gap:7px;align-items:center;font:600 14px 'Space Grotesk';color:#15233f;background:var(--glow);border-radius:999px;padding:7px 14px;">{{ iconsInk.spark }} +20</span>
+        <span style="display:inline-flex;gap:7px;align-items:center;font:600 14px 'Space Grotesk';color:#15233f;background:var(--bloom);border-radius:999px;padding:7px 14px;">{{ iconsInk.heart }} +bond</span>
+      </div>
+      <!-- world grows: pixel night scene -->
+      <div style="margin-top:auto;width:100%;max-width:440px;background:var(--n900);border:2px solid var(--n600);border-radius:14px;padding:12px;">
+        <div style="font:600 11px 'Space Mono';color:var(--lav-mut);margin-bottom:8px;">YOUR NIGHT · 21 sessions</div>
+        <div style="position:relative;height:74px;border-radius:9px;overflow:hidden;background:linear-gradient(180deg,#1a2348,#2a3a5a 70%,#3a5a6a);">
+          <div style="position:absolute;width:2px;height:2px;background:#fff;top:10px;left:30px;"></div><div style="position:absolute;width:2px;height:2px;background:#fff;top:18px;left:90px;"></div><div style="position:absolute;width:2px;height:2px;background:var(--glow);top:8px;left:150px;"></div><div style="position:absolute;width:2px;height:2px;background:#fff;top:24px;left:220px;"></div><div style="position:absolute;width:2px;height:2px;background:var(--wisp);top:14px;left:300px;"></div><div style="position:absolute;width:2px;height:2px;background:#fff;top:20px;left:370px;"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:26px;background:#1d3a2e;"></div>
+          <div style="position:absolute;bottom:18px;left:60px;width:10px;height:18px;background:#15281f;"></div><div style="position:absolute;bottom:18px;left:180px;width:8px;height:14px;background:#15281f;"></div><div style="position:absolute;bottom:18px;left:330px;width:12px;height:20px;background:#15281f;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN 4 — REFLECTION -->
+<div style="position:absolute;left:80px;top:5880px;width:700px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">④ EVENING REFLECTION — the journal, disguised as care</div>
+  <div style="border-radius:14px;overflow:hidden;border:2px solid var(--n600);box-shadow:0 22px 50px -22px rgba(20,16,46,.6);">
+    <div style="background:#1a1730;padding:9px 12px;display:flex;align-items:center;gap:10px;">
+      <div style="display:flex;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span></div>
+      <div style="flex:1;background:var(--n900);border-radius:8px;padding:5px 12px;font:500 11px 'Space Mono';color:var(--lav-mut);text-align:center;">winding down · good night</div>
+    </div>
+    <div data-screen-label="Reflection" style="position:relative;background:radial-gradient(120% 80% at 50% 110%,#2a2455,#16132f 55%,#0e0c20);min-height:438px;padding:24px;display:flex;flex-direction:column;align-items:center;">
+      <div style="position:absolute;top:34px;right:48px;">{{ iconsLav.moon }}</div>
+      <div style="filter:drop-shadow(0 0 12px rgba(143,184,240,.4));animation:floaty 6s ease-in-out infinite;">{{ wispMd }}</div>
+      <div style="font:600 26px 'Pixelify Sans';color:var(--lav);margin-top:8px;">How'd it go?</div>
+      <div style="font:500 13px 'Space Grotesk';color:var(--lav-dim);margin-top:2px;">No grade. Just a check-in before you log off.</div>
+      <div style="display:flex;gap:12px;margin-top:18px;">
+        <span style="width:38px;height:38px;border-radius:50%;background:var(--n700);border:2px solid var(--n600);"></span>
+        <span style="width:38px;height:38px;border-radius:50%;background:var(--n700);border:2px solid var(--n600);"></span>
+        <span style="width:38px;height:38px;border-radius:50%;background:var(--n700);border:2px solid var(--n600);"></span>
+        <span style="width:42px;height:42px;border-radius:50%;background:var(--wisp);border:2px solid var(--lav);box-shadow:0 0 14px -2px var(--wisp);"></span>
+        <span style="width:38px;height:38px;border-radius:50%;background:var(--n700);border:2px solid var(--n600);"></span>
+      </div>
+      <div style="font:600 11px 'Space Mono';color:var(--lav-mut);margin-top:8px;">rough ··· great</div>
+      <div style="width:100%;max-width:420px;margin-top:18px;">
+        <div style="font:600 12px 'Space Mono';color:var(--lav-mut);margin-bottom:8px;">ONE THING THAT WENT WELL</div>
+        <div style="background:var(--n900);border:2px solid var(--n600);border-radius:11px;padding:12px 14px;font:500 14px 'Space Grotesk';color:var(--lav);">got through photosynthesis — finally clicked</div>
+      </div>
+      <button style="margin-top:16px;font:600 14px 'Space Grotesk';color:#15233f;background:var(--rest);border:none;border-bottom:4px solid #5d86c4;border-radius:12px;padding:11px 24px;display:inline-flex;align-items:center;gap:9px;">{{ iconsInk.moon }} Good night</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN 5 — SHOP -->
+<div style="position:absolute;left:840px;top:5880px;width:700px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">⑤ SHOP — spend focus, never grind for it</div>
+  <div style="border-radius:14px;overflow:hidden;border:2px solid var(--n600);box-shadow:0 22px 50px -22px rgba(20,16,46,.6);">
+    <div style="background:#1a1730;padding:9px 12px;display:flex;align-items:center;gap:10px;">
+      <div style="display:flex;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span><span style="width:10px;height:10px;border-radius:50%;background:#4a4570;"></span></div>
+      <div style="flex:1;background:var(--n900);border-radius:8px;padding:5px 12px;font:500 11px 'Space Mono';color:var(--lav-mut);text-align:center;">wisp shop</div>
+    </div>
+    <div data-screen-label="Shop" style="background:radial-gradient(120% 80% at 70% -5%,#231f48,#13112a 55%,#0e0c20);min-height:438px;padding:22px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <div style="font:600 22px 'Pixelify Sans';color:var(--lav);">Wisp shop</div>
+        <span style="display:inline-flex;gap:7px;align-items:center;font:600 14px 'Space Grotesk';color:var(--lav);background:var(--n800);border:2px solid var(--n600);border-radius:999px;padding:6px 14px;">{{ iconsLav.spark }} 248</span>
+      </div>
+      <div style="font:600 11px 'Space Mono';color:var(--wisp);margin-bottom:9px;">AMBIENCES</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;">
+        <div style="border-radius:11px;overflow:hidden;border:2px solid var(--n600);">
+          <div style="height:46px;background:linear-gradient(180deg,#fdf3f8,#e3ddf6);"></div>
+          <div style="background:var(--n800);padding:7px 8px;"><div style="font:600 11px 'Space Grotesk';color:var(--lav);">Dawn</div><div style="font:600 10px 'Space Mono';color:var(--glow);">120</div></div>
+        </div>
+        <div style="border-radius:11px;overflow:hidden;border:2px solid var(--n600);">
+          <div style="height:46px;background:radial-gradient(circle at 70% 30%,#5a4334,#2a1d16);"></div>
+          <div style="background:var(--n800);padding:7px 8px;"><div style="font:600 11px 'Space Grotesk';color:var(--lav);">Lofi Café</div><div style="display:inline-flex;gap:4px;align-items:center;font:600 10px 'Space Mono';color:var(--lav-mut);"><div style="transform:scale(.7);margin-left:-3px">{{ iconsLav.lock }}</div>Plus</div></div>
+        </div>
+        <div style="border-radius:11px;overflow:hidden;border:2px solid var(--n600);">
+          <div style="height:46px;background:radial-gradient(circle at 70% 30%,#2d3a2c,#141a16);"></div>
+          <div style="background:var(--n800);padding:7px 8px;"><div style="font:600 11px 'Space Grotesk';color:var(--lav);">Dark Acad.</div><div style="display:inline-flex;gap:4px;align-items:center;font:600 10px 'Space Mono';color:var(--lav-mut);"><div style="transform:scale(.7);margin-left:-3px">{{ iconsLav.lock }}</div>Plus</div></div>
+        </div>
+        <div style="border-radius:11px;overflow:hidden;border:2px solid var(--wisp-d);">
+          <div style="height:46px;background:linear-gradient(180deg,#c9b8f0,#b8e6dc);"></div>
+          <div style="background:var(--n800);padding:7px 8px;"><div style="font:600 11px 'Space Grotesk';color:var(--lav);">Pastel</div><div style="font:600 10px 'Space Mono';color:var(--wisp);">equipped</div></div>
+        </div>
+      </div>
+      <div style="font:600 11px 'Space Mono';color:var(--wisp);margin-bottom:9px;">COMPANIONS &amp; VOICES</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+        <div style="background:var(--n800);border:2px solid var(--n600);border-radius:11px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="transform:scale(.7)">{{ ghost }}</div><div style="font:600 10px 'Space Grotesk';color:var(--lav);">Lumen</div><div style="font:600 9px 'Space Mono';color:var(--glow);">300</div></div>
+        <div style="background:var(--n800);border:2px solid var(--n600);border-radius:11px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="transform:scale(.7)">{{ orb }}</div><div style="font:600 10px 'Space Grotesk';color:var(--lav);">Mote</div><div style="font:600 9px 'Space Mono';color:var(--glow);">300</div></div>
+        <div style="background:var(--n800);border:2px solid var(--n600);border-radius:11px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="transform:scale(.7)">{{ lantern }}</div><div style="font:600 10px 'Space Grotesk';color:var(--lav);">Ember</div><div style="display:inline-flex;gap:3px;align-items:center;font:600 9px 'Space Mono';color:var(--lav-mut);"><div style="transform:scale(.6);margin-left:-4px">{{ iconsLav.lock }}</div>Plus</div></div>
+        <div style="background:var(--n800);border:2px solid var(--n600);border-radius:11px;padding:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;"><div style="display:grid;place-items:center;height:30px;">{{ iconsLav.note }}</div><div style="font:600 10px 'Space Grotesk';color:var(--lav);">Voices</div><div style="font:600 9px 'Space Mono';color:var(--lav-mut);">5 packs</div></div>
+      </div>
+      <div style="font:500 11px 'Space Grotesk';color:var(--lav-mut);text-align:center;margin-top:14px;">Earn sparks by finishing blocks, hitting your goal, and resting. Never by grinding.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== VOICE & TONE ===================== -->
+<div data-drags-parent="0" style="position:absolute;left:80px;top:6560px;width:900px;">
+  <div style="font:700 11px 'Silkscreen',monospace;letter-spacing:2px;color:var(--label);text-transform:uppercase;">Brand · 10 — Voice &amp; tone</div>
+  <div style="font:600 30px 'Pixelify Sans',sans-serif;color:var(--dawn-ink);margin-top:6px;">A quiet friend, never a coach</div>
+  <div style="font:500 15px 'Space Grotesk',sans-serif;color:var(--label);margin-top:4px;max-width:660px;">Every line is templated from content packs (no LLM). The voice is warm, plain-spoken, and structurally incapable of shame — because shame is what the category leader sells.</div>
+</div>
+
+<!-- principles -->
+<div style="position:absolute;left:80px;top:6690px;width:440px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">PRINCIPLES</div>
+  <div style="border-radius:18px;background:radial-gradient(120% 100% at 80% 0%,#231f48,#13112a 70%);border:2px solid var(--n600);padding:28px;display:flex;flex-direction:column;gap:18px;">
+    <div><div style="font:600 16px 'Pixelify Sans';color:var(--wisp);">Present, not pushy</div><div style="font:500 13px/1.5 'Space Grotesk';color:var(--lav-dim);margin-top:3px;">It sits beside you. It suggests; it never demands or counts.</div></div>
+    <div><div style="font:600 16px 'Pixelify Sans';color:var(--bloom);">No shame, ever</div><div style="font:500 13px/1.5 'Space Grotesk';color:var(--lav-dim);margin-top:3px;">A missed day is met with relief, not guilt. Bond never drops.</div></div>
+    <div><div style="font:600 16px 'Pixelify Sans';color:var(--glow);">Moments, not minutes</div><div style="font:500 13px/1.5 'Space Grotesk';color:var(--lav-dim);margin-top:3px;">Celebrate the finished thing — never the hours logged.</div></div>
+    <div><div style="font:600 16px 'Pixelify Sans';color:var(--ember);">Rest is a win</div><div style="font:500 13px/1.5 'Space Grotesk';color:var(--lav-dim);margin-top:3px;">When you've done enough, it says so — and means it.</div></div>
+  </div>
+</div>
+
+<!-- do / don't -->
+<div style="position:absolute;left:560px;top:6690px;width:600px;">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font:700 11px 'Silkscreen',monospace;color:var(--label);">SAY THIS, NOT THAT</div>
+  <div style="border-radius:18px;background:var(--dawn-panel);border:2px solid #e3def5;padding:26px;display:flex;flex-direction:column;gap:14px;">
+    <div style="display:flex;gap:14px;align-items:stretch;">
+      <div style="flex:1;background:#eefaf6;border-left:3px solid var(--wisp-d);border-radius:10px;padding:12px 14px;"><div style="font:600 10px 'Space Mono';color:var(--wisp-d);margin-bottom:4px;">WELCOME BACK ✓</div><div style="font:500 14px 'Space Grotesk';color:var(--dawn-ink);">"Hey, good to see you. Want to do a little?"</div></div>
+      <div style="flex:1;background:#fdeef0;border-left:3px solid var(--ember-d);border-radius:10px;padding:12px 14px;"><div style="font:600 10px 'Space Mono';color:var(--ember-d);margin-bottom:4px;">NOT</div><div style="font:500 14px 'Space Grotesk';color:#9a5a4a;">"You broke your 6-day streak!"</div></div>
+    </div>
+    <div style="display:flex;gap:14px;align-items:stretch;">
+      <div style="flex:1;background:#eefaf6;border-left:3px solid var(--wisp-d);border-radius:10px;padding:12px 14px;"><div style="font:600 10px 'Space Mono';color:var(--wisp-d);margin-bottom:4px;">FATIGUE ✓</div><div style="font:500 14px 'Space Grotesk';color:var(--dawn-ink);">"You've done plenty today. Resting is the win now."</div></div>
+      <div style="flex:1;background:#fdeef0;border-left:3px solid var(--ember-d);border-radius:10px;padding:12px 14px;"><div style="font:600 10px 'Space Mono';color:var(--ember-d);margin-bottom:4px;">NOT</div><div style="font:500 14px 'Space Grotesk';color:#9a5a4a;">"Just one more hour to beat your record!"</div></div>
+    </div>
+    <div style="display:flex;gap:14px;align-items:stretch;">
+      <div style="flex:1;background:#eefaf6;border-left:3px solid var(--wisp-d);border-radius:10px;padding:12px 14px;"><div style="font:600 10px 'Space Mono';color:var(--wisp-d);margin-bottom:4px;">COMPLETE ✓</div><div style="font:500 14px 'Space Grotesk';color:var(--dawn-ink);">"That's the chapter done. Nice one."</div></div>
+      <div style="flex:1;background:#fdeef0;border-left:3px solid var(--ember-d);border-radius:10px;padding:12px 14px;"><div style="font:600 10px 'Space Mono';color:var(--ember-d);margin-bottom:4px;">NOT</div><div style="font:500 14px 'Space Grotesk';color:#9a5a4a;">"+25 min! You're #14 on the leaderboard."</div></div>
+    </div>
+    <div style="font:500 12px/1.5 'Space Grotesk';color:var(--dawn-mut);text-align:center;margin-top:2px;">Lowercase, contractions, short. Vietnamese-English code-switching is welcome in VN voice packs.</div>
+  </div>
+</div>
+
+<!-- footer -->
+<div data-drags-parent="0" style="position:absolute;left:80px;top:7000px;width:1080px;">
+  <div style="display:flex;align-items:center;gap:12px;font:400 12px 'Silkscreen',monospace;color:var(--label);">{{ wispXs }} WISPAL DESIGN SYSTEM · v1 · night study club</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  px(grid, pal, unit){
+    const h = React.createElement;
+    const rects = [];
+    for (let y=0;y<grid.length;y++){
+      const row = grid[y];
+      for (let x=0;x<row.length;x++){
+        const fill = pal[row[x]];
+        if(!fill) continue;
+        rects.push(h('rect',{key:x+'_'+y,x:x*unit,y:y*unit,width:unit,height:unit,fill}));
+      }
+    }
+    const w=(grid[0]?grid[0].length:0)*unit, ht=grid.length*unit;
+    return h('svg',{width:w,height:ht,viewBox:'0 0 '+w+' '+ht,shapeRendering:'crispEdges',style:{display:'block'}},rects);
+  }
+  renderVals(){
+    const WISP=[
+      "....oooo....",
+      "...obllbo...",
+      "..obllbbbo..",
+      ".obllbbbbbo.",
+      ".obbbbbbbbo.",
+      ".obeebbeebo.",
+      ".obeebbeebo.",
+      ".obbbbbbbbo.",
+      ".opbbmmbbpo.",
+      ".obbbbbbbbo.",
+      "..obbbbbbo..",
+      "...obbbbo...",
+      "....oooo....",
+    ];
+    const PAL_WISP={o:'#15233f',b:'#7fd9cf',l:'#c8f5ee',e:'#15233f',p:'#f3a9cb',m:'#15233f'};
+
+    const GHOST=[
+      "...oooo....",
+      "..obbbbo...",
+      ".obbbbbbo..",
+      "obllbbbbbbo",
+      "obbbbbbbbbo",
+      "obeebbeebbo",
+      "obeebbeebbo",
+      "obbbbbbbbbo",
+      "obbbmmbbbbo",
+      "obbbbbbbbbo",
+      "obbbbbbbbbo",
+      "obo.obo.obo",
+    ];
+    const PAL_GHOST={o:'#2a2750',b:'#b8b3ee',l:'#e6e3ff',e:'#2a2750',m:'#2a2750'};
+
+    const ORB=[
+      "...oooo....",
+      "..obbbbo...",
+      ".obwlbbbbo.",
+      "obllbbbbbbo",
+      "obbbbbbbbbo",
+      "obbbbbbbbbo",
+      "obbbbbbbbbo",
+      ".obbbbbbbo.",
+      "..obbbbo...",
+      "...oooo....",
+    ];
+    const PAL_ORB={o:'#3a2a55',b:'#caa6f0',l:'#efe2ff',w:'#ffffff'};
+
+    const LANTERN=[
+      "..g..g..",
+      "..gssg..",
+      ".oggggo.",
+      "obbbbbbo",
+      "obllllbo",
+      "oblfflbo",
+      "obffffbo",
+      "oblfflbo",
+      "obllllbo",
+      "obbbbbbo",
+      ".oggggo.",
+    ];
+    const PAL_LANTERN={o:'#3a2418',b:'#ff9e6d',l:'#ffd27d',f:'#fff2c2',g:'#c2914f',s:'#5a3a2a'};
+
+    const GLYPHS={
+      play:[".x.......",".xx......",".xxx.....",".xxxx....",".xxxxx...",".xxxx....",".xxx.....",".xx......",".x......."],
+      pause:[".xx..xx..",".xx..xx..",".xx..xx..",".xx..xx..",".xx..xx..",".xx..xx..",".xx..xx..",".xx..xx..",".xx..xx.."],
+      stop:[".........",".xxxxxxx.",".xxxxxxx.",".xxxxxxx.",".xxxxxxx.",".xxxxxxx.",".xxxxxxx.",".xxxxxxx.","........."],
+      moon:["...xxx...","..xx.....",".xx......",".xx......",".xx......",".xx......",".xx......","..xx.....","...xxx..."],
+      bag:["..x...x..",".xxx.xxx.",".xxxxxxx.",".xxxxxxx.",".xxxxxxx.",".xxxxxxx.",".xxxxxxx.","..xxxxx..","........."],
+      book:[".xxx.xxx.",".xxx.xxx.",".xxx.xxx.",".xxx.xxx.",".xxx.xxx.",".xxx.xxx.",".xxx.xxx.",".xxxxxxx.","........."],
+      settings:[".xxxxxxx.","...x.....",".........",".xxxxxxx.",".....x...",".........",".xxxxxxx.","..x......","........."],
+      spark:["....x....","...xxx...","..xxxxx..",".xxxxxxx.","..xxxxx..","...xxx...","....x....",".........","........."],
+      heart:[".x...x...","xxx.xxx..","xxxxxxx..","xxxxxxx..",".xxxxx...","..xxx....","...x.....",".........","........."],
+      bolt:["....xx...","...xx....","..xx.....",".xxxxx...","...xx....","..xx.....",".xx......",".........","........."],
+      note:[".....xx..",".....xx..",".....xx..",".....xx..","..x..xx..",".xxx.xx..",".xxx.x...",".xx......","........."],
+      lock:["..xxx....",".x...x...",".x...x...","xxxxxxx..","xxxxxxx..","xxxxxxx..","xxxxxxx..","xxxxxxx..","........."],
+      check:[".......x.","......xx.",".....xx..","x...xx...","xx.xx....",".xxx.....","..x......",".........","........."],
+    };
+    const mkIcons=(color,unit)=>{const o={};for(const k in GLYPHS){o[k]=this.px(GLYPHS[k],{x:color},unit);}return o;};
+
+    return {
+      wispLg:this.px(WISP,PAL_WISP,9),
+      wispMd:this.px(WISP,PAL_WISP,6),
+      wispSm:this.px(WISP,PAL_WISP,4),
+      wispXs:this.px(WISP,PAL_WISP,3),
+      ghost:this.px(GHOST,PAL_GHOST,7),
+      orb:this.px(ORB,PAL_ORB,7),
+      lantern:this.px(LANTERN,PAL_LANTERN,7),
+      icons:mkIcons('#ece9ff',4),
+      iconsInk:mkIcons('#15233f',3),
+      iconsMint:mkIcons('#8be0d6',3),
+      iconsEmber:mkIcons('#ff9e6d',3),
+      iconsLav:mkIcons('#ece9ff',3),
+    };
+  }
+}
+</script>
+</body>
+</html>

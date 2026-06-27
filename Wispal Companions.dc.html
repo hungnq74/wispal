@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Pixelify+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --n950:#0e0c20; --n900:#13112a; --n850:#191634; --n800:#201c40; --n700:#2b2654; --n600:#3a3470; --n500:#4d4690;
+    --lav:#ece9ff; --lav-dim:#bcb5e8; --lav-mut:#8a83bd;
+    --ember:#ff9e6d; --glow:#ffd27d; --wisp:#8be0d6; --wisp-d:#4fb3a6; --bloom:#f3a9cb; --rest:#8fb8f0;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;-webkit-font-smoothing:antialiased;}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes twinkle{0%,100%{opacity:.25}50%{opacity:1}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:radial-gradient(130% 80% at 75% -10%,#2b2658 0%,#16132f 46%,#0e0c20 100%);background-attachment:fixed;padding:48px 40px 64px;font-family:'Space Grotesk',sans-serif;position:relative;overflow:hidden;">
+  <div style="position:absolute;width:3px;height:3px;background:var(--lav);top:60px;left:140px;animation:twinkle 3s ease-in-out infinite;"></div>
+  <div style="position:absolute;width:2px;height:2px;background:var(--wisp);top:120px;left:480px;animation:twinkle 3.6s .4s ease-in-out infinite;"></div>
+  <div style="position:absolute;width:2px;height:2px;background:var(--glow);top:80px;right:200px;animation:twinkle 2.8s .2s ease-in-out infinite;"></div>
+  <div style="position:absolute;width:3px;height:3px;background:var(--bloom);top:180px;right:420px;animation:twinkle 3.2s .6s ease-in-out infinite;"></div>
+
+  <!-- header -->
+  <div style="max-width:1180px;margin:0 auto;position:relative;z-index:2;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <div>
+        <div style="font:400 12px 'Silkscreen',monospace;letter-spacing:4px;color:var(--wisp);text-transform:uppercase;">Wispal · Content Pack</div>
+        <div style="font:700 46px 'Silkscreen',monospace;color:var(--lav);margin-top:12px;text-shadow:0 0 24px rgba(143,184,240,.35);">Companion Library</div>
+        <div style="font:500 16px 'Space Grotesk';color:var(--lav-dim);margin-top:10px;max-width:600px;">Thirty original pixel souls, one house style. Every one drops in as a <span style="color:var(--wisp);">CompanionPack</span> — pure data, marketplace-ready, no frontier model.</div>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div style="background:var(--n800);border:2px solid var(--n600);border-radius:14px;padding:12px 18px;text-align:center;"><div style="font:700 26px 'Pixelify Sans';color:var(--lav);">30</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">COMPANIONS</div></div>
+        <div style="background:var(--n800);border:2px solid var(--n600);border-radius:14px;padding:12px 18px;text-align:center;"><div style="font:700 26px 'Pixelify Sans';color:var(--lav);">6</div><div style="font:600 10px 'Space Mono';color:var(--lav-mut);">CATEGORIES</div></div>
+      </div>
+    </div>
+
+    <!-- filter chips -->
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:28px;">
+      <sc-for list="{{ chips }}" as="c" hint-placeholder-count="7">
+        <button onClick="{{ c.onClick }}" style="font:600 13px 'Space Grotesk';cursor:pointer;border-radius:999px;padding:8px 16px;background:{{ c.bg }};color:{{ c.fg }};border:2px solid {{ c.bd }};display:inline-flex;align-items:center;gap:8px;">{{ c.label }}<span style="font:600 11px 'Space Mono';opacity:.7;">{{ c.count }}</span></button>
+      </sc-for>
+    </div>
+
+    <!-- grid -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(206px,1fr));gap:16px;margin-top:24px;">
+      <sc-for list="{{ pets }}" as="pet" hint-placeholder-count="12">
+        <div style="background:var(--n800);border:2px solid var(--n600);border-radius:16px;padding:16px;position:relative;display:flex;flex-direction:column;align-items:center;box-shadow:0 12px 30px -18px rgba(10,8,28,.7);">
+          <div style="position:absolute;top:10px;left:12px;font:600 9px 'Space Mono';color:var(--lav-mut);letter-spacing:.5px;text-transform:uppercase;">{{ pet.species }}</div>
+          <div style="position:absolute;top:9px;right:10px;font:600 9px 'Space Mono';background:{{ pet.rbg }};color:{{ pet.rfg }};padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.5px;">{{ pet.rarity }}</div>
+          <div style="margin-top:22px;width:108px;height:104px;border-radius:13px;background:radial-gradient(110% 90% at 70% 15%,#2a265a,#13112a 70%);display:grid;place-items:center;overflow:hidden;border:2px solid var(--n700);">
+            <div style="filter:drop-shadow(0 0 7px {{ pet.glow }});animation:floaty {{ pet.dur }} ease-in-out infinite;">{{ pet.sprite }}</div>
+          </div>
+          <div style="font:600 17px 'Pixelify Sans';color:var(--lav);margin-top:12px;">{{ pet.name }}</div>
+          <div style="font:500 12px/1.4 'Space Grotesk';color:var(--lav-dim);text-align:center;margin-top:5px;min-height:34px;">{{ pet.blurb }}</div>
+          <div style="font:600 10px 'Space Mono';color:{{ pet.srcColor }};margin-top:8px;display:inline-flex;align-items:center;gap:5px;">{{ pet.source }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- footer: pack format + legends -->
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:24px;">
+      <div style="background:var(--n850);border:2px solid var(--n600);border-radius:16px;padding:22px 24px;">
+        <div style="font:600 11px 'Space Mono';color:var(--wisp);margin-bottom:10px;">IMPORT FORMAT — CompanionPack (spec §3)</div>
+        <pre style="margin:0;font:400 12px/1.6 'Space Mono',monospace;color:var(--lav-dim);white-space:pre-wrap;">{
+  <span style="color:var(--bloom);">id</span>: "kitsune",
+  <span style="color:var(--bloom);">name</span>: "Tama",
+  <span style="color:var(--bloom);">riveAsset</span>: "packs/kitsune.riv",
+  <span style="color:var(--bloom);">moodMap</span>: { idle, studying, sleepy,
+            tired, resting, celebrating,
+            greeting, welcomeBack },
+  <span style="color:var(--bloom);">defaultVoicePackId</span>: "gentle",
+  <span style="color:var(--bloom);">rarity</span>: "event"
+}</pre>
+        <div style="font:500 12px/1.5 'Space Grotesk';color:var(--lav-mut);margin-top:12px;">Each sprite here is rendered from a grid + palette — the same data a creator authors. Swap in a <span style="color:var(--wisp);">.riv</span> file and the 8 moods map straight onto its state machine.</div>
+      </div>
+      <div style="background:var(--n850);border:2px solid var(--n600);border-radius:16px;padding:22px 24px;">
+        <div style="font:600 11px 'Space Mono';color:var(--wisp);margin-bottom:12px;">RARITY &amp; SOURCE</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:10px;"><span style="font:600 9px 'Space Mono';background:var(--n600);color:var(--lav-dim);padding:3px 8px;border-radius:999px;">COMMON</span><span style="font:500 12px 'Space Grotesk';color:var(--lav-dim);">free or earned with sparks</span></div>
+          <div style="display:flex;align-items:center;gap:10px;"><span style="font:600 9px 'Space Mono';background:var(--wisp);color:#13112a;padding:3px 8px;border-radius:999px;">RARE</span><span style="font:500 12px 'Space Grotesk';color:var(--lav-dim);">earned over a long bond, or Plus</span></div>
+          <div style="display:flex;align-items:center;gap:10px;"><span style="font:600 9px 'Space Mono';background:var(--glow);color:#13112a;padding:3px 8px;border-radius:999px;">EVENT</span><span style="font:500 12px 'Space Grotesk';color:var(--lav-dim);">seasonal drops &amp; creator packs</span></div>
+        </div>
+        <div style="height:2px;background:var(--n700);margin:16px 0;"></div>
+        <div style="font:500 12px/1.5 'Space Grotesk';color:var(--lav-mut);">The warmth is always free: every account gets <span style="color:var(--wisp);">Wispal</span> the wisp at no cost. The other 29 monetize <i>expression</i>, never the loop.</div>
+      </div>
+    </div>
+
+    <div style="font:400 12px 'Silkscreen',monospace;color:var(--lav-mut);margin-top:28px;text-align:center;">WISPAL · 30-companion starter set · all original art</div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { f: 'All' };
+
+  px(grid, pal, unit){
+    const h = React.createElement, rects = [];
+    for (let y=0;y<grid.length;y++){
+      const row = grid[y];
+      for (let x=0;x<row.length;x++){
+        const fill = pal[row[x]];
+        if(!fill) continue;
+        rects.push(h('rect',{key:x+'_'+y,x:x*unit,y:y*unit,width:unit,height:unit,fill}));
+      }
+    }
+    const w=(grid[0]?grid[0].length:0)*unit, ht=grid.length*unit;
+    return h('svg',{width:w,height:ht,viewBox:'0 0 '+w+' '+ht,shapeRendering:'crispEdges',style:{display:'block'}},rects);
+  }
+
+  compose(layers){
+    const W=12,H=16;
+    const c=Array.from({length:H},()=>Array(W).fill('.'));
+    for(const L of layers){
+      const g=L.grid, dx=L.dx||0, dy=L.dy||0;
+      for(let y=0;y<g.length;y++)for(let x=0;x<g[y].length;x++){
+        const ch=g[y][x]; if(ch==='.'||ch===' ')continue;
+        const ty=y+dy, tx=x+dx;
+        if(ty>=0&&ty<H&&tx>=0&&tx<W) c[ty][tx]=ch;
+      }
+    }
+    return c.map(r=>r.join(''));
+  }
+
+  renderVals(){
+    const self=this;
+    const BASE=["............","............","............","............","...oooooo...","..obllbbbo..",".obllbbbbbo.",".obbbbbbbbo.",".obbbbbbbbo.",".obbbbbbbbo.",".obbbbbbbbo.",".obbbbbbbbo.","..obbbbbbo..","...oooooo...","............","............"];
+    const FEAT={
+      ears_cat:{dy:2,grid:["..o......o..",".obo....obo.",".obbo..obbo."]},
+      ears_shiba:{dy:3,grid:["..o......o..",".obo....obo."]},
+      ears_fox:{dy:0,grid:[".o........o.",".oo......oo.",".oko....oko.",".obko..okbo.",".obbo..obbo."]},
+      ears_bunny:{dy:0,grid:["...oo..oo...","..oko..oko..","..obo..obo..","..obo..obo.."]},
+      ears_round:{dy:3,grid:[".oo......oo.","obbo....obbo",".oo......oo."]},
+      ears_horns:{dy:1,grid:[".k........k.",".ko......ok.","..o......o.."]},
+      ears_antenna:{dy:0,grid:["....k..k....","....o..o....","....o..o...."]},
+      ears_frills:{dy:5,grid:["k..........k","kk........kk","k..........k"]},
+      ears_crest:{dy:1,grid:["....g.g.....","...grgr.....","....rrr....."]},
+      eye_dot:{dy:7,grid:["...ee..ee...","...ee..ee..."]},
+      eye_happy:{dy:7,grid:["...e....e...","..eee..eee.."]},
+      eye_sleepy:{dy:8,grid:["..eee..eee..","............"]},
+      eye_wide:{dy:6,grid:["..www..www..","..wew..wew..","..www..www.."]},
+      eye_grumpy:{dy:6,grid:["..o.o..o.o..","...ee..ee..."]},
+      eye_derp:{dy:6,grid:["..www..e....","..wew..e....","..www......."]},
+      eye_visor:{dy:6,grid:["..oooooooo..","..okkkkkko..","..oooooooo.."]},
+      m_blush:{dy:9,grid:["..p......p.."]},
+      m_tongue:{dy:10,grid:[".....pp....."]},
+      m_beak:{dy:9,grid:[".....rr....."]},
+      m_smile:{dy:10,grid:[".....mm....."]},
+      belly:{dy:8,grid:["....ww......","...wwww.....","...wwww.....","...wwww....."]},
+      acc_hat:{dy:0,grid:["......k.....",".....kk.....","....kkk.....","...kgkkk....","..kkkkkkk...",".kkkkkkkkk.."]},
+      acc_crown:{dy:2,grid:["..g.g.g.g...","..ggggggg.."]},
+      acc_star:{dy:9,grid:["..g......g.."]},
+      acc_helmet:{dy:3,grid:["...cccccc...","..cccccccc..","...o....o..."]},
+      acc_band:{dy:6,grid:["..kkkkkkkk..","....k.k....."]},
+      acc_sword:{dy:4,grid:["..........c.","..........c.","..........c.","..........c.","..........c.","..........c.","..........c.","..........o.","..........o."]},
+      acc_wing:{dy:6,grid:[".........kk.",".........kkk",".........kk.","..........k."]},
+      acc_tail:{dy:11,grid:[".........kk.","........okko",".........kk."]},
+      acc_blanket:{dy:11,grid:["..ssssssss..","..ssssssss.."]},
+    };
+    const mk=(o)=>{
+      const pal={o:'#15233f',b:o.b,l:o.l||o.b,e:o.e||'#15233f',m:'#15233f',p:'#f3a9cb',w:'#ffffff',g:'#ffd27d',r:'#ff9e6d',s:'#8fb8f0',c:'#cdd3e0',k:o.k||'#ffffff'};
+      const L=[];
+      if(o.back) L.push(FEAT[o.back]);
+      L.push({grid:BASE});
+      if(o.ears) L.push(FEAT[o.ears]);
+      if(o.belly) L.push(FEAT.belly);
+      L.push(FEAT['eye_'+(o.eyes||'dot')]);
+      if(o.mouth) L.push(FEAT[o.mouth]);
+      (o.accs||[]).forEach(a=>L.push(FEAT[a]));
+      return self.px(self.compose(L),pal,5);
+    };
+
+    // bespoke sprites
+    const G=(grid,pal,u)=>self.px(grid,pal,u);
+    const WISP=["....oooo....","...obllbo...","..obllbbbo..",".obllbbbbbo.",".obbbbbbbbo.",".obeebbeebo.",".obeebbeebo.",".obbbbbbbbo.",".opbbmmbbpo.",".obbbbbbbbo.","..obbbbbbo..","...obbbbo...","....oooo...."];
+    const GHOST=["...oooo....","..obbbbo...",".obbbbbbo..","obllbbbbbbo","obbbbbbbbbo","obeebbeebbo","obeebbeebbo","obbbbbbbbbo","obbbmmbbbbo","obbbbbbbbbo","obbbbbbbbbo","obo.obo.obo"];
+    const ORB=["...oooo....","..obbbbo...",".obwlbbbbo.","obllbbbbbbo","obbbbbbbbbo","obbbbbbbbbo","obbbbbbbbbo",".obbbbbbbo.","..obbbbo...","...oooo...."];
+    const LANT=["..g..g..","..gssg..",".oggggo.","obbbbbbo","obllllbo","oblfflbo","obffffbo","oblfflbo","obllllbo","obbbbbbo",".oggggo."];
+    const OCTO=["............","...oooooo...","..obllbbbo..",".obbbbbbbbo.",".obbbbbbbbo.",".obeebbeebo.",".obeebbeebo.",".obbbbbbbbo.",".obbbmmbbbo.",".obbbbbbbbo.",".obbbbbbbbo.","obobobobobo.","o.o.o.o.o.o."];
+    const JELLY=["...oooooo...","..obbbbbbo..",".obbbbbbbbo.",".obllbbbbbo.",".obeebbeebo.",".obbbbbbbbo.",".obbbmmbbbo.",".obbbbbbbbo.","..oo.oo.oo..","..b...b...b.",".b...b...b..","..b...b...b.",".b...b...b.."];
+    const STAR=["............",".....gg.....",".....gg.....","...gggggg...",".gggggggggg.","..gegggeg...","..gggggggg..","...gggggg...",".....gg.....",".....gg....."];
+    const FLAME=[".....r......","....rr......","....rrr.....","...rgggr....","..rggggr....","..rggggr....",".rggeeggr...",".rggmmggr...",".rgggggggr..","..rgggggr...","...rrrrr...."];
+    const MUSH=["...rrrrrr...","..rrwrrwrr..",".rrrrrrrrrr.",".rwrrrrwrrr.",".rrrrrrrrrr.","..oooooooo..","..obbbbbbo..","..obebbebo..","..obbmmbbo..","..obbbbbbo..","...oooooo..."];
+    const CACTUS=[".....ff.....","....ffff....","...obbbbo...",".o.obbbbo.o.",".obobbbbobo.",".obobbbbobo.","...obbbbo...","...obebeo...","...obbmbo...","...obbbbo...","..oppppppo..","..oppppppo..","...oooooo..."];
+    const P_OCTO={o:'#15233f',b:'#caa6f0',l:'#efe2ff',e:'#15233f',m:'#15233f'};
+    const P_JELLY={o:'#3a4a78',b:'#8fb8f0',l:'#cfe0f7',e:'#1b2a4a',m:'#1b2a4a'};
+    const P_STAR={g:'#ffd27d',e:'#7a5a1a'};
+    const P_FLAME={r:'#ff9e6d',g:'#ffd27d',e:'#15233f',m:'#15233f'};
+    const P_MUSH={o:'#5a2a2a',r:'#e0584e',w:'#ffffff',b:'#f2e9d8',e:'#15233f',m:'#15233f'};
+    const P_CACT={o:'#2f5a3a',b:'#6f9c6e',f:'#f3a9cb',e:'#15233f',m:'#15233f',p:'#c2914f'};
+    const P_WISP={o:'#15233f',b:'#7fd9cf',l:'#c8f5ee',e:'#15233f',p:'#f3a9cb',m:'#15233f'};
+    const P_GHOST={o:'#2a2750',b:'#b8b3ee',l:'#e6e3ff',e:'#2a2750',m:'#2a2750'};
+    const P_ORB={o:'#3a2a55',b:'#caa6f0',l:'#efe2ff',w:'#ffffff'};
+    const P_LANT={o:'#3a2418',b:'#ff9e6d',l:'#ffd27d',f:'#fff2c2',g:'#c2914f',s:'#5a3a2a'};
+
+    const C={cr:'Critters',aq:'Aquatic',sp:'Spirits',an:'Anime-style',me:'Meme energy',my:'Mythic'};
+    const RB={common:{rbg:'#3a3470',rfg:'#bcb5e8'},rare:{rbg:'#8be0d6',rfg:'#13112a'},event:{rbg:'#ffd27d',rfg:'#13112a'}};
+    const SRC={free:{source:'★ free',srcColor:'#8be0d6'},earned:{source:'◇ earned',srcColor:'#bcb5e8'},plus:{source:'✦ plus',srcColor:'#ffd27d'}};
+
+    const RAW=[
+      // CRITTERS
+      {cat:'cr',name:'Mochi',species:'House cat',rarity:'common',src:'free',glow:'rgba(255,158,109,.4)',blurb:'Naps between blocks, judges your snacks.',spr:mk({b:'#e8945a',l:'#f4b483',ears:'ears_cat',mouth:'m_blush'})},
+      {cat:'cr',name:'Biscuit',species:'Shiba pup',rarity:'common',src:'free',glow:'rgba(255,210,125,.4)',blurb:'Eternally pleased you sat down to study.',spr:mk({b:'#e8a85a',l:'#f4c98a',ears:'ears_shiba',eyes:'happy',mouth:'m_blush'})},
+      {cat:'cr',name:'Yuki',species:'Red fox',rarity:'rare',src:'earned',glow:'rgba(255,158,109,.45)',blurb:'Quiet and clever; curls up at your goal.',spr:mk({b:'#ff9e6d',l:'#ffc7a0',k:'#ffffff',ears:'ears_fox',belly:1,accs:['acc_tail']})},
+      {cat:'cr',name:'Marsh',species:'Lop bunny',rarity:'common',src:'free',glow:'rgba(243,169,203,.4)',blurb:'Soft ears droop when it’s time to rest.',spr:mk({b:'#ece9ff',l:'#ffffff',k:'#f3a9cb',ears:'ears_bunny',mouth:'m_blush'})},
+      {cat:'cr',name:'Peanut',species:'Hamster',rarity:'common',src:'earned',glow:'rgba(240,201,138,.45)',blurb:'Cheeks full of plans and sunflower seeds.',spr:mk({b:'#f0c98a',l:'#ffe0b0',ears:'ears_round',mouth:'m_blush'})},
+      // AQUATIC
+      {cat:'aq',name:'Pico',species:'Axolotl',rarity:'rare',src:'earned',glow:'rgba(243,169,203,.5)',blurb:'Smiles no matter how the chapter went.',spr:mk({b:'#f3a9cb',l:'#ffd0e0',k:'#ff7ec0',ears:'ears_frills',mouth:'m_smile'})},
+      {cat:'aq',name:'Lily',species:'Tree frog',rarity:'common',src:'free',glow:'rgba(143,192,140,.45)',blurb:'Big eyes, bigger calm. Blinks slowly.',spr:mk({b:'#8fc08c',l:'#b8dca8',eyes:'wide',mouth:'m_smile'})},
+      {cat:'aq',name:'Tako',species:'Octopus',rarity:'rare',src:'plus',glow:'rgba(202,166,240,.5)',blurb:'Eight arms, one job: keep you company.',spr:G(OCTO,P_OCTO,5)},
+      {cat:'aq',name:'Wobble',species:'Jellyfish',rarity:'rare',src:'plus',glow:'rgba(143,184,240,.5)',blurb:'Drifts in the dark, glowing gently.',spr:G(JELLY,P_JELLY,5)},
+      {cat:'aq',name:'Tux',species:'Penguin',rarity:'common',src:'earned',glow:'rgba(143,184,240,.4)',blurb:'Formal little friend for late nights.',spr:mk({b:'#2b2654',l:'#3a3470',eyes:'wide',belly:1,mouth:'m_beak'})},
+      // SPIRITS
+      {cat:'sp',name:'Wispal',species:'Study wisp',rarity:'event',src:'free',glow:'rgba(139,224,214,.6)',blurb:'The original. Free for everyone, forever.',spr:G(WISP,P_WISP,5)},
+      {cat:'sp',name:'Lumen',species:'Friendly ghost',rarity:'common',src:'earned',glow:'rgba(184,179,238,.5)',blurb:'A cozy haunt that never spooks, only soothes.',spr:G(GHOST,P_GHOST,5)},
+      {cat:'sp',name:'Mote',species:'Light mote',rarity:'common',src:'earned',glow:'rgba(202,166,240,.55)',blurb:'Pure ambient calm. Zero whimsy, all glow.',spr:G(ORB,P_ORB,5)},
+      {cat:'sp',name:'Ember',species:'Paper lantern',rarity:'rare',src:'plus',glow:'rgba(255,158,109,.55)',blurb:'Carries a warm light through the night.',spr:G(LANT,P_LANT,6)},
+      {cat:'sp',name:'Nova',species:'Shooting star',rarity:'rare',src:'plus',glow:'rgba(255,210,125,.6)',blurb:'Lands for a session, makes a wish with you.',spr:G(STAR,P_STAR,5)},
+      // ANIME-STYLE
+      {cat:'an',name:'Magus',species:'Chibi mage',rarity:'rare',src:'plus',glow:'rgba(184,160,232,.5)',blurb:'Casts a focus spell at every session start.',spr:mk({b:'#b8a0e8',l:'#d8c8f5',k:'#5d4b9e',accs:['acc_hat']})},
+      {cat:'an',name:'Stella',species:'Star idol',rarity:'rare',src:'plus',glow:'rgba(243,169,203,.5)',blurb:'Your tiny hype-friend, minus the pressure.',spr:mk({b:'#f3a9cb',l:'#ffd0e0',eyes:'wide',accs:['acc_crown','acc_star']})},
+      {cat:'an',name:'Bolt',species:'Mecha-pet',rarity:'rare',src:'plus',glow:'rgba(139,224,214,.5)',blurb:'Boots up beside you. Visor dims when you rest.',spr:mk({b:'#a8b0c8',l:'#cdd3e0',k:'#8be0d6',ears:'ears_antenna',eyes:'visor'})},
+      {cat:'an',name:'Sir Gloop',species:'Slime knight',rarity:'rare',src:'earned',glow:'rgba(143,192,140,.5)',blurb:'Squishy, loyal, guards your study hours.',spr:mk({b:'#8fc08c',l:'#b8e0a8',accs:['acc_helmet']})},
+      {cat:'an',name:'Kuro',species:'Samurai cat',rarity:'event',src:'plus',glow:'rgba(224,90,74,.5)',blurb:'Disciplined, but knows when to sheathe it.',spr:mk({b:'#4a4570',l:'#5d588a',k:'#e05a5a',ears:'ears_cat',eyes:'grumpy',accs:['acc_band','acc_sword']})},
+      // MEME ENERGY
+      {cat:'me',name:'Derp',species:'Doggo',rarity:'common',src:'free',glow:'rgba(232,200,154,.45)',blurb:'Maximum enthusiasm, minimum coordination.',spr:mk({b:'#e8c89a',l:'#f5dcb0',ears:'ears_round',eyes:'derp',mouth:'m_tongue'})},
+      {cat:'me',name:'Grump',species:'Loaf cat',rarity:'common',src:'earned',glow:'rgba(176,170,188,.45)',blurb:'Hates everything except you studying.',spr:mk({b:'#b0aabc',l:'#cfc9d8',ears:'ears_cat',eyes:'grumpy',mouth:'m_smile'})},
+      {cat:'me',name:'Toasty',species:'Calm flame',rarity:'rare',src:'plus',glow:'rgba(255,158,109,.55)',blurb:'Everything’s fine. Truly. Deep breath.',spr:G(FLAME,P_FLAME,5)},
+      {cat:'me',name:'Shook',species:'Lil’ blob',rarity:'common',src:'free',glow:'rgba(139,224,214,.45)',blurb:'Permanently amazed you opened the book.',spr:mk({b:'#8be0d6',l:'#c8f5ee',eyes:'wide'})},
+      {cat:'me',name:'Spud',species:'Couch potato',rarity:'common',src:'earned',glow:'rgba(216,168,106,.45)',blurb:'Living proof that resting is a win.',spr:mk({b:'#d8a86a',l:'#e8c290',eyes:'sleepy',accs:['acc_blanket']})},
+      // MYTHIC
+      {cat:'my',name:'Drako',species:'Baby dragon',rarity:'event',src:'plus',glow:'rgba(110,156,186,.5)',blurb:'Hoards finished chapters like treasure.',spr:mk({b:'#6f9cba',l:'#9ec7d8',k:'#ffd27d',ears:'ears_horns',belly:1,accs:['acc_wing']})},
+      {cat:'my',name:'Pyra',species:'Phoenix chick',rarity:'event',src:'plus',glow:'rgba(255,158,109,.55)',blurb:'Rises again after every missed day. No shame.',spr:mk({b:'#ff9e6d',l:'#ffc7a0',k:'#ffd27d',ears:'ears_crest',mouth:'m_beak',accs:['acc_wing']})},
+      {cat:'my',name:'Tama',species:'Nine-tail fox',rarity:'event',src:'plus',glow:'rgba(255,255,255,.5)',blurb:'Ancient, gentle, here for your finals.',spr:mk({b:'#ffffff',l:'#ffffff',k:'#ff9e6d',ears:'ears_fox',accs:['acc_tail','acc_star']})},
+      {cat:'my',name:'Champi',species:'Mushroom sprite',rarity:'rare',src:'earned',glow:'rgba(224,88,78,.5)',blurb:'Sprouted from a well-rested mind.',spr:G(MUSH,P_MUSH,5)},
+      {cat:'my',name:'Hopper',species:'Cactus bud',rarity:'common',src:'free',glow:'rgba(111,156,110,.45)',blurb:'Thrives on neglect. Blooms when you return.',spr:G(CACTUS,P_CACT,5)},
+    ];
+
+    const durs=['4s','4.6s','5.2s','5.8s','4.3s','5s'];
+    const pets=RAW.map((p,i)=>({
+      ...p, ...RB[p.rarity], ...SRC[p.src],
+      catName:C[p.cat],
+      dur:durs[i%durs.length],
+      sprite:p.spr,
+    }));
+
+    const cats=[['All',null],['Critters','cr'],['Aquatic','aq'],['Spirits','sp'],['Anime-style','an'],['Meme energy','me'],['Mythic','my']];
+    const f=this.state.f;
+    const chips=cats.map(([label,key])=>{
+      const active = f===label;
+      const count = key? RAW.filter(p=>p.cat===key).length : RAW.length;
+      return {
+        label, count,
+        onClick:()=>this.setState({f:label}),
+        bg: active? '#8be0d6':'#201c40',
+        fg: active? '#13112a':'#ece9ff',
+        bd: active? '#8be0d6':'#3a3470',
+      };
+    });
+
+    const visible = f==='All' ? pets : pets.filter(p=>p.catName===f);
+    return { pets:visible, chips };
+  }
+}
+</script>
+</body>
+</html>

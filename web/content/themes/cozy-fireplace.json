@@ -1,0 +1,106 @@
+{
+  "id": "cozy-fireplace",
+  "name": "Cozy Fireplace",
+  "metaphor": "room",
+  "palette": {
+    "--page-0": "#301f1a",
+    "--page-1": "#120d10",
+    "--panel": "#2b211d",
+    "--surface": "#3a2a24",
+    "--ink": "#fff0df",
+    "--ink-dim": "#d9c2aa",
+    "--border": "#6a4734",
+    "--ember": "#ff9e64",
+    "--glow": "#ffd27d",
+    "--wisp": "#8be0d6",
+    "--bloom": "#f6a7bd",
+    "--rest": "#89a7cc"
+  },
+  "musicRef": null,
+  "rarity": "common",
+  "renderer": "image",
+  "styleFamily": "aesthetic",
+  "backgroundStages": [
+    {
+      "stage": 0,
+      "minGrowth": 0,
+      "src": "/backgrounds/cozy-fireplace/stage-0.webp",
+      "blurSrc": "/backgrounds/cozy-fireplace/stage-0.webp",
+      "promptId": "cozy-fireplace-stage-0"
+    },
+    {
+      "stage": 1,
+      "minGrowth": 1,
+      "src": "/backgrounds/cozy-fireplace/stage-1.webp",
+      "blurSrc": "/backgrounds/cozy-fireplace/stage-1.webp",
+      "promptId": "cozy-fireplace-stage-1"
+    },
+    {
+      "stage": 2,
+      "minGrowth": 6,
+      "src": "/backgrounds/cozy-fireplace/stage-2.webp",
+      "blurSrc": "/backgrounds/cozy-fireplace/stage-2.webp",
+      "promptId": "cozy-fireplace-stage-2"
+    },
+    {
+      "stage": 3,
+      "minGrowth": 15,
+      "src": "/backgrounds/cozy-fireplace/stage-3.webp",
+      "blurSrc": "/backgrounds/cozy-fireplace/stage-3.webp",
+      "promptId": "cozy-fireplace-stage-3"
+    },
+    {
+      "stage": 4,
+      "minGrowth": 30,
+      "src": "/backgrounds/cozy-fireplace/stage-4.webp",
+      "blurSrc": "/backgrounds/cozy-fireplace/stage-4.webp",
+      "promptId": "cozy-fireplace-stage-4"
+    },
+    {
+      "stage": 5,
+      "minGrowth": 60,
+      "src": "/backgrounds/cozy-fireplace/stage-5.webp",
+      "blurSrc": "/backgrounds/cozy-fireplace/stage-5.webp",
+      "promptId": "cozy-fireplace-stage-5"
+    }
+  ],
+  "petAnchors": {
+    "center": {
+      "x": 0.5,
+      "y": 0.57
+    },
+    "left": {
+      "x": 0.23,
+      "y": 0.66
+    },
+    "right": {
+      "x": 0.78,
+      "y": 0.68
+    },
+    "rest": {
+      "x": 0.39,
+      "y": 0.64
+    },
+    "decor": {
+      "x": 0.72,
+      "y": 0.58
+    },
+    "lamp": {
+      "x": 0.78,
+      "y": 0.48
+    },
+    "pond": {
+      "x": 0.34,
+      "y": 0.64
+    },
+    "quest": {
+      "x": 0.5,
+      "y": 0.23
+    },
+    "timer": {
+      "x": 0.5,
+      "y": 0.82
+    }
+  },
+  "overlayProfile": "dust"
+}

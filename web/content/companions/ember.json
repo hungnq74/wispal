@@ -1,0 +1,17 @@
+{
+  "id": "ember",
+  "name": "Ember the Lantern",
+  "riveAsset": "builtin:ember",
+  "moodMap": {
+    "idle": "idle",
+    "studying": "studying",
+    "celebrating": "celebrating",
+    "sleepy": "sleepy",
+    "tired": "tired",
+    "resting": "resting",
+    "greeting": "greeting",
+    "welcomeBack": "welcomeBack"
+  },
+  "defaultVoicePackId": "gentle",
+  "rarity": "event"
+}
