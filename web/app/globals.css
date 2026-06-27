@@ -302,10 +302,10 @@ body {
 }
 .theme-card:hover, .theme-card:focus-visible { transform: translateY(-1px); border-color: var(--wisp); outline: none; }
 .theme-card--active { border-color: var(--glow); box-shadow: 0 0 0 2px color-mix(in srgb, var(--glow) 28%, transparent), var(--shadow-card); }
-.theme-card--locked { filter: saturate(.72); }
+.theme-card--locked { filter: saturate(.86) brightness(.96); }
 .theme-card__image, .theme-card__fallback { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .theme-card__fallback { background: linear-gradient(145deg, var(--page-0), var(--page-1)); }
-.theme-card__shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8, 10, 20, .08), rgba(8, 10, 20, .72)); }
+.theme-card__shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8, 10, 20, .03), rgba(8, 10, 20, .56)); }
 .theme-card__meta { position: absolute; inset: auto 10px 9px; z-index: 2; display: grid; gap: 2px; color: white; text-shadow: 0 1px 8px rgba(0, 0, 0, .55); }
 .theme-card__name { font: 700 13px/1.15 var(--font-body); }
 .theme-card__sub { font: 700 10px var(--font-mono); opacity: .78; }
