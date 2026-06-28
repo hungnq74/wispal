@@ -108,6 +108,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.theme-root {
+  background: radial-gradient(125% 90% at 70% -10%, var(--page-0), var(--page-1) 60%);
+}
+
 /* ── Motion ────────────────────────────────────────────────────────────────── */
 @keyframes ds-floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 @keyframes ds-floaty2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
@@ -277,6 +281,32 @@ body {
 .pet-stage:hover .pet-controls, .pet-stage:focus-within .pet-controls { opacity: 1; transform: translateX(-50%) translateY(0); }
 .pet-controls button { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; background: var(--surface-2); border: 2px solid var(--border); cursor: pointer; box-shadow: var(--shadow-card); }
 .pet-controls button:hover { border-color: var(--wisp-d); transform: translateY(-1px); }
+.companion-pet-slot { position: relative; display: grid; justify-items: center; padding-bottom: 48px; margin-bottom: -6px; }
+.companion-switch {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 6;
+  min-height: 38px;
+  min-width: 158px;
+  justify-content: center;
+  gap: 7px;
+  opacity: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transform: translateX(-50%);
+  background: color-mix(in srgb, var(--wisp) 18%, var(--surface-2));
+  border-color: var(--wisp-d);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--wisp) 22%, transparent), var(--shadow-card);
+  transition: background .15s ease, border-color .15s ease, transform .06s ease;
+}
+.companion-switch__name { max-width: 84px; overflow: hidden; text-overflow: ellipsis; color: var(--ink-dim); }
+.companion-switch:hover { background: color-mix(in srgb, var(--wisp) 30%, var(--surface-2)); border-color: var(--wisp); transform: translateX(-50%) translateY(-1px); }
+.companion-switch:active { transform: translateX(-50%) translateY(1px); }
+@media (max-width: 480px) {
+  .companion-switch { min-width: 136px; padding-inline: 11px; }
+  .companion-switch__name { display: none; }
+}
 .decor-hotspot { position: absolute; width: 54px; height: 54px; border: 0; border-radius: 999px; background: transparent; cursor: pointer; }
 .decor-hotspot::after { content: ""; position: absolute; inset: 8px; border-radius: 999px; border: 2px solid transparent; transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease; }
 .decor-hotspot:hover::after, .decor-hotspot:focus-visible::after { border-color: color-mix(in srgb, var(--glow) 70%, transparent); box-shadow: 0 0 16px color-mix(in srgb, var(--glow) 55%, transparent); transform: scale(1.04); }

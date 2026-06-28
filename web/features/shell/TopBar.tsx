@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useWispalStore } from "@/lib/store/useWispalStore";
 import { useUIStore } from "@/lib/store/useUIStore";
 import { useSession } from "@/features/session/SessionProvider";
@@ -19,7 +18,6 @@ export function TopBar() {
   const goalHit = today?.goalHit ?? false;
   const goal = useWispalStore((s) => s.profile.settings.dailyGoalMinutes);
   const openOverlay = useUIStore((s) => s.openOverlay);
-  const router = useRouter();
   const { closeDay } = useSession();
 
   const bond = tierProgress(bondPoints);
@@ -55,7 +53,7 @@ export function TopBar() {
         <IconButton icon="spark" label="Ambience" onClick={() => openOverlay("ambience")} />
         <IconButton icon="bolt" label="Recall" onClick={() => openOverlay("recall")} />
         <IconButton icon="heart" label="Rooms" onClick={() => openOverlay("rooms")} />
-        <IconButton icon="play" label="Companions" onClick={() => router.push("/companions")} />
+        <IconButton icon="play" label="Companions" onClick={() => openOverlay("companions")} />
         <IconButton icon="bag" label="Shop" onClick={() => openOverlay("shop")} />
         <IconButton icon="book" label="Journal" onClick={() => openOverlay("journal")} />
         <IconButton icon="settings" label="Settings" onClick={() => openOverlay("settings")} />

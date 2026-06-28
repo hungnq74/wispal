@@ -1,8 +1,11 @@
 "use client";
 
 import { useWispalStore } from "@/lib/store/useWispalStore";
+import { useUIStore } from "@/lib/store/useUIStore";
 import { useCompanionUI } from "@/features/companion/useCompanionFSM";
 import { CompanionRendererAdapter } from "@/features/companion/CompanionRendererAdapter";
+import { PixelIcon } from "@/features/design/pixel";
+import { getCompanionEntry } from "@/features/design/companions";
 
 /**
  * The companion. V1 renders a pixel sprite (drawn on the same grid as the logo) whose
@@ -10,12 +13,17 @@ import { CompanionRendererAdapter } from "@/features/companion/CompanionRenderer
  * seam where a Rive state machine drops in later (CompanionPack.riveAsset → a .riv file
  * from Supabase Storage). No frontier model is involved — expressions are data-driven,
  * words come from content packs.
+ *
+ * A "switch buddy" chip sits right under the companion — the most direct entry point to
+ * open the companion picker and change your pet without leaving the scene.
  */
 
 export function CompanionView() {
   const mood = useWispalStore((s) => s.companion.mood);
   const packId = useWispalStore((s) => s.companion.packId);
   const line = useCompanionUI((s) => s.line);
+  const openOverlay = useUIStore((s) => s.openOverlay);
+  const name = getCompanionEntry(packId)?.name ?? "your buddy";
 
   return (
     <div className="flex select-none flex-col items-center gap-3">
@@ -28,10 +36,22 @@ export function CompanionView() {
         )}
       </div>
 
-      <CompanionRendererAdapter mood={mood} packId={packId} />
+      <div className="companion-pet-slot">
+        <CompanionRendererAdapter mood={mood} packId={packId} />
 
-      {/* soft shadow on the ground */}
-      <div style={{ width: 90, height: 12, borderRadius: "50%", background: "rgba(10,8,28,0.35)", filter: "blur(4px)", marginTop: -6 }} />
+        {/* switch buddy — direct entry to the companion picker */}
+        <button
+          type="button"
+          onClick={() => openOverlay("companions")}
+          className="ds-chip ds-chip--outline companion-switch"
+          title="Switch companion"
+          aria-label={`Switch companion: ${name}`}
+        >
+          <PixelIcon name="spark" color="var(--wisp)" unit={2} />
+          <span>Switch pet</span>
+          <span className="companion-switch__name">{name}</span>
+        </button>
+      </div>
     </div>
   );
 }

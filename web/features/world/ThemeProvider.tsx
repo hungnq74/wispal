@@ -15,15 +15,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const themeId = useWispalStore((s) => s.world.themeId);
   const theme = getThemePack(themeId);
   const resolvedThemeId = theme?.id ?? themeId;
-  const style: CSSProperties = {
-    background: "radial-gradient(125% 90% at 70% -10%, var(--page-0), var(--page-1) 60%)",
-    ...((theme?.palette ?? {}) as CSSProperties),
-  };
+  const style = (theme?.palette ?? {}) as CSSProperties;
 
   return (
     <div
       style={style}
-      className="relative min-h-screen w-full overflow-hidden"
+      className="theme-root relative min-h-screen w-full overflow-hidden"
       data-theme={resolvedThemeId}
     >
       {children}

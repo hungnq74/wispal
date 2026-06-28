@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 
-export type Overlay = "none" | "shop" | "journal" | "settings" | "quests" | "ambience" | "recall" | "rooms";
+export type Overlay = "none" | "shop" | "journal" | "settings" | "quests" | "ambience" | "recall" | "rooms" | "companions";
 
 interface UIState {
   overlay: Overlay;

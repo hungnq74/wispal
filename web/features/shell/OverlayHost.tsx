@@ -2,6 +2,7 @@
 
 import { useUIStore } from "@/lib/store/useUIStore";
 import { Shop } from "@/features/shop/Shop";
+import { CompanionsPanel } from "@/features/companion/CompanionsPanel";
 import { JournalView } from "@/features/reflection/JournalView";
 import { Settings } from "@/features/shell/Settings";
 import { QuestBoard } from "@/features/planner/QuestBoard";
@@ -40,6 +41,7 @@ export function OverlayHost() {
           Close ✕
         </button>
         {overlay === "shop" && <Shop />}
+        {overlay === "companions" && <CompanionsPanel />}
         {overlay === "journal" && <JournalView />}
         {overlay === "settings" && <Settings />}
         {overlay === "quests" && <QuestBoard />}
